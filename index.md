@@ -5,23 +5,17 @@ layout: default
 ## Calculadora de Velocidade
 
 <div class="pure-g">
-    <div class="pure-u-1-3">
-      <div class="pure-form">
+    <div class="pure-u-1 pure-u-md-1-3">
         <label for="min">1 min  <span class="label-pen">5 Gemas</span> </label>
-        <input id="min" type="text" placeholder="0">
-      </div>
+        <input id="min" class="pure-u-23-24" type="text" placeholder="0">
     </div>
-    <div class="pure-u-1-3">
-      <div class="pure-form">
+    <div class="pure-u-1 pure-u-md-1-3">
         <label for="min">3 mins</label>
-        <input id="min" type="text" placeholder="0">
-      </div>
+        <input id="min" class="pure-u-23-24" type="text" placeholder="0">
     </div>
-    <div class="pure-u-1-3">
-      <div class="pure-form">
+    <div class="pure-u-1 pure-u-md-1-3">
         <label for="min">5 mins</label>
-        <input id="min" type="text" placeholder="0">
-      </div>
+        <input id="min" class="pure-u-23-24" type="text" placeholder="0">
     </div>
     <div class="pure-u-1-3"><p>10 mins</p></div>
     <div class="pure-u-1-3"><p>15 mins</p></div>
