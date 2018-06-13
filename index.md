@@ -6,11 +6,13 @@ layout: default
 
 <div class="pure-g">
     <div class="pure-u-1-3">
-      <div class="pure-control-group">
-      <label>1 min</label>
-      <input type="text" placeholder="0">
-      <span id="foo" class="label label-pen">5 gemas</span>
-      </div>
+      <form class="pure-form">
+        <div class="pure-control-group">
+          <label>1 min</label>
+          <input type="text" placeholder="0">
+          <span id="foo" class="label label-pen">5 gemas</span>
+        </div>
+      </form>
     </div>
     <div class="pure-u-1-3"><p>3 mins</p></div>
     <div class="pure-u-1-3"><p>5 mins</p></div>
