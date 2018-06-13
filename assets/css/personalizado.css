@@ -3,15 +3,16 @@
 }
 .label-pen {
     display: inline;
-    padding: .2em .6em .3em;
+    padding: 0.1em .3em .1em;
     font-size: 75%;
     font-weight: bold;
-    line-height: 1;
+    line-height: 0;
     color: #fff;
     text-align: center;
     white-space: nowrap;
     vertical-align: baseline;
     border-radius: .25em;
+    background: #7c334f;
 }
 .pure-u-1-1-1{
     width:30%;
