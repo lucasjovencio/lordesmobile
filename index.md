@@ -6,13 +6,11 @@ layout: default
 
 <div class="pure-g">
     <div class="pure-u-1-3">
-      <form class="pure-form">
-        <div class="pure-control-group">
-          <label>1 min</label>
-          <input type="text" placeholder="0">
-          <span id="foo" class="label label-pen">5 gemas</span>
-        </div>
-      </form>
+      <div class="pure-form">
+        <label for="email">Email</label>
+        <input id="email" type="email" placeholder="Email">
+        <span class="pure-form-message">This is a required field.</span>
+      </div>
     </div>
     <div class="pure-u-1-3"><p>3 mins</p></div>
     <div class="pure-u-1-3"><p>5 mins</p></div>
