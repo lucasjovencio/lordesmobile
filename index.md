@@ -4,9 +4,8 @@ layout: default
 
 ## Calculadora de Velocidade
 
-  |         |            |  |
-  |:-------------|:------------------|:------|
-  | ok           | good swedish fish | nice  |
-  | out of stock | good and plenty   | nice  |
-  | ok           | good `oreos`      | hmm   |
-  | ok           | good `zoute` drop | yumm  |
+<div class="pure-g">
+    <div class="pure-u-1-3"><p>Thirds</p></div>
+    <div class="pure-u-1-3"><p>Thirds</p></div>
+    <div class="pure-u-1-3"><p>Thirds</p></div>
+</div>
