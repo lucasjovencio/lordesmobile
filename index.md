@@ -7,9 +7,8 @@ layout: default
 <div class="pure-g">
     <div class="pure-u-1-3">
       <div class="pure-form">
-        <label for="email">Email</label>
-        <input id="email" type="email" placeholder="Email">
-        <span class="pure-form-message">This is a required field.</span>
+        <label for="min">Email  <span class="label-pen">5 Gemas</span> </label>
+        <input id="min" type="text" placeholder="0">
       </div>
     </div>
     <div class="pure-u-1-3"><p>3 mins</p></div>
