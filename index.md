@@ -10,22 +10,22 @@ layout: default
         <div class="pure-g pure-g-no-sparcing">
             <div class="pure-u-1-1-1">
                 <label for="min">1 min  <span class="label-pen">5 Gemas</span> </label>
-                <input  class="pure-u-23-24" type="text" placeholder="0">
+                <input  class="pure-u-23-24" type="number" placeholder="0">
             </div>
 
             <div class="pure-u-1-1-1">
                 <label for="min">3 mins</label>
-                <input  class="pure-u-23-24" type="text" placeholder="0">
+                <input  class="pure-u-23-24" type="number" placeholder="0">
             </div>
 
             <div class="pure-u-1-1-1">
                 <label for="min">5 mins</label>
-                <input  class="pure-u-23-24" type="text" placeholder="0">
+                <input  class="pure-u-23-24" type="number" placeholder="0">
             </div>
 
             <div class="pure-u-1-1-1">
                 <label for="min">10 mins</label>
-                <input  class="pure-u-23-24" type="text" placeholder="0">
+                <input  class="pure-u-23-24" type="number" placeholder="0">
             </div>
 
             <div class="pure-u-1-1-1">
@@ -35,27 +35,27 @@ layout: default
 
             <div class="pure-u-1-1-1">
                 <label for="min">30 mins</label>
-                <input  class="pure-u-23-24" type="text" placeholder="0">
+                <input  class="pure-u-23-24" type="number" placeholder="0">
             </div>
 
             <div class="pure-u-1-1-1">
                 <label for="min">60 mins <span class="label-pen">130 Gemas</span></label>
-                <input  class="pure-u-23-24" type="text" placeholder="0">
+                <input  class="pure-u-23-24" type="number" placeholder="0">
             </div>
 
             <div class="pure-u-1-1-1">
                 <label for="min">3 horas <span class="label-pen">300 Gemas</span></label>
-                <input  class="pure-u-23-24" type="text" placeholder="0">
+                <input  class="pure-u-23-24" type="number" placeholder="0">
             </div>
 
             <div class="pure-u-1-1-1">
                 <label for="min">8 horas <span class="label-pen">650 Gemas</span></label>
-                <input  class="pure-u-23-24" type="text" placeholder="0">
+                <input  class="pure-u-23-24" type="number" placeholder="0">
             </div>
 
             <div class="pure-u-1-1-1">
                 <label for="min">15 horas <span class="label-pen">1,000 Gemas</span></label>
-                <input  class="pure-u-23-24" type="text" placeholder="0">
+                <input  class="pure-u-23-24" type="number" placeholder="0">
             </div>
 
             <div class="pure-u-1-1-1">
@@ -65,17 +65,17 @@ layout: default
 
             <div class="pure-u-1-1-1">
                 <label for="min">3 dias  <span class="label-pen">4,400 Gemas</span></label>
-                <input  class="pure-u-23-24" type="text" placeholder="0">
+                <input  class="pure-u-23-24" type="number" placeholder="0">
             </div>
 
             <div class="pure-u-1-1-1">
                 <label for="min">7 dias  <span class="label-pen">10,000 Gemas</span></label>
-                <input  class="pure-u-23-24" type="text" placeholder="0">
+                <input  class="pure-u-23-24" type="number" placeholder="0">
             </div>
 
             <div class="pure-u-1-1-1">
                 <label for="min">30 dias <span class="label-pen">40,000 Gemas</span></label>
-                <input  class="pure-u-23-24" type="text" placeholder="0">
+                <input  class="pure-u-23-24" type="number" placeholder="0">
             </div>
         </div>
 
