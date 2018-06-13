@@ -6,23 +6,25 @@ layout: default
 
 <form class="pure-form pure-form-stacked">
     <fieldset>
+        <legend>Legend</legend>
+
         <div class="pure-g">
-            <div class="pure-u-1-1-1">
+            <div class="pure-u-1 pure-u-md-1-3">
                 <label for="min">1 min  <span class="label-pen">5 Gemas</span> </label>
                 <input  class="pure-u-23-24" type="text" placeholder="0">
             </div>
 
-            <div class="pure-u-1-1-1">
+            <div class="pure-u-1 pure-u-md-1-3">
                 <label for="min">3 mins</label>
                 <input  class="pure-u-23-24" type="text" placeholder="0">
             </div>
 
-            <div class="pure-u-1-1-1">
+            <div class="pure-u-1 pure-u-md-1-3">
                 <label for="min">5 mins</label>
                 <input  class="pure-u-23-24" type="text" placeholder="0">
             </div>
 
-            <div class="pure-u-1-1-1">
+            <div class="pure-u-1 pure-u-md-1-3">
                 <label for="min">10 mins</label>
                 <input  class="pure-u-23-24" type="text" placeholder="0">
             </div>
@@ -32,7 +34,7 @@ layout: default
     </fieldset>
 </form>
 
-<div class="pure-g">
+<div class="pure-g pure-g-no-sparcing">
     <div class="pure-u-1 pure-u-md-1-3">
         <label for="min">1 min  <span class="label-pen">5 Gemas</span> </label>
         <input id="min" class="pure-u-23-24" type="text" placeholder="0">
