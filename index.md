@@ -7,12 +7,22 @@ layout: default
 <div class="pure-g">
     <div class="pure-u-1-3">
       <div class="pure-form">
-        <label for="min">Email  <span class="label-pen">5 Gemas</span> </label>
+        <label for="min">1 min  <span class="label-pen">5 Gemas</span> </label>
         <input id="min" type="text" placeholder="0">
       </div>
     </div>
-    <div class="pure-u-1-3"><p>3 mins</p></div>
-    <div class="pure-u-1-3"><p>5 mins</p></div>
+    <div class="pure-u-1-3">
+      <div class="pure-form">
+        <label for="min">3 mins</label>
+        <input id="min" type="text" placeholder="0">
+      </div>
+    </div>
+    <div class="pure-u-1-3">
+      <div class="pure-form">
+        <label for="min">5 mins</label>
+        <input id="min" type="text" placeholder="0">
+      </div>
+    </div>
     <div class="pure-u-1-3"><p>10 mins</p></div>
     <div class="pure-u-1-3"><p>15 mins</p></div>
     <div class="pure-u-1-3"><p>30 mins</p></div>
