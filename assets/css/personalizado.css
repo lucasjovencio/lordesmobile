@@ -37,3 +37,7 @@
 .txt-right{
  text-align:right;   
 }
+
+.table-vel td, .table-vel th {
+    padding: .5em 0.9em;
+}
