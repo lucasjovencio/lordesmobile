@@ -23,3 +23,12 @@
 .pure-table-no-borde td,.pure-table-no-borde th{
     border: 0px !important;
 }
+.txt-center{
+ text-aling:center;   
+}
+.txt-left{
+ text-aling:left;   
+}
+.txt-right{
+ text-aling:right;   
+}
