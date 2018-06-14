@@ -1,79 +1,238 @@
 <h1>Calculadora de Velocidade</h1>
-
 <form class="pure-form pure-form-stacked">
     <fieldset>
 
         <div class="pure-g pure-g-no-sparcing">
             <div class="pure-u-1-1-1">
                 <label for="min">1 min  <span class="label-pen">5 Gemas</span> </label>
-                <input  class="pure-u-23-24" type="number" placeholder="0">
+                <input id="num-1" class="" class="pure-u-23-24" type="number" placeholder="0">
             </div>
 
             <div class="pure-u-1-1-1">
                 <label for="min">3 mins <span class="label-pen">0 Gemas</span></label>
-                <input  class="pure-u-23-24" type="number" placeholder="0">
+                <input id="num-3" class="pure-u-23-24" type="number" placeholder="0">
             </div>
 
             <div class="pure-u-1-1-1">
                 <label for="min">5 mins <span class="label-pen">0 Gemas</span></label>
-                <input  class="pure-u-23-24" type="number" placeholder="0">
+                <input id="num-5"  class="pure-u-23-24" type="number" placeholder="0">
             </div>
 
             <div class="pure-u-1-1-1">
                 <label for="min">10 mins <span class="label-pen">0 Gemas</span></label>
-                <input  class="pure-u-23-24" type="number" placeholder="0">
+                <input id="num-10"  class="pure-u-23-24" type="number" placeholder="0">
             </div>
 
             <div class="pure-u-1-1-1">
                 <label for="min">15 mins <span class="label-pen">70 Gemas</span></label>
-                <input  class="pure-u-23-24" type="text" placeholder="0">
+                <input id="num-15"  class="pure-u-23-24" type="text" placeholder="0">
             </div>
 
             <div class="pure-u-1-1-1">
                 <label for="min">30 mins <span class="label-pen">0 Gemas</span></label>
-                <input  class="pure-u-23-24" type="number" placeholder="0">
+                <input id="num-30"  class="pure-u-23-24" type="number" placeholder="0">
             </div>
 
             <div class="pure-u-1-1-1">
                 <label for="min">60 mins <span class="label-pen">130 Gemas</span></label>
-                <input  class="pure-u-23-24" type="number" placeholder="0">
+                <input id="num-60"  class="pure-u-23-24" type="number" placeholder="0">
             </div>
 
             <div class="pure-u-1-1-1">
                 <label for="min">3 horas <span class="label-pen">300 Gemas</span></label>
-                <input  class="pure-u-23-24" type="number" placeholder="0">
+                <input id="num-300"  class="pure-u-23-24" type="number" placeholder="0">
             </div>
 
             <div class="pure-u-1-1-1">
                 <label for="min">8 horas <span class="label-pen">650 Gemas</span></label>
-                <input  class="pure-u-23-24" type="number" placeholder="0">
+                <input id="num-800"  class="pure-u-23-24" type="number" placeholder="0">
             </div>
 
             <div class="pure-u-1-1-1">
                 <label for="min">15 horas <span class="label-pen">1,000 Gemas</span></label>
-                <input  class="pure-u-23-24" type="number" placeholder="0">
+                <input id="num-1500"  class="pure-u-23-24" type="number" placeholder="0">
             </div>
 
             <div class="pure-u-1-1-1">
                 <label for="min">24 horas <span class="label-pen">1,500 Gemas</span></label>
-                <input  class="pure-u-23-24" type="text" placeholder="0">
+                <input id="num-240"  class="pure-u-23-24" type="text" placeholder="0">
             </div>
 
             <div class="pure-u-1-1-1">
                 <label for="min">3 dias  <span class="label-pen">4,400 Gemas</span></label>
-                <input  class="pure-u-23-24" type="number" placeholder="0">
+                <input id="num-3000"  class="pure-u-23-24" type="number" placeholder="0">
             </div>
 
             <div class="pure-u-1-1-1">
                 <label for="min">7 dias  <span class="label-pen">10,000 Gemas</span></label>
-                <input  class="pure-u-23-24" type="number" placeholder="0">
+                <input id="num-700"  class="pure-u-23-24" type="number" placeholder="0">
             </div>
 
             <div class="pure-u-1-1-1">
                 <label for="min">30 dias <span class="label-pen">40,000 Gemas</span></label>
-                <input  class="pure-u-23-24" type="number" placeholder="0">
+                <input id="num-30000"  class="pure-u-23-24" type="number" placeholder="0">
             </div>
         </div>
 
     </fieldset>
 </form>
+
+
+<div class="pure-g pure-g-no-sparcing">
+    <table class="pure-table  pure-table-horizontal table-vel">
+        <thead>
+            <tr>
+                <th width="75" class="txt-right">Tipo</th>
+                <th class="txt-center"></th>
+                <th class="txt-center">Quantidade</th>
+                <th class="txt-center"></th>
+                <th class="txt-center">Gemas</th>
+                <th class="txt-center"></th>
+                <th width="115" class="txt-left">Tempo</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td class="txt-right">1 min</td>
+                <td width="10" class="txt-center">x</td>
+                <td class="txt-center" id="td-vel-1"></td>
+                <td width="10" class="txt-center">=</td>
+                <td class="txt-center" id="td-gem-1"></td>
+                <td width="10" class="txt-center">=</td>
+                <td class="txt-center" id="td-tempo-1"></td>
+            </tr>
+
+            <tr>
+                <td class="txt-right">3 mins</td>
+                <td width="10" class="txt-center">x</td>
+                <td class="txt-center" id="td-vel-3"></td>
+                <td width="10" class="txt-center">=</td>
+                <td class="txt-center" id="td-gem-3"></td>
+                <td width="10" class="txt-center">=</td>
+                <td class="txt-center" id="td-tempo-3"></td>
+            </tr>
+
+            <tr>
+                <td class="txt-right">5 mins</td>
+                <td width="10" class="txt-center">x</td>
+                <td class="txt-center" id="td-vel-5"></td>
+                <td width="10" class="txt-center">=</td>
+                <td class="txt-center" id="td-gem-5"></td>
+                <td width="10" class="txt-center">=</td>
+                <td class="txt-center" id="td-tempo-5"></td>
+            </tr>
+
+            <tr>
+                <td class="txt-right">10 mins</td>
+                <td width="10" class="txt-center">x</td>
+                <td class="txt-center" id="td-vel-10"></td>
+                <td width="10" class="txt-center">=</td>
+                <td class="txt-center" id="td-gem-10"></td>
+                <td width="10" class="txt-center">=</td>
+                <td class="txt-center" id="td-tempo-10"></td>
+            </tr>
+
+            <tr>
+                <td class="txt-right">15 mins</td>
+                <td width="10" class="txt-center">x</td>
+                <td class="txt-center" id="td-vel-15"></td>
+                <td width="10" class="txt-center">=</td>
+                <td class="txt-center" id="td-gem-15"></td>
+                <td width="10" class="txt-center">=</td>
+                <td class="txt-center" id="td-tempo-15"></td>
+            </tr>
+
+            <tr>
+                <td class="txt-right">30 mins</td>
+                <td width="10" class="txt-center">x</td>
+                <td class="txt-center" id="td-vel-30"></td>
+                <td width="10" class="txt-center">=</td>
+                <td class="txt-center" id="td-gem-30"></td>
+                <td width="10" class="txt-center">=</td>
+                <td class="txt-center" id="td-tempo-30"></td>
+            </tr>
+
+            <tr>
+                <td class="txt-right">60 mins</td>
+                <td width="10" class="txt-center">x</td>
+                <td class="txt-center" id="td-vel-60"></td>
+                <td width="10" class="txt-center">=</td>
+                <td class="txt-center" id="td-gem-60"></td>
+                <td width="10" class="txt-center">=</td>
+                <td class="txt-center" id="td-tempo-60"></td>
+            </tr>
+
+            <tr>
+                <td class="txt-right">3 hrs</td>
+                <td width="10" class="txt-center">x</td>
+                <td class="txt-center" id="td-vel-300"></td>
+                <td width="10" class="txt-center">=</td>
+                <td class="txt-center" id="td-gem-300"></td>
+                <td width="10" class="txt-center">=</td>
+                <td class="txt-center" id="td-tempo-300"></td>
+            </tr>
+
+            <tr>
+                <td class="txt-right">8 hrs</td>
+                <td width="10" class="txt-center">x</td>
+                <td class="txt-center" id="td-vel-800"></td>
+                <td width="10" class="txt-center">=</td>
+                <td class="txt-center" id="td-gem-800"></td>
+                <td width="10" class="txt-center">=</td>
+                <td class="txt-center" id="td-tempo-800"></td>
+            </tr>
+
+            <tr>
+                <td class="txt-right">15 hrs</td>
+                <td width="10" class="txt-center">x</td>
+                <td class="txt-center" id="td-vel-1500"></td>
+                <td width="10" class="txt-center">=</td>
+                <td class="txt-center" id="td-gem-1500"></td>
+                <td width="10" class="txt-center">=</td>
+                <td class="txt-center" id="td-tempo-1500"></td>
+            </tr>
+
+            <tr>
+                <td class="txt-right">24 hrs</td>
+                <td width="10" class="txt-center">x</td>
+                <td class="txt-center" id="td-vel-240"></td>
+                <td width="10" class="txt-center">=</td>
+                <td class="txt-center" id="td-gem-240"></td>
+                <td width="10" class="txt-center">=</td>
+                <td class="txt-center" id="td-tempo-240"></td>
+            </tr>
+
+            <tr>
+                <td class="txt-right">3 dias</td>
+                <td width="10" class="txt-center">x</td>
+                <td class="txt-center" id="td-vel-3000"></td>
+                <td width="10" class="txt-center">=</td>
+                <td class="txt-center" id="td-gem-3000"></td>
+                <td width="10" class="txt-center">=</td>
+                <td class="txt-center" id="td-tempo-3000"></td>
+            </tr>
+
+            <tr>
+                <td class="txt-right">7 dias</td>
+                <td width="10" class="txt-center">x</td>
+                <td class="txt-center" id="td-vel-700"></td>
+                <td width="10" class="txt-center">=</td>
+                <td class="txt-center" id="td-gem-700"></td>
+                <td width="10" class="txt-center">=</td>
+                <td class="txt-center" id="td-tempo-700"></td>
+            </tr>
+
+            <tr>
+                <td class="txt-right">30 dias</td>
+                <td width="10" class="txt-center">x</td>
+                <td class="txt-center" id="td-vel-30000"></td>
+                <td width="10" class="txt-center">=</td>
+                <td class="txt-center" id="td-gem-30000"></td>
+                <td width="10" class="txt-center">=</td>
+                <td class="txt-center" id="td-tempo-30000"></td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
