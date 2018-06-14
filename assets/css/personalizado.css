@@ -20,6 +20,6 @@
 .pure-g-no-sparcing{
     letter-spacing: 0 !important;
 }
-.pure-table-no-borde td{
+.pure-table-no-borde td,th{
     border: 0px !important;
 }
