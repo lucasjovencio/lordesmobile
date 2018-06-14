@@ -42,6 +42,6 @@
     padding: .5em 0.9em;
 }
 
-.pure-table tr{
+.pure-table tbody>tr{
     display: none;
 }
