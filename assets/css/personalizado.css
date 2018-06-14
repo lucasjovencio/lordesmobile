@@ -23,6 +23,11 @@
 .pure-table-no-borde td,.pure-table-no-borde th{
     border: 0px !important;
 }
+.table-per{
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 20px;
+}
 .txt-center{
  text-align:center;   
 }
