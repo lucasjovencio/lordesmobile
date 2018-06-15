@@ -211,4 +211,19 @@ $(document).ready(function(){
         $("#td-gem-30000").html(valor*40000);
         $("#td-tempo-30000").html(string);
     });
+    
+    $("#danger").on("input", function(){
+        let valorInicial        = $(this).val();
+        let qtnAtaque           = $('#qtn').val();
+        let vidaInitial         = $('#qtn-vida').val();
+        let ataqConseq          = $('#atac-con').val();
+        
+        qtnAtaque = qtnAtaque   == '' ? 1 : parseInt(qtnAtaque);
+        vidaInitial = vidaInitial == '' ? 100 : parseInt(vidaInitial);
+        
+        console.log(valorInicial);
+        console.log(qtnAtaque);
+        console.log(vidaInitial);
+        console.log(ataqConseq);
+    });
 });
