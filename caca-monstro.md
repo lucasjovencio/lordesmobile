@@ -5,3 +5,4 @@ permalink: /caca-monstro/
 ---
 
 {% include monstro.html %}
+{% include resultado_dano.html %}
