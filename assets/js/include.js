@@ -39,11 +39,11 @@ function converte_tempo(valor){
             else if(dias==1 && horas>1 && minutos>1){
                 string = dias+" Dia "+horas+" Hrs "+minutos+" mins";
             }
-            else if(dias==1 && horas>1 && minutos==1 || minutos==0){
-                string = dias+" Dia "+horas+" Hr "+minutos+" mins";
-            }
             else if(dias==1 && horas==1 && minutos==1){
                 string = dias+" Dia "+horas+" Hr "+minutos+" min";
+            }
+            else if(dias==1 && horas>1 && minutos==0){
+                string = dias+" Dia "+horas+" Hrs ";
             }
             else{
                 if(dias==1){
