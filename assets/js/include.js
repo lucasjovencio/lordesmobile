@@ -27,23 +27,23 @@ function converte_tempo(valor){
             minutos = minutos%60;
 
             if(dias>1 && horas>1 && minutos>1){
-                string = dias+" Dias "+horas+" Hrs "+minutos+" mts";
+                string = dias+" Dias "+horas+" Hrs "+minutos+" mins";
             }
             else if(dias>1 && horas==1 && minutos>1){
-                string = dias+" Dias "+horas+" Hr "+minutos+" mts";
+                string = dias+" Dias "+horas+" Hr "+minutos+" mins";
             }
             else if(dias>1 && horas==1 && minutos==1){
-                string = dias+" Dias "+horas+" Hr "+minutos+" mt";
+                string = dias+" Dias "+horas+" Hr "+minutos+" min";
             }
 
             else if(dias==1 && horas>1 && minutos>1){
-                string = dias+" Dia "+horas+" Hrs "+minutos+" mts";
+                string = dias+" Dia "+horas+" Hrs "+minutos+" mins";
             }
             else if(dias==1 && horas>1 && minutos==1 || minutos==0){
-                string = dias+" Dia "+horas+" Hr "+minutos+" mts";
+                string = dias+" Dia "+horas+" Hr "+minutos+" mins";
             }
             else if(dias==1 && horas==1 && minutos==1){
-                string = dias+" Dia "+horas+" Hr "+minutos+" mt";
+                string = dias+" Dia "+horas+" Hr "+minutos+" min";
             }
             else{
                 if(dias==1){
@@ -54,16 +54,16 @@ function converte_tempo(valor){
             }
         }else{
             if(horas>1 && minutos>1){
-                string = horas+" Hrs "+minutos+" mts";
+                string = horas+" Hrs "+minutos+" mins";
             }
             else if(horas>1 && minutos==1){
-                string = horas+" Hrs "+minutos+" mt";
+                string = horas+" Hrs "+minutos+" min";
             }
             else if(horas==1 && minutos>1){
-                string = horas+" Hr "+minutos+" mts";
+                string = horas+" Hr "+minutos+" mins";
             }
             else if(horas==1 && minutos==1){
-                string = horas+" Hr "+minutos+" mt";
+                string = horas+" Hr "+minutos+" min";
             }else{
                 string = horas+" Hr";
             }
