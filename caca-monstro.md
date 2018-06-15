@@ -2,6 +2,6 @@
 layout: default
 ---
 
-{% include velocidade.html %}
+{% include monstro.html %}
 
-{% include resultado_velocidade.html %}
+{% include resultado_monstroo.html %}
