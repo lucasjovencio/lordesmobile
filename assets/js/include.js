@@ -39,7 +39,7 @@ function converte_tempo(valor){
             else if(dias==1 && horas>1 && minutos>1){
                 string = dias+" Dia "+horas+" Hrs "+minutos+" mts";
             }
-            else if(dias==1 && horas==1 && minutos>1){
+            else if(dias==1 && horas>1 && minutos==1 || minutos==0){
                 string = dias+" Dia "+horas+" Hr "+minutos+" mts";
             }
             else if(dias==1 && horas==1 && minutos==1){
