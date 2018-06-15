@@ -23,7 +23,8 @@ function converte_tempo(valor){
         // horas
         if(horas>=24){
             dias = parseInt(horas/24);
-            horas = horas%60;
+            horas = horas%24;
+            console.log(horas);
             minutos = minutos%60;
 
             if(dias>1 && horas>1 && minutos>1){
