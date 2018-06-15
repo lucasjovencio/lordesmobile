@@ -1,0 +1,24 @@
+<div class="pure-g pure-g-no-sparcing">
+    <table class="pure-table pure-table-horizontal table-dan">
+        <thead>
+            <tr>
+                <th width="75" class="txt-right">Ataque</th>
+                <th class="txt-center"></th>
+                <th class="txt-center">Multiplicador</th>
+                <th class="txt-center"></th>
+                <th class="txt-center">Dano</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td class="txt-right">1 Ataque</td>
+                <td width="10" class="txt-center"></td>
+                <td class="txt-center" id="td-vel-1">0%</td>
+                <td width="10" class="txt-center">=</td>
+                <td class="txt-center" id="td-gem-1">7,62%</td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
