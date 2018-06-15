@@ -47,6 +47,10 @@
     display: none;
 }
 
+.pure-menu-list>li{
+    background: none !important;
+}
+
 @media only screen and (max-width: 640px){
     .table-vel td, .table-vel th{
             padding: .1em 0.1em;
