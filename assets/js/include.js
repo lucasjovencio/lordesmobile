@@ -28,28 +28,22 @@ function converte_tempo(valor){
 
             if(dias>1 && horas>1 && minutos>1){
                 string = dias+" Dias "+horas+" Hrs "+minutos+" mins";
-                break;
             }
             else if(dias>1 && horas==1 && minutos>1){
                 string = dias+" Dias "+horas+" Hr "+minutos+" mins";
-                break;
             }
             else if(dias>1 && horas==1 && minutos==1){
                 string = dias+" Dias "+horas+" Hr "+minutos+" min";
-                break;
             }
 
             else if(dias==1 && horas>1 && minutos>1){
                 string = dias+" Dia "+horas+" Hrs "+minutos+" mins";
-                break;
             }
             else if(dias==1 && horas==1 && minutos==1){
                 string = dias+" Dia "+horas+" Hr "+minutos+" min";
-                break;
             }
             else if(dias==1 && horas>1 && minutos==0){
                 string = dias+" Dia "+horas+" Hrs ";
-                break;
             }
             else{
                 if(dias==1){
@@ -61,19 +55,15 @@ function converte_tempo(valor){
         }else{
             if(horas>1 && minutos>1){
                 string = horas+" Hrs "+minutos+" mins";
-                break;
             }
             else if(horas>1 && minutos==1){
                 string = horas+" Hrs "+minutos+" min";
-                break;
             }
             else if(horas==1 && minutos>1){
                 string = horas+" Hr "+minutos+" mins";
-                break;
             }
             else if(horas==1 && minutos==1){
                 string = horas+" Hr "+minutos+" min";
-                break;
             }else{
                 string = horas+" Hr";
             }
