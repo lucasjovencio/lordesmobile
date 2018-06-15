@@ -4,4 +4,4 @@ layout: default
 
 {% include monstro.html %}
 
-{% include resultado_monstroo.html %}
+{% include resultado_monstro.html %}
