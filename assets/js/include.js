@@ -25,7 +25,7 @@ function converte_tempo(valor){
             dias = parseInt(horas/24);
             horas = horas%24;
             minutos = minutos%60;
-
+            console.log(horas);
             if(dias>1 && horas>1 && minutos>1){
                 string = dias+" Dias "+horas+" Hrs "+minutos+" mins";
             }
@@ -35,6 +35,9 @@ function converte_tempo(valor){
             else if(dias>1 && horas==1 && minutos==1){
                 string = dias+" Dias "+horas+" Hr "+minutos+" min";
             }
+            else if(dias>1 && horas>1 && minutos==0){
+                string = dias+" Dias "+horas+" Hrs";
+            }
 
             else if(dias==1 && horas>1 && minutos>1){
                 string = dias+" Dia "+horas+" Hrs "+minutos+" mins";
@@ -43,7 +46,7 @@ function converte_tempo(valor){
                 string = dias+" Dia "+horas+" Hr "+minutos+" min";
             }
             else if(dias==1 && horas>1 && minutos==0){
-                string = dias+" Dia "+horas+" Hrs ";
+                string = dias+" Dia "+horas+" Hrs";
             }
             else{
                 if(dias==1){
