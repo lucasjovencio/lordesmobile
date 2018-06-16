@@ -71,7 +71,7 @@ function calculo_dano_monstro(valorInicial,qtnAtaque,vidaInitial,ataqConseq){
                 vidaInitial=parseFloat(vidaInitial-porcento);
                 vidaInitial = vidaInitial.toFixed(2);
                 $("#vida-mm-"+i).html(vidaInitial);
-                valorInicial+=porcento;
+                valorInicial=valorInicial+porcento;
             }
         }
     }
