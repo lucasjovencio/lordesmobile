@@ -62,16 +62,16 @@ function calculo_dano_monstro(valorInicial,qtnAtaque,vidaInitial,ataqConseq){
                 let valT = tabelaDano[(i-1)];
                 let porcento = parseFloat(valT)/parseFloat(valorInicial);
                 porcento = porcento.toFixed(2);
-                porcento = parseFloat(valorInicial + porcento);
-                porcento = porcento.toFixed(2);
+                let porcentM = parseFloat(valorInicial) + parseFloat(porcento);
+                porcentM = porcentM.toFixed(2);
 
                 $("#atac-m-"+i).html(tabelaDano[(i-1)]);
-                $("#dan-m-"+i).html(porcento);
+                $("#dan-m-"+i).html(porcentM);
                 $("#vida-m-"+i).html(vidaInitial);
                 vidaInitial=parseFloat(vidaInitial-porcento);
                 vidaInitial = vidaInitial.toFixed(2);
                 $("#vida-mm-"+i).html(vidaInitial);
-                valorInicial=valorInicial+porcento;
+                valorInicial=valorInicial+porcentM;
             }
         }
     }
