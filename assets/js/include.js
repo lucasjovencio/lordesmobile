@@ -18,7 +18,7 @@ function verifica_tr(){
             $(this).show();
         }
     });
-
+    console.log(dados);
     if(dados[0]>0){
         $("#total-td-vel").html(dados[0]);
         $("#total-td-gem-vel").html(dados[1]);
