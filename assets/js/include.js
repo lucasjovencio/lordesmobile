@@ -263,6 +263,7 @@ $(document).ready(function(){
         let vidaInitial         = $('#qtn-vida').val();
         let ataqConseq          = $('#atac-con').val();
         
+        valorInicial = valorInicial   == '' ? 0 : parseInt(valorInicial);
         qtnAtaque = qtnAtaque   == '' ? 1 : parseInt(qtnAtaque);
         vidaInitial = vidaInitial == '' ? 100 : parseInt(vidaInitial);
         
@@ -271,4 +272,53 @@ $(document).ready(function(){
         console.log(vidaInitial);
         console.log(ataqConseq);
     });
+
+    $("#qtn").on("input", function(){
+        let valorInicial        = $('#danger').val();
+        let qtnAtaque           = $(this).val();
+        let vidaInitial         = $('#qtn-vida').val();
+        let ataqConseq          = $('#atac-con').val();
+        
+        valorInicial = valorInicial   == '' ? 0 : parseInt(valorInicial);
+        qtnAtaque = qtnAtaque   == '' ? 1 : parseInt(qtnAtaque);
+        vidaInitial = vidaInitial == '' ? 100 : parseInt(vidaInitial);
+        
+        console.log(valorInicial);
+        console.log(qtnAtaque);
+        console.log(vidaInitial);
+        console.log(ataqConseq);
+    });
+
+    $("#qtn-vida").on("input", function(){
+        let valorInicial        = $('#danger').val();
+        let qtnAtaque           = $('qtn').val();
+        let vidaInitial         = $(this).val();
+        let ataqConseq          = $('#atac-con').val();
+        
+        valorInicial = valorInicial   == '' ? 0 : parseInt(valorInicial);
+        qtnAtaque = qtnAtaque   == '' ? 1 : parseInt(qtnAtaque);
+        vidaInitial = vidaInitial == '' ? 100 : parseInt(vidaInitial);
+        
+        console.log(valorInicial);
+        console.log(qtnAtaque);
+        console.log(vidaInitial);
+        console.log(ataqConseq);
+    });
+
+    $("#atac-con").on("input", function(){
+        let valorInicial        = $('#danger').val();
+        let qtnAtaque           = $('qtn').val();
+        let vidaInitial         = $('qtn-vida').val();
+        let ataqConseq          = $(this).val();
+        
+        valorInicial = valorInicial   == '' ? 0 : parseInt(valorInicial);
+        qtnAtaque = qtnAtaque   == '' ? 1 : parseInt(qtnAtaque);
+        vidaInitial = vidaInitial == '' ? 100 : parseInt(vidaInitial);
+        
+        console.log(valorInicial);
+        console.log(qtnAtaque);
+        console.log(vidaInitial);
+        console.log(ataqConseq);
+    });
+
 });
