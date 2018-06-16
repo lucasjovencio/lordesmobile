@@ -37,6 +37,37 @@ function verifica_tr(){
     }
 
 }
+var tabelaDano = [0,14,24.5,35.5,47,59];
+function calculo_dano_monstro(valorInicial,qtnAtaque,vidaInitial,ataqConseq){
+    if(ataqConseq){
+        for(let i=1;i<=qtnAtaque;i++){
+            $("#atac-m-"+i).html(valorInicial);
+            $("#dan-m-"+i).html('#');
+            $("#vida-m-"+i).html(vidaInitial);
+            vidaInitial=vidaInitial-valorInicial;
+            $("#vida-mm-"+i).html(vidaInitial);
+            valorInicial+=valorInicial;
+        }
+    }else{
+        for(let i=1;i<=qtnAtaque;i++){
+            if(i==1){
+                $("#atac-m-"+i).html(valorInicial);
+                $("#dan-m-"+i).html('0');
+                $("#vida-m-"+i).html(vidaInitial);
+                vidaInitial=vidaInitial-valorInicial;
+                $("#vida-mm-"+i).html(vidaInitial);
+            }else{
+                valorInicial = valorInicial + ((tabelaDano[(i-1)]/valorInicial)*100);
+                valorInicial = parseFloat(valorInicial.toFixed(1));
+                $("#atac-m-"+i).html(valorInicial);
+                $("#dan-m-"+i).html(tabelaDano[(i-1)]);
+                $("#vida-m-"+i).html(vidaInitial);
+                vidaInitial=vidaInitial-valorInicial;
+                $("#vida-mm-"+i).html(vidaInitial);
+            }
+        }
+    }
+}
 function converte_tempo(valor){
     let minutos = valor*1;
     let horas   =0;
@@ -267,6 +298,7 @@ $(document).ready(function(){
         qtnAtaque = qtnAtaque   == '' ? 1 : parseInt(qtnAtaque);
         vidaInitial = vidaInitial == '' ? 100 : parseInt(vidaInitial);
         ataqConseq = parseInt(ataqConseq);
+        calculo_dano_monstro(valorInicial,qtnAtaque,vidaInitial,ataqConseq);
         console.log(valorInicial);
         console.log(qtnAtaque);
         console.log(vidaInitial);
@@ -283,6 +315,7 @@ $(document).ready(function(){
         qtnAtaque = qtnAtaque   == '' ? 1 : parseInt(qtnAtaque);
         vidaInitial = vidaInitial == '' ? 100 : parseInt(vidaInitial);
         ataqConseq = parseInt(ataqConseq);
+        calculo_dano_monstro(valorInicial,qtnAtaque,vidaInitial,ataqConseq);
         console.log(valorInicial);
         console.log(qtnAtaque);
         console.log(vidaInitial);
@@ -299,6 +332,7 @@ $(document).ready(function(){
         qtnAtaque = qtnAtaque   == '' ? 1 : parseInt(qtnAtaque);
         vidaInitial = vidaInitial == '' ? 100 : parseInt(vidaInitial);
         ataqConseq = parseInt(ataqConseq);
+        calculo_dano_monstro(valorInicial,qtnAtaque,vidaInitial,ataqConseq);
         console.log(valorInicial);
         console.log(qtnAtaque);
         console.log(vidaInitial);
@@ -322,34 +356,3 @@ $(document).ready(function(){
         console.log(ataqConseq);
     });
 });
-var tabelaDano = [0,14,24.5,35.5,47,59];
-function calculo_dano_monstro(valorInicial,qtnAtaque,vidaInitial,ataqConseq){
-    if(ataqConseq){
-        for(let i=1;i<=qtnAtaque;i++){
-            $("#atac-m-"+i).html(valorInicial);
-            $("#dan-m-"+i).html('#');
-            $("#vida-m-"+i).html(vidaInitial);
-            vidaInitial=vidaInitial-valorInicial;
-            $("#vida-mm-"+i).html(vidaInitial);
-            valorInicial+=valorInicial;
-        }
-    }else{
-        for(let i=1;i<=qtnAtaque;i++){
-            if(i==1){
-                $("#atac-m-"+i).html(valorInicial);
-                $("#dan-m-"+i).html('0');
-                $("#vida-m-"+i).html(vidaInitial);
-                vidaInitial=vidaInitial-valorInicial;
-                $("#vida-mm-"+i).html(vidaInitial);
-            }else{
-                valorInicial = valorInicial + ((tabelaDano[(i-1)]/valorInicial)*100);
-                valorInicial = parseFloat(valorInicial.toFixed(1));
-                $("#atac-m-"+i).html(valorInicial);
-                $("#dan-m-"+i).html(tabelaDano[(i-1)]);
-                $("#vida-m-"+i).html(vidaInitial);
-                vidaInitial=vidaInitial-valorInicial;
-                $("#vida-mm-"+i).html(vidaInitial);
-            }
-        }
-    }
-}
