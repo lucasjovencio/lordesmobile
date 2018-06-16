@@ -59,7 +59,8 @@ function calculo_dano_monstro(valorInicial,qtnAtaque,vidaInitial,ataqConseq){
                 vidaInitial=vidaInitial-valorInicial;
                 $("#vida-mm-"+i).html(vidaInitial);
             }else{
-                valorInicial = valorInicial + ((tabelaDano[(i-1)]/valorInicial)*100);
+                let porcento = (tabelaDano[(i-1)]/valorInicial)*100;
+                valorInicial = valorInicial + porcento;
                 $("#atac-m-"+i).html(tabelaDano[(i-1)]);
                 $("#dan-m-"+i).html(valorInicial);
                 $("#vida-m-"+i).html(vidaInitial);
