@@ -7,13 +7,15 @@ function verifica_tr(){
 
         let valor = $(this).find('td').eq(2).text();
         let gema=0;
-        let tempo=0;
+        let tempo='';
         let valor2 = parseInt(valor);
         if (valor2<=0 || valor=='') {
           $(this).hide();
         }else{
             gema = $(this).find('td').eq(4).text();
+            tempo = $(this).find('td').eq(6).text();
             gema = parseInt(gema);
+            console.log(tempo);
             let aux1 = parseInt(dados[0]);
             let aux2 = parseInt(dados[1]);
             dados[0]= aux1+valor2;
