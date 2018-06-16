@@ -15,6 +15,12 @@ function verifica_tr(){
             gema = parseInt(gema);
             let aux1 = parseInt(dados[0]);
             let aux2 = parseInt(dados[1]);
+            console.log(aux1);
+            console.log(aux2);
+
+            console.log(valor2);
+            console.log(gema);
+
             dados[0]= aux1+valor2;
             dados[1]= aux2+gema;
             $(this).show();
