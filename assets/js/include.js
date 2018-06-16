@@ -290,7 +290,7 @@ $(document).ready(function(){
     });
     
     $("#danger").on("input", function(){
-        let valorInicial        = $(this).val();
+        let valorInicial        = parseFloat($(this).val());
         let qtnAtaque           = $('#qtn').val();
         let vidaInitial         = $('#qtn-vida').val();
         let ataqConseq          = $('#atac-con').val();
@@ -307,7 +307,7 @@ $(document).ready(function(){
     });
 
     $("#qtn").on("input", function(){
-        let valorInicial        = $('#danger').val();
+        let valorInicial        = parseFloat($('#danger').val());
         let qtnAtaque           = $(this).val();
         let vidaInitial         = $('#qtn-vida').val();
         let ataqConseq          = $('#atac-con').val();
@@ -324,7 +324,7 @@ $(document).ready(function(){
     });
 
     $("#qtn-vida").on("input", function(){
-        let valorInicial        = $('#danger').val();
+        let valorInicial        = parseFloat($('#danger').val());
         let qtnAtaque           = $('#qtn').val();
         let vidaInitial         = $(this).val();
         let ataqConseq          = $('#atac-con').val();
@@ -341,7 +341,7 @@ $(document).ready(function(){
     });
 
     $("#atac-con").on("input", function(){
-        let valorInicial        = $('#danger').val();
+        let valorInicial        = parseFloat($('#danger').val());
         let qtnAtaque           = $('#qtn').val();
         let vidaInitial         = $('#qtn-vida').val();
         let ataqConseq          = $(this).val();
