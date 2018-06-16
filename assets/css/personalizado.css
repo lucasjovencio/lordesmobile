@@ -46,7 +46,9 @@
 .pure-table tbody>tr{
     display: none;
 }
-
+#tr-total-val{
+    display: none;
+}
 .pure-menu-list>li{
     background: none !important;
 }
