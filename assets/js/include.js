@@ -37,22 +37,34 @@ function verifica_tr(){
 
 }
 
-function reseta_td_danger(){
+function check_td_danger(reset=1){
     let table = $('table.table-vel');
     let i = 0;
-    let dados = [0,0,0,0]; // quantidade , gemas , tempo
-    table.find('tbody > tr').each(function() {
-        $(this).find('td').eq(2).html('');
-        $(this).find('td').eq(4).html('');
-        $(this).find('td').eq(6).html('');
-        $(this).find('td').eq(8).html('');
-    });
+    let dados = [0,0,0,0]; // 
+
+    if(reset){
+        table.find('tbody > tr').each(function() {
+            $(this).find('td').eq(2).html('');
+            $(this).find('td').eq(4).html('');
+            $(this).find('td').eq(6).html('');
+            $(this).find('td').eq(8).html('');
+        });
+    }else{
+        table.find('tbody > tr').each(function(){
+            let valor = $(this).find('td').eq(2).text();
+            if (valor=='') {
+                $(this).hide();
+            }else{
+                $(this).show();
+            }
+        });
+    }
 
 }
 
 function calculo_dano_monstro(valorInicial,qtnAtaque,vidaInitial,ataqConseq){
     let tabelaDano = [0,14,24.5,35.5,47,59];
-    reseta_td_danger();
+    check_td_danger();
     if(ataqConseq){
         for(let i=1;i<=qtnAtaque;i++){
             $("#atac-m-"+i).html('#');
@@ -94,6 +106,7 @@ function calculo_dano_monstro(valorInicial,qtnAtaque,vidaInitial,ataqConseq){
             }
         }
     }
+    check_td_danger(0);
 }
 function converte_tempo(valor){
     let minutos = valor*1;
