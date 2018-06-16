@@ -70,6 +70,12 @@ function converte_tempo(valor){
             else if(dias==1 && horas==1 && minutos==1){
                 string = dias+" Dia "+horas+" Hr "+minutos+" min";
             }
+            else if(dias==1 && horas==1 && minutos>1){
+                string = dias+" Dia "+horas+" Hr "+minutos+" min";
+            }
+            else if(dias==1 && horas==0 && minutos>1){
+                string = dias+" Dia "+minutos+" min";
+            }
             else if(dias==1 && horas>1 && minutos==0){
                 string = dias+" Dia "+horas+" Hrs";
             }
