@@ -1,16 +1,33 @@
 function verifica_tr(){
     let table = $('table.table-vel');
     let i = 0;
+    let dados = [0,0,0]; // quantidade , gemas , tempo
     table.find('tbody > tr').each(function() {
 
         let valor = $(this).find('td').eq(2).text();
+        let gema=0;
+        let tempo=0;
         let valor2 = parseInt(valor);
         if (valor2<=0 || valor=='') {
           $(this).hide();
         }else{
+            gema = $(this).find('td').eq(4).text();
+            gema = parseInt(gema);
+            dados[0]+=valor2;
+            dados[1]+=gema;
             $(this).show();
         }
     });
+
+    if(dados[0]>0){
+        $("#total-td-vel").html(dados[0]);
+        $("#total-td-gem-vel").html(dados[1]);
+        $("#total-td-temp-vel").html(dados[2]);
+        $("#tr-total-val").show();
+    }else{
+        $("#tr-total-val").hide();
+    }
+
 }
 function converte_tempo(valor){
     let minutos = valor*1;
