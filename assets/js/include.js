@@ -13,7 +13,7 @@ function verifica_tr(){
           $(this).hide();
         }else{
             gema = $(this).find('td').eq(4).text();
-            tempo = $(this).find('td').eq(6).text();
+            tempo = $(this).find('td').eq(6).find('span').text();
             gema = parseInt(gema);
             console.log(tempo);
             let aux1 = parseInt(dados[0]);
