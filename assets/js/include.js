@@ -57,6 +57,8 @@ function calculo_dano_monstro(valorInicial,qtnAtaque,vidaInitial,ataqConseq){
                 $("#dan-m-"+i).html(valorInicial);
                 $("#vida-m-"+i).html(vidaInitial);
                 vidaInitial=vidaInitial-valorInicial;
+                vidaInitial=parseFloat(vidaInitial);
+                vidaInitial = vidaInitial.toFixed(2);
                 $("#vida-mm-"+i).html(vidaInitial);
             }else{
                 let valT = tabelaDano[(i-1)];
