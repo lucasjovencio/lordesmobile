@@ -61,10 +61,11 @@ function calculo_dano_monstro(valorInicial,qtnAtaque,vidaInitial,ataqConseq){
             }else{
                 let valT = tabelaDano[(i-1)];
                 console.log("Valor table: "+valT);
-                let porcento = (parseFloat(valT)/parseFloat(valorInicial))*parseFloat(100);
+                let porcento = parseFloat(valT)/parseFloat(valorInicial);
                 porcento = porcento.toFixed(2);
                 console.log("Valor Porcent: "+porcento);
                 valorInicial = valorInicial + porcento;
+                valorInicial = valorInicial.toFixed(2);
                 $("#atac-m-"+i).html(tabelaDano[(i-1)]);
                 $("#dan-m-"+i).html(valorInicial);
                 $("#vida-m-"+i).html(vidaInitial);
