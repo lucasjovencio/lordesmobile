@@ -108,7 +108,7 @@ $(document).ready(function(){
         $("#td-vel-1").html(textoDigitado);
         $("#td-gem-1").html(valor*5);
         $("#td-tempo-1").html(string);
-        var text = $(this).closest('#td-tempo-1').next('.total-min-ocult-tr').text();
+        var text = $(this).closest('#td-tempo-1').next('.ocult-td').find('span').text();
         console.log(text);
         verifica_tr();
     });

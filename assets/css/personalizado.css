@@ -49,8 +49,11 @@
 #tr-total-val{
     display: none;
 }
-.total-min-ocult-tr{
+.total-min-ocult{
     display: none;
+}
+.ocult-td{
+    display: none !important;
 }
 .pure-menu-list>li{
     background: none !important;
