@@ -291,7 +291,7 @@ $(document).ready(function(){
 
     $("#qtn-vida").on("input", function(){
         let valorInicial        = $('#danger').val();
-        let qtnAtaque           = $('qtn').val();
+        let qtnAtaque           = $('#qtn').val();
         let vidaInitial         = $(this).val();
         let ataqConseq          = $('#atac-con').val();
         
@@ -307,8 +307,8 @@ $(document).ready(function(){
 
     $("#atac-con").on("input", function(){
         let valorInicial        = $('#danger').val();
-        let qtnAtaque           = $('qtn').val();
-        let vidaInitial         = $('qtn-vida').val();
+        let qtnAtaque           = $('#qtn').val();
+        let vidaInitial         = $('#qtn-vida').val();
         let ataqConseq          = $(this).val();
         
         valorInicial = valorInicial   == '' ? 0 : parseInt(valorInicial);
