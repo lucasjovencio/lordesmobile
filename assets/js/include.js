@@ -13,8 +13,8 @@ function verifica_tr(){
         }else{
             gema = $(this).find('td').eq(4).text();
             gema = parseInt(gema);
-            dados[0]+=valor2;
-            dados[1]+=gema;
+            dados[0]=dados[0]+valor2;
+            dados[1]=dados[1]+gema;
             $(this).show();
         }
     });
