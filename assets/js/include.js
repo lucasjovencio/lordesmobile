@@ -53,16 +53,15 @@ function calculo_dano_monstro(valorInicial,qtnAtaque,vidaInitial,ataqConseq){
     }else{
         for(let i=1;i<=qtnAtaque;i++){
             if(i==1){
-                $("#atac-m-"+i).html(valorInicial);
-                $("#dan-m-"+i).html('0');
+                $("#atac-m-"+i).html(tabelaDano[(i-1)]);
+                $("#dan-m-"+i).html(valorInicial);
                 $("#vida-m-"+i).html(vidaInitial);
                 vidaInitial=vidaInitial-valorInicial;
                 $("#vida-mm-"+i).html(vidaInitial);
             }else{
                 valorInicial = valorInicial + ((tabelaDano[(i-1)]/valorInicial)*100);
-                valorInicial = parseFloat(valorInicial.toFixed(1));
-                $("#atac-m-"+i).html(valorInicial);
-                $("#dan-m-"+i).html(tabelaDano[(i-1)]);
+                $("#atac-m-"+i).html(tabelaDano[(i-1)]);
+                $("#dan-m-"+i).html(valorInicial);
                 $("#vida-m-"+i).html(vidaInitial);
                 vidaInitial=vidaInitial-valorInicial;
                 $("#vida-mm-"+i).html(vidaInitial);
