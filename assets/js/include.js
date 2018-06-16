@@ -290,12 +290,12 @@ $(document).ready(function(){
     });
     
     $("#danger").on("input", function(){
-        let valorInicial        = parseFloat($(this).val());
+        let valorInicial        = $(this).val();
         let qtnAtaque           = $('#qtn').val();
         let vidaInitial         = $('#qtn-vida').val();
         let ataqConseq          = $('#atac-con').val();
         
-        valorInicial = valorInicial   == '' ? 0 : parseInt(valorInicial);
+        valorInicial = valorInicial   == '' ? 0 : parseFloat(valorInicial);
         qtnAtaque = qtnAtaque   == '' ? 1 : parseInt(qtnAtaque);
         vidaInitial = vidaInitial == '' ? 100 : parseInt(vidaInitial);
         ataqConseq = parseInt(ataqConseq);
@@ -307,12 +307,12 @@ $(document).ready(function(){
     });
 
     $("#qtn").on("input", function(){
-        let valorInicial        = parseFloat($('#danger').val());
+        let valorInicial        = $('#danger').val();
         let qtnAtaque           = $(this).val();
         let vidaInitial         = $('#qtn-vida').val();
         let ataqConseq          = $('#atac-con').val();
         
-        valorInicial = valorInicial   == '' ? 0 : parseInt(valorInicial);
+        valorInicial = valorInicial   == '' ? 0 : parseFloat(valorInicial);
         qtnAtaque = qtnAtaque   == '' ? 1 : parseInt(qtnAtaque);
         vidaInitial = vidaInitial == '' ? 100 : parseInt(vidaInitial);
         ataqConseq = parseInt(ataqConseq);
@@ -324,12 +324,12 @@ $(document).ready(function(){
     });
 
     $("#qtn-vida").on("input", function(){
-        let valorInicial        = parseFloat($('#danger').val());
+        let valorInicial        = $('#danger').val();
         let qtnAtaque           = $('#qtn').val();
         let vidaInitial         = $(this).val();
         let ataqConseq          = $('#atac-con').val();
         
-        valorInicial = valorInicial   == '' ? 0 : parseInt(valorInicial);
+        valorInicial = valorInicial   == '' ? 0 : parseFloat(valorInicial);
         qtnAtaque = qtnAtaque   == '' ? 1 : parseInt(qtnAtaque);
         vidaInitial = vidaInitial == '' ? 100 : parseInt(vidaInitial);
         ataqConseq = parseInt(ataqConseq);
@@ -341,12 +341,12 @@ $(document).ready(function(){
     });
 
     $("#atac-con").on("input", function(){
-        let valorInicial        = parseFloat($('#danger').val());
+        let valorInicial        = $('#danger').val();
         let qtnAtaque           = $('#qtn').val();
         let vidaInitial         = $('#qtn-vida').val();
         let ataqConseq          = $(this).val();
         
-        valorInicial = valorInicial   == '' ? 0 : parseInt(valorInicial);
+        valorInicial = valorInicial   == '' ? 0 : parseFloat(valorInicial);
         qtnAtaque = qtnAtaque   == '' ? 1 : parseInt(qtnAtaque);
         vidaInitial = vidaInitial == '' ? 100 : parseInt(vidaInitial);
         ataqConseq = parseInt(ataqConseq);
