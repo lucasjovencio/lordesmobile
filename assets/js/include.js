@@ -37,16 +37,18 @@ function verifica_tr(){
     }
 
 }
-var tabelaDano = [0,14,24.5,35.5,47,59];
+
 function calculo_dano_monstro(valorInicial,qtnAtaque,vidaInitial,ataqConseq){
+    let tabelaDano = [0,14,24.5,35.5,47,59];
     if(ataqConseq){
         for(let i=1;i<=qtnAtaque;i++){
-            $("#atac-m-"+i).html(valorInicial);
-            $("#dan-m-"+i).html('#');
+            $("#atac-m-"+i).html('#');
+            $("#dan-m-"+i).html(valorInicial);
             $("#vida-m-"+i).html(vidaInitial);
             vidaInitial=vidaInitial-valorInicial;
             $("#vida-mm-"+i).html(vidaInitial);
             valorInicial+=valorInicial;
+            
         }
     }else{
         for(let i=1;i<=qtnAtaque;i++){
