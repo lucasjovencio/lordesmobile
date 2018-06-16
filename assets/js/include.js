@@ -7,7 +7,7 @@ function verifica_tr(){
 
         let valor = $(this).find('td').eq(2).text();
         let gema=0;
-        let tempo='';
+        let tempo=0;
         let valor2 = parseInt(valor);
         if (valor2<=0 || valor=='') {
           $(this).hide();
@@ -15,11 +15,13 @@ function verifica_tr(){
             gema = $(this).find('td').eq(4).text();
             tempo = $(this).find('td').eq(6).find('span').text();
             gema = parseInt(gema);
-            console.log(tempo);
+            tempo = parseInt(tempo);
             let aux1 = parseInt(dados[0]);
             let aux2 = parseInt(dados[1]);
+            let aux3 = parseInt(dados[2]);
             dados[0]= aux1+valor2;
             dados[1]= aux2+gema;
+            dados[2]= aux3+tempo;
             $(this).show();
         }
     });
@@ -27,7 +29,8 @@ function verifica_tr(){
     if(dados[0]>0){
         $("#total-td-vel").html(dados[0]);
         $("#total-td-gem-vel").html(dados[1]);
-        $("#total-td-temp-vel").html(dados[2]);
+        $("#total-td-temp-vel").html(converte_tempo(dados[2]));
+        
         $("#tr-total-val").show();
     }else{
         $("#tr-total-val").hide();
@@ -117,6 +120,7 @@ $(document).ready(function(){
         let textoDigitado = $(this).val();
         let valor = parseInt(textoDigitado);
         let string = converte_tempo(valor*3);
+        string+="<span class='oculta-span'>"+valor*3+"</span>";
         $("#td-vel-3").html(textoDigitado);
         $("#td-gem-3").html('0');
         $("#td-tempo-3").html(string);
@@ -126,6 +130,7 @@ $(document).ready(function(){
         let textoDigitado = $(this).val();
         let valor = parseInt(textoDigitado);
         let string = converte_tempo(valor*5);
+        string+="<span class='oculta-span'>"+valor*5+"</span>";
         $("#td-vel-5").html(textoDigitado);
         $("#td-gem-5").html('0');
         $("#td-tempo-5").html(string);
@@ -135,6 +140,7 @@ $(document).ready(function(){
         let textoDigitado = $(this).val();
         let valor = parseInt(textoDigitado);
         let string = converte_tempo(valor*10);
+        string+="<span class='oculta-span'>"+valor*10+"</span>";
         $("#td-vel-10").html(textoDigitado);
         $("#td-gem-10").html('0');
         $("#td-tempo-10").html(string);
@@ -144,6 +150,7 @@ $(document).ready(function(){
         let textoDigitado = $(this).val();
         let valor = parseInt(textoDigitado);
         let string = converte_tempo(valor*15);
+        string+="<span class='oculta-span'>"+valor*15+"</span>";
         $("#td-vel-15").html(textoDigitado);
         $("#td-gem-15").html(valor*70);
         $("#td-tempo-15").html(string);
@@ -154,6 +161,7 @@ $(document).ready(function(){
         let textoDigitado = $(this).val();
         let valor = parseInt(textoDigitado);
         let string = converte_tempo(valor*30);
+        string+="<span class='oculta-span'>"+valor*30+"</span>";
         $("#td-vel-30").html(textoDigitado);
         $("#td-gem-30").html('0');
         $("#td-tempo-30").html(string);
@@ -164,6 +172,7 @@ $(document).ready(function(){
         let textoDigitado = $(this).val();
         let valor = parseInt(textoDigitado);
         let string = converte_tempo(valor*60);
+        string+="<span class='oculta-span'>"+valor*60+"</span>";
         $("#td-vel-60").html(textoDigitado);
         $("#td-gem-60").html(valor*130);
         $("#td-tempo-60").html(string);
@@ -174,6 +183,7 @@ $(document).ready(function(){
         let textoDigitado = $(this).val();
         let valor = parseInt(textoDigitado);
         let string = converte_tempo(valor*180);
+        string+="<span class='oculta-span'>"+valor*180+"</span>";
         $("#td-vel-300").html(textoDigitado);
         $("#td-gem-300").html(valor*800);
         $("#td-tempo-300").html(string);
@@ -184,6 +194,7 @@ $(document).ready(function(){
         let textoDigitado = $(this).val();
         let valor = parseInt(textoDigitado);
         let string = converte_tempo(valor*480);
+        string+="<span class='oculta-span'>"+valor*480+"</span>";
         $("#td-vel-800").html(textoDigitado);
         $("#td-gem-800").html(valor*650);
         $("#td-tempo-800").html(string);
@@ -193,6 +204,7 @@ $(document).ready(function(){
         let textoDigitado = $(this).val();
         let valor = parseInt(textoDigitado);
         let string = converte_tempo(valor*900);
+        string+="<span class='oculta-span'>"+valor*900+"</span>";
         $("#td-vel-1500").html(textoDigitado);
         $("#td-gem-1500").html(valor*1000);
         $("#td-tempo-1500").html(string);
@@ -202,6 +214,7 @@ $(document).ready(function(){
         let textoDigitado = $(this).val();
         let valor = parseInt(textoDigitado);
         let string = converte_tempo(valor*1440);
+        string+="<span class='oculta-span'>"+valor*1400+"</span>";
         $("#td-vel-240").html(textoDigitado);
         $("#td-gem-240").html(valor*1500);
         $("#td-tempo-240").html(string);
@@ -211,6 +224,7 @@ $(document).ready(function(){
         let textoDigitado = $(this).val();
         let valor = parseInt(textoDigitado);
         let string = converte_tempo(valor*4320);
+        string+="<span class='oculta-span'>"+valor*4320+"</span>";
         $("#td-vel-3000").html(textoDigitado);
         $("#td-gem-3000").html(valor*4400);
         $("#td-tempo-3000").html(string);
@@ -220,6 +234,7 @@ $(document).ready(function(){
         var textoDigitado = $(this).val();
         let valor = parseInt(textoDigitado);
         let string = converte_tempo(valor*10080);
+        string+="<span class='oculta-span'>"+valor*10080+"</span>";
         $("#td-vel-700").html(textoDigitado);
         $("#td-gem-700").html(valor*10000);
         $("#td-tempo-700").html(string);
@@ -229,6 +244,7 @@ $(document).ready(function(){
         let textoDigitado = $(this).val();
         let valor = parseInt(textoDigitado);
         let string = converte_tempo(valor*43200);
+        string+="<span class='oculta-span'>"+valor*43200+"</span>";
         $("#td-vel-30000").html(textoDigitado);
         $("#td-gem-30000").html(valor*40000);
         $("#td-tempo-30000").html(string);
