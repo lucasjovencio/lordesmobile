@@ -105,12 +105,10 @@ $(document).ready(function(){
         let textoDigitado = $(this).val();
         let valor = parseInt(textoDigitado);
         let string = converte_tempo(valor*1);
+        string+="<span class='oculta-span'>"+valor*1+"</span>";
         $("#td-vel-1").html(textoDigitado);
         $("#td-gem-1").html(valor*5);
         $("#td-tempo-1").html(string);
-        //var text = $(this).closest('.next-tem').next('.ocult-td').find('span').text();
-        var text = $('tr').closest('.vei').next('.titulo').find('a').text();
-        console.log(text);
         verifica_tr();
     });
     $("#num-3").on("input", function(){
