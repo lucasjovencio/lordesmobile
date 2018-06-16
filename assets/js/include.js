@@ -1,3 +1,4 @@
+var gemas = [5,0,0,0,70,0,130,300,650,1000,1500,4400,10000,40000];
 function verifica_tr(){
     let table = $('table.table-vel');
     let i = 0;
@@ -111,45 +112,45 @@ $(document).ready(function(){
         let valor = parseInt(textoDigitado);
         let string = converte_tempo(valor*1);
         $("#td-vel-1").html(textoDigitado);
-        verifica_tr();
         $("#td-gem-1").html(valor*5);
         $("#td-tempo-1").html(string);
+        verifica_tr();
     });
     $("#num-3").on("input", function(){
         let textoDigitado = $(this).val();
         let valor = parseInt(textoDigitado);
         let string = converte_tempo(valor*3);
         $("#td-vel-3").html(textoDigitado);
-        verifica_tr();
         $("#td-gem-3").html('0');
         $("#td-tempo-3").html(string);
+        verifica_tr();
     });
     $("#num-5").on("input", function(){
         let textoDigitado = $(this).val();
         let valor = parseInt(textoDigitado);
         let string = converte_tempo(valor*5);
         $("#td-vel-5").html(textoDigitado);
-        verifica_tr();
         $("#td-gem-5").html('0');
         $("#td-tempo-5").html(string);
+        verifica_tr();
     });
     $("#num-10").on("input", function(){
         let textoDigitado = $(this).val();
         let valor = parseInt(textoDigitado);
         let string = converte_tempo(valor*10);
         $("#td-vel-10").html(textoDigitado);
-        verifica_tr();
         $("#td-gem-10").html('0');
         $("#td-tempo-10").html(string);
+        verifica_tr();
     });
     $("#num-15").on("input", function(){
         let textoDigitado = $(this).val();
         let valor = parseInt(textoDigitado);
         let string = converte_tempo(valor*15);
         $("#td-vel-15").html(textoDigitado);
-        verifica_tr();
         $("#td-gem-15").html(valor*70);
         $("#td-tempo-15").html(string);
+        verifica_tr();
     });
 
     $("#num-30").on("input", function(){
@@ -157,9 +158,9 @@ $(document).ready(function(){
         let valor = parseInt(textoDigitado);
         let string = converte_tempo(valor*30);
         $("#td-vel-30").html(textoDigitado);
-        verifica_tr();
         $("#td-gem-30").html('0');
         $("#td-tempo-30").html(string);
+        verifica_tr();
     });
 
     $("#num-60").on("input", function(){
@@ -167,9 +168,9 @@ $(document).ready(function(){
         let valor = parseInt(textoDigitado);
         let string = converte_tempo(valor*60);
         $("#td-vel-60").html(textoDigitado);
-        verifica_tr();
         $("#td-gem-60").html(valor*130);
         $("#td-tempo-60").html(string);
+        verifica_tr();
     });
 
     $("#num-300").on("input", function(){
@@ -177,9 +178,9 @@ $(document).ready(function(){
         let valor = parseInt(textoDigitado);
         let string = converte_tempo(valor*180);
         $("#td-vel-300").html(textoDigitado);
-        verifica_tr();
         $("#td-gem-300").html(valor*800);
         $("#td-tempo-300").html(string);
+        verifica_tr();
     });
 
     $("#num-800").on("input", function(){
@@ -187,54 +188,54 @@ $(document).ready(function(){
         let valor = parseInt(textoDigitado);
         let string = converte_tempo(valor*480);
         $("#td-vel-800").html(textoDigitado);
-        verifica_tr();
         $("#td-gem-800").html(valor*650);
         $("#td-tempo-800").html(string);
+        verifica_tr();
     });
     $("#num-1500").on("input", function(){
         let textoDigitado = $(this).val();
         let valor = parseInt(textoDigitado);
         let string = converte_tempo(valor*900);
         $("#td-vel-1500").html(textoDigitado);
-        verifica_tr();
         $("#td-gem-1500").html(valor*1000);
         $("#td-tempo-1500").html(string);
+        verifica_tr();
     });
     $("#num-240").on("input", function(){
         let textoDigitado = $(this).val();
         let valor = parseInt(textoDigitado);
         let string = converte_tempo(valor*1440);
         $("#td-vel-240").html(textoDigitado);
-        verifica_tr();
         $("#td-gem-240").html(valor*1500);
         $("#td-tempo-240").html(string);
+        verifica_tr();
     });
     $("#num-3000").on("input", function(){
         let textoDigitado = $(this).val();
         let valor = parseInt(textoDigitado);
         let string = converte_tempo(valor*4320);
         $("#td-vel-3000").html(textoDigitado);
-        verifica_tr();
         $("#td-gem-3000").html(valor*4400);
         $("#td-tempo-3000").html(string);
+        verifica_tr();
     });
     $("#num-700").on("input", function(){
         var textoDigitado = $(this).val();
         let valor = parseInt(textoDigitado);
         let string = converte_tempo(valor*10080);
         $("#td-vel-700").html(textoDigitado);
-        verifica_tr();
         $("#td-gem-700").html(valor*10000);
         $("#td-tempo-700").html(string);
+        verifica_tr();
     });
     $("#num-30000").on("input", function(){
         let textoDigitado = $(this).val();
         let valor = parseInt(textoDigitado);
         let string = converte_tempo(valor*43200);
         $("#td-vel-30000").html(textoDigitado);
-        verifica_tr();
         $("#td-gem-30000").html(valor*40000);
         $("#td-tempo-30000").html(string);
+        verifica_tr();
     });
     
     $("#danger").on("input", function(){
