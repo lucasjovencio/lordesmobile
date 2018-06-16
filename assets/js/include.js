@@ -109,6 +109,7 @@ $(document).ready(function(){
         $("#td-gem-1").html(valor*5);
         $("#td-tempo-1").html(string);
         var text = $(this).closest('.next-tem').next('.ocult-td').find('span').text();
+        var text = $(this).closest('.vei').next('.titulo').find('a').text();
         console.log(text);
         verifica_tr();
     });
