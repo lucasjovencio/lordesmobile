@@ -5,4 +5,9 @@ permalink: /evento-infernal/
 ---
 
 {% include infernal.html %}
+
 {% include resultado_infernal.html %}
+
+{% include velocidade.html %}
+
+{% include resultado_velocidade.html %}
