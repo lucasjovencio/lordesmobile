@@ -25,7 +25,6 @@ function verifica_tr(){
             $(this).show();
         }
     });
-    console.log(dados);
     if(dados[0]>0){
         $("#total-td-vel").html(dados[0]);
         $("#total-td-gem-vel").html(dados[1]);
@@ -38,14 +37,30 @@ function verifica_tr(){
 
 }
 
+function reseta_td_danger(){
+    let table = $('table.table-vel');
+    let i = 0;
+    let dados = [0,0,0,0]; // quantidade , gemas , tempo
+    table.find('tbody > tr').each(function() {
+        $(this).find('td').eq(2).html('');
+        $(this).find('td').eq(4).html('');
+        $(this).find('td').eq(6).html('');
+        $(this).find('td').eq(8).html('');
+    });
+
+}
+
 function calculo_dano_monstro(valorInicial,qtnAtaque,vidaInitial,ataqConseq){
     let tabelaDano = [0,14,24.5,35.5,47,59];
+    reseta_td_danger();
     if(ataqConseq){
         for(let i=1;i<=qtnAtaque;i++){
             $("#atac-m-"+i).html('#');
             $("#dan-m-"+i).html(valorInicial);
+            vidaInitial=parseFloat(vidaInitial).toFixed(2);
             $("#vida-m-"+i).html(vidaInitial);
             vidaInitial=vidaInitial-valorInicial;
+            vidaInitial = vidaInitial <=0 ? 0 : vidaInitial;
             $("#vida-mm-"+i).html(vidaInitial);
             valorInicial+=valorInicial;
             
