@@ -38,14 +38,21 @@ function verifica_tr(){
 }
 
 $.jMaskGlobals = {
+    maskElements: 'input,td,span,div',
     dataMaskAttr: '*[data-mask]',
     dataMask: true,
+    watchInterval: 300,
+    watchInputs: true,
+    watchDataMask: true,
+    byPassKeys: [9, 16, 17, 18, 36, 37, 38, 39, 40, 91],
     translation: {
-        'AA': {pattern: /[0-600*]/},
-        'HH': {pattern: /[0-24*]/},
-        'MM': {pattern: /[0-59*]/}
+      '0': {pattern: /\d/},
+      '9': {pattern: /\d/, optional: true},
+      '#': {pattern: /\d/, recursive: true},
+      'A': {pattern: /[a-zA-Z0-9]/},
+      'S': {pattern: /[a-zA-Z]/}
     }
-}
+  };
 
 function applyDatMaskJs(){
     $.applyDataMask();
@@ -102,7 +109,7 @@ function adicionarFonte(){
 
             '<div class="pure-u-1-2 pure-u-md-1-2">'+
                 '<label for="min">Tempo Real</label>'+
-                '<input data-mask="AA D HH:MM" data-mask-reverse="true" id="tempo-real-'+id_fonte+'" class="pure-u-23-24" type="text" step="any" min="0" placeholder="0">'+
+                '<input data-mask="AA D 00:00" data-mask-reverse="true" id="tempo-real-'+id_fonte+'" class="pure-u-23-24" type="text" step="any" min="0" placeholder="0">'+
             '</div>'+
             '<div class="pure-u-1-1 pure-u-md-1-1">'+
                 '<label for="min">&emsp;</label>'+
