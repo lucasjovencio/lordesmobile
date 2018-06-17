@@ -92,7 +92,7 @@ function adicionarFonte(){
 
             '<div class="pure-u-1-2 pure-u-md-1-2">'+
                 '<label for="min">Tempo Real</label>'+
-                '<input data-mask="00 D 00 H 00 M" data-mask-reverse="true" id="tempo-real-'+id_fonte+'" class="pure-u-23-24" type="text" step="any" min="0" placeholder="0">'+
+                '<input data-mask="00 D 00:00:00" data-mask-reverse="true" id="tempo-real-'+id_fonte+'" class="pure-u-23-24" type="text" step="any" min="0" placeholder="0">'+
             '</div>'+
             '<div class="pure-u-1-1 pure-u-md-1-1">'+
                 '<label for="min">&emsp;</label>'+
