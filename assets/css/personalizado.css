@@ -68,3 +68,9 @@
             word-wrap: break-word;
     }   
 }
+
+.hr-fonte-pontuacao{
+    background: #7c334f;
+    width: 100%;
+    height: 5px;
+}    
