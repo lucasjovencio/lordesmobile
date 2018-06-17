@@ -66,6 +66,7 @@ function adicionarFonte(){
             '<div class="pure-u-1-2 pure-u-md-1-2">'+
                 '<label for="min">Tipo de Fonte</label>'+
                 '<select id="tipo-fonte-'+id_fonte+'" onchange="definiPeso(this.value,'+id_fonte+')" class="pure-u-23-24">'+
+                    '<option value="0">Selecione...</option>'+
                     '<!--<option value="1">Fundir Pactos</option>-->'+
                     '<option value="2">Construção</option>'+
                     '<option value="3">Pesquisa</option>'+
