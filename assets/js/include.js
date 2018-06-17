@@ -265,6 +265,7 @@ function calcula_tempo_infernal(){
     for(let i=0; i<id_fonte;i++){
         let tempo = $("#tempo-real-"+i).val();
         console.log(tempo);
+        console.log(tempo_aceleradores);
     }
 }
 $(document).ready(function(){
