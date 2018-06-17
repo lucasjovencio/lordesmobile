@@ -40,13 +40,16 @@ var id_fonte=0;
 function removerFonte(id){
     $("#fonte-add-"+id).remove();
 }
+function definiPeso(tipo,id){
+    alert(tipo+" "+id);
+}
 function adicionarFonte(){
 
     let html = '<div id="fonte-add-'+id_fonte+'"'+ 
         '<div class="pure-g">'+
             '<div class="pure-u-1-2 pure-u-md-1-2">'+
                 '<label for="min">Tipo de Fonte</label>'+
-                '<select id="tipo-fonte-'+id_fonte+'" class="pure-u-23-24">'+
+                '<select id="tipo-fonte-'+id_fonte+'" onchange="definiPeso(this,'+id_fonte+')" class="pure-u-23-24">'+
                     '<!--<option value="1">Fundir Pactos</option>-->'+
                     '<option value="2">Construção</option>'+
                     '<option value="3">Pesquisa</option>'+
