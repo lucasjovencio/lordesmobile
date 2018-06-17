@@ -266,7 +266,8 @@ function calcula_tempo_infernal(){
     let pontu_aux = pontu_nece;
     let pontuvali=0;
     for(let i=0; i<id_fonte;i++){
-        let tempo = $("#tempo-real-"+i).val();
+        let tempo = '';
+        tempo = $("#tempo-real-"+i).val();
         if(tempo==''){
             continue;
         }
