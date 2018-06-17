@@ -280,6 +280,7 @@ function calcula_tempo_infernal(){
             $("#button-check-"+i).removeClass("button-error");
         }else{
             let porcento = (tempo_ace_usado[2]/tempo)*100;
+            tempo_ace_usado[2] = tempo_ace_usado[2]-tempo;
             if(porcento>70){
                 $("#button-check-"+i).addClass("button-warning");
                 $("#button-check-"+i).removeClass("button-success");
