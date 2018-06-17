@@ -45,12 +45,12 @@ function definiPeso(tipo,id){
         case 1:
             break;
         case 2:
-            $("#peso-fonte-2").prop('disabled', true);
-            $('#peso-fonte-2').val(1);
+            $("#peso-fonte-"+id).prop('disabled', true);
+            $('#peso-fonte-'+id).val(1);
             break;
         case 3:
-            $("#peso-fonte-3").prop('disabled', true);
-            $('#peso-fonte-2').val(1);
+            $("#peso-fonte-"+id).prop('disabled', true);
+            $('#peso-fonte-'+id).val(1);
             break;
         case 4:
             break;
