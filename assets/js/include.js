@@ -1,8 +1,8 @@
 var gemas = [5,0,0,0,70,0,130,300,650,1000,1500,4400,10000,40000];
+var tempo_aceleradores = [0,0,0]; // quantidade , gemas , tempo
 function verifica_tr(){
     let table = $('table.table-vel');
     let i = 0;
-    let dados = [0,0,0]; // quantidade , gemas , tempo
     table.find('tbody > tr').each(function() {
 
         let valor = $(this).find('td').eq(2).text();
@@ -16,19 +16,19 @@ function verifica_tr(){
             tempo = $(this).find('td').eq(6).find('span').text();
             gema = parseInt(gema);
             tempo = parseInt(tempo);
-            let aux1 = parseInt(dados[0]);
-            let aux2 = parseInt(dados[1]);
-            let aux3 = parseInt(dados[2]);
-            dados[0]= aux1+valor2;
-            dados[1]= aux2+gema;
-            dados[2]= aux3+tempo;
+            let aux1 = parseInt(tempo_aceleradores[0]);
+            let aux2 = parseInt(tempo_aceleradores[1]);
+            let aux3 = parseInt(tempo_aceleradores[2]);
+            tempo_aceleradores[0]= aux1+valor2;
+            tempo_aceleradores[1]= aux2+gema;
+            tempo_aceleradores[2]= aux3+tempo;
             $(this).show();
         }
     });
-    if(dados[0]>0){
-        $("#total-td-vel").html(dados[0]);
-        $("#total-td-gem-vel").html(dados[1]);
-        $("#total-td-temp-vel").html(converte_tempo(dados[2]));
+    if(tempo_aceleradores[0]>0){
+        $("#total-td-vel").html(tempo_aceleradores[0]);
+        $("#total-td-gem-vel").html(tempo_aceleradores[1]);
+        $("#total-td-temp-vel").html(converte_tempo(tempo_aceleradores[2]));
         
         $("#tr-total-val").show();
     }else{
