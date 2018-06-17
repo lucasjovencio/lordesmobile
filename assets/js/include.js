@@ -266,12 +266,12 @@ function converte_tempo(valor){
 function atualizaTempo(tipo,id){
     let tipoFonte = parseInt($('#tipo-fonte-'+id).val());
     let pesoFonte = parseInt($('#peso-fonte-'+id).val());
-    let poderRece = parseFloat($('#poder-recebido-'+id).val());
+    let poderRece = $('#poder-recebido-'+id).val();
     let tempoReal = $('#tempo-real-'+id).val();
-    console.log(tipoFonte);
-    console.log(pesoFonte);
-    console.log(poderRece);
-    console.log(tempoReal);
+    console.log("tipo: "+tipoFonte);
+    console.log("peso: "+pesoFonte);
+    console.log("poder: "+poderRece);
+    console.log("tempo: "+tempoReal);
 }
 function calcula_tempo_infernal(){
     tempo_ace_usado[2]=tempo_aceleradores[2];
