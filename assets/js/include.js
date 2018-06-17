@@ -41,6 +41,7 @@ function removerFonte(id){
     $("#fonte-add-"+id).remove();
 }
 function definiPeso(tipo,id){
+    tipo = parseInt(tipo);
     switch(tipo){
         case 1:
             break;
