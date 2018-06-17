@@ -57,7 +57,6 @@ function definiPeso(tipo,id){
         default:
         break;
     }
-    alert(tipo+" "+id);
 }
 function adicionarFonte(){
 
