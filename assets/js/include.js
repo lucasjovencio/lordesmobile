@@ -116,7 +116,6 @@ function adicionarFonte(){
     '</div>';
     $("#html-fonte").append(html);
     
-    applyDatMaskJs();
     id_fonte +=1;
 }
 function check_td_danger(reset=1){
