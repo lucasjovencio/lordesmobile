@@ -1,5 +1,7 @@
 var gemas = [5,0,0,0,70,0,130,300,650,1000,1500,4400,10000,40000];
 var tempo_aceleradores = [0,0,0]; // quantidade , gemas , tempo
+var tempo_ace_usado = [0,0,0]; // quantidade , gemas , tempo
+var tempo_ace_sub = [0,0,0]; // quantidade , gemas , tempo
 function verifica_tr(){
     let table = $('table.table-vel');
     tempo_aceleradores[0]=0;tempo_aceleradores[1]=0;tempo_aceleradores[2]=0;
@@ -259,15 +261,29 @@ function converte_tempo(valor){
     return string;
 }
 function calcula_tempo_infernal(){
+    tempo_ace_usado[2]=tempo_aceleradores[2];
+
     for(let i=0; i<id_fonte;i++){
         let tempo = $("#tempo-real-"+i).val();
         tempo = tempo.split(' ');
         let dia = (parseInt(tempo[0]))*1440;
-        console.log(tempo);
         tempo = tempo[2];
         tempo = tempo.split(':');
         let hora = (parseInt(tempo[0]))*60;
         let minuto = parseInt(tempo[1]);
+        tempo = dia+hora+minuto;
+
+        if(tempo_ace_usado[2]>tempo){
+            tempo_ace_usado[2] = tempo_ace_usado[2]-tempo;
+            $("#button-check-"+i).addClass("button-success");
+        }else{
+            let porcento = (tempo_ace_usado[2]/tempo)*100;
+            if(porcento>70){
+                $("#button-check-"+i).addClass("button-warning");
+            }else{
+                $("#button-check-"+i).addClass("button-error");
+            }
+        }
     }
 }
 $(document).ready(function(){
