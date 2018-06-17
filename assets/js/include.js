@@ -72,7 +72,7 @@ function adicionarFonte(){
         '<div class="pure-g">'+
             '<div class="pure-u-1-2 pure-u-md-1-2">'+
                 '<label for="min">Tipo de Fonte</label>'+
-                '<select id="tipo-fonte-'+id_fonte+'" onchange="definiPeso(this.value,'+id_fonte+')" class="pure-u-23-24">'+
+                '<select  id="tipo-fonte-'+id_fonte+'" onchange="definiPeso(this.value,'+id_fonte+')" class="pure-u-23-24">'+
                     '<option value="0">Selecione...</option>'+
                     '<!--<option value="1">Fundir Pactos</option>-->'+
                     '<option value="2">Construção</option>'+
@@ -83,17 +83,17 @@ function adicionarFonte(){
             '<input id="fonte-valicacao-'+id_fonte+'" type="hidden" value="0">'+
             '<div class="pure-u-1-2 pure-u-md-1-2">'+
                 '<label for="min">Peso da Fonte</label>'+
-                '<input id="peso-fonte-'+id_fonte+'"  class="pure-u-23-24" type="number" placeholder="0" min="0" max="20000">'+
+                '<input onkeypress="atualizaTempo(2,'+id_fonte+');return false;" id="peso-fonte-'+id_fonte+'"  class="pure-u-23-24" type="number" placeholder="0" min="0" max="20000">'+
             '</div>'+
             
             '<div class="pure-u-1-2 pure-u-md-1-2">'+
                 '<label for="min">Poder Recebido</label>'+
-                '<input id="poder-recebido-'+id_fonte+'" class="pure-u-23-24" type="number" step="any" min="0" placeholder="0">'+
+                '<input data-mask="000,000" data-mask-reverse="true" onkeypress="atualizaTempo(3,'+id_fonte+');return false;" id="poder-recebido-'+id_fonte+'" class="pure-u-23-24" type="number" step="any" min="0" placeholder="0">'+
             '</div>'+
 
             '<div class="pure-u-1-2 pure-u-md-1-2">'+
                 '<label for="min">Tempo Real</label>'+
-                '<input data-mask="00 D 00:00" data-mask-reverse="true" id="tempo-real-'+id_fonte+'" class="pure-u-23-24" type="text" step="any" min="0" placeholder="30 D 23:55">'+
+                '<input onkeypress="atualizaTempo(4,'+id_fonte+');return false;" data-mask="00 D 00:00" data-mask-reverse="true" id="tempo-real-'+id_fonte+'" class="pure-u-23-24" type="text" step="any" min="0" placeholder="30 D 23:55">'+
             '</div>'+
             '<div class="pure-u-1-2 pure-u-md-1-2">'+
                 '<label for="min">&emsp;</label>'+
@@ -260,6 +260,16 @@ function converte_tempo(valor){
         }
     }
     return string;
+}
+function atualizaTempo(tipo,id){
+    let tipoFonte = parseInt($('#tipo-fonte-'+id).val());
+    let pesoFonte = parseInt($('#peso-fonte-'+id).val());
+    let poderRece = parseFloat($('#poder-recebido-'+id).val());
+    let tempoReal = $('#tempo-real-'+id).val();
+    console.log(tipoFonte);
+    console.log(pesoFonte);
+    console.log(poderRece);
+    console.log(tempoReal);
 }
 function calcula_tempo_infernal(){
     tempo_ace_usado[2]=tempo_aceleradores[2];
