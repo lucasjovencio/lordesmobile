@@ -38,7 +38,7 @@ function verifica_tr(){
 }
 
 function applyDatMaskJs(){
-    $.applyDataMask([selector]);
+    $.applyDataMask();
 }
 var id_fonte=0;
 function removerFonte(id){
