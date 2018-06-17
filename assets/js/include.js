@@ -271,33 +271,35 @@ function calcula_tempo_infernal(){
         if(tempo==''){
             continue;
         }
-        tempo = tempo.split(' ');
-        let dia = (parseInt(tempo[0]))*1440;
-        tempo = tempo[2];
-        tempo = tempo.split(':');
-        let hora = (parseInt(tempo[0]))*60;
-        let minuto = parseInt(tempo[1]);
-        tempo = dia+hora+minuto;
+        else{
+            tempo = tempo.split(' ');
+            let dia = (parseInt(tempo[0]))*1440;
+            tempo = tempo[2];
+            tempo = tempo.split(':');
+            let hora = (parseInt(tempo[0]))*60;
+            let minuto = parseInt(tempo[1]);
+            tempo = dia+hora+minuto;
 
-        if(tempo_ace_usado[2]>tempo){
-            tempo_ace_usado[2] = tempo_ace_usado[2]-tempo;
-            pontuvali += parseFloat($('#poder-recebido-'+i).val());
-            $("#fonte-valicacao-"+i).val(1);
-            $("#button-check-"+i).addClass("button-success");
-            $("#button-check-"+i).removeClass("button-warning");
-            $("#button-check-"+i).removeClass("button-error");
-        }else{
-            $("#fonte-valicacao-"+i).val(0);
-            let porcento = (tempo_ace_usado[2]/tempo)*100;
-            tempo_ace_usado[2] = tempo_ace_usado[2]-tempo;
-            if(porcento>70){
-                $("#button-check-"+i).addClass("button-warning");
-                $("#button-check-"+i).removeClass("button-success");
+            if(tempo_ace_usado[2]>tempo){
+                tempo_ace_usado[2] = tempo_ace_usado[2]-tempo;
+                pontuvali += parseFloat($('#poder-recebido-'+i).val());
+                $("#fonte-valicacao-"+i).val(1);
+                $("#button-check-"+i).addClass("button-success");
+                $("#button-check-"+i).removeClass("button-warning");
                 $("#button-check-"+i).removeClass("button-error");
             }else{
-                $("#button-check-"+i).addClass("button-error");
-                $("#button-check-"+i).removeClass("button-warning");
-                $("#button-check-"+i).removeClass("button-success");
+                $("#fonte-valicacao-"+i).val(0);
+                let porcento = (tempo_ace_usado[2]/tempo)*100;
+                tempo_ace_usado[2] = tempo_ace_usado[2]-tempo;
+                if(porcento>70){
+                    $("#button-check-"+i).addClass("button-warning");
+                    $("#button-check-"+i).removeClass("button-success");
+                    $("#button-check-"+i).removeClass("button-error");
+                }else{
+                    $("#button-check-"+i).addClass("button-error");
+                    $("#button-check-"+i).removeClass("button-warning");
+                    $("#button-check-"+i).removeClass("button-success");
+                }
             }
         }
     }
