@@ -261,6 +261,12 @@ function converte_tempo(valor){
     }
     return string;
 }
+function calcula_tempo_infernal(){
+    for(let i; i<id_fonte;i++){
+        let tempo = $("#tempo-real-"+i).val();
+        console.log(tempo);
+    }
+}
 $(document).ready(function(){
     $("#num-1").on("input", function(){
         let textoDigitado = $(this).val();
@@ -274,7 +280,7 @@ $(document).ready(function(){
 
         let infernal = $('#form-infernal').val();
         if(infernal){
-            alert('Ok');
+            calcula_tempo_infernal();
         }
 
     });
@@ -287,6 +293,10 @@ $(document).ready(function(){
         $("#td-gem-3").html('0');
         $("#td-tempo-3").html(string);
         verifica_tr();
+        let infernal = $('#form-infernal').val();
+        if(infernal){
+            calcula_tempo_infernal();
+        }
     });
     $("#num-5").on("input", function(){
         let textoDigitado = $(this).val();
@@ -297,6 +307,10 @@ $(document).ready(function(){
         $("#td-gem-5").html('0');
         $("#td-tempo-5").html(string);
         verifica_tr();
+        let infernal = $('#form-infernal').val();
+        if(infernal){
+            calcula_tempo_infernal();
+        }
     });
     $("#num-10").on("input", function(){
         let textoDigitado = $(this).val();
@@ -307,6 +321,10 @@ $(document).ready(function(){
         $("#td-gem-10").html('0');
         $("#td-tempo-10").html(string);
         verifica_tr();
+        let infernal = $('#form-infernal').val();
+        if(infernal){
+            calcula_tempo_infernal();
+        }
     });
     $("#num-15").on("input", function(){
         let textoDigitado = $(this).val();
@@ -317,6 +335,10 @@ $(document).ready(function(){
         $("#td-gem-15").html(valor*70);
         $("#td-tempo-15").html(string);
         verifica_tr();
+        let infernal = $('#form-infernal').val();
+        if(infernal){
+            calcula_tempo_infernal();
+        }
     });
 
     $("#num-30").on("input", function(){
@@ -328,6 +350,10 @@ $(document).ready(function(){
         $("#td-gem-30").html('0');
         $("#td-tempo-30").html(string);
         verifica_tr();
+        let infernal = $('#form-infernal').val();
+        if(infernal){
+            calcula_tempo_infernal();
+        }
     });
 
     $("#num-60").on("input", function(){
@@ -339,6 +365,10 @@ $(document).ready(function(){
         $("#td-gem-60").html(valor*130);
         $("#td-tempo-60").html(string);
         verifica_tr();
+        let infernal = $('#form-infernal').val();
+        if(infernal){
+            calcula_tempo_infernal();
+        }
     });
 
     $("#num-300").on("input", function(){
@@ -350,6 +380,10 @@ $(document).ready(function(){
         $("#td-gem-300").html(valor*800);
         $("#td-tempo-300").html(string);
         verifica_tr();
+        let infernal = $('#form-infernal').val();
+        if(infernal){
+            calcula_tempo_infernal();
+        }
     });
 
     $("#num-800").on("input", function(){
@@ -361,6 +395,10 @@ $(document).ready(function(){
         $("#td-gem-800").html(valor*650);
         $("#td-tempo-800").html(string);
         verifica_tr();
+        let infernal = $('#form-infernal').val();
+        if(infernal){
+            calcula_tempo_infernal();
+        }
     });
     $("#num-1500").on("input", function(){
         let textoDigitado = $(this).val();
@@ -371,6 +409,10 @@ $(document).ready(function(){
         $("#td-gem-1500").html(valor*1000);
         $("#td-tempo-1500").html(string);
         verifica_tr();
+        let infernal = $('#form-infernal').val();
+        if(infernal){
+            calcula_tempo_infernal();
+        }
     });
     $("#num-240").on("input", function(){
         let textoDigitado = $(this).val();
@@ -381,6 +423,10 @@ $(document).ready(function(){
         $("#td-gem-240").html(valor*1500);
         $("#td-tempo-240").html(string);
         verifica_tr();
+        let infernal = $('#form-infernal').val();
+        if(infernal){
+            calcula_tempo_infernal();
+        }
     });
     $("#num-3000").on("input", function(){
         let textoDigitado = $(this).val();
@@ -391,6 +437,10 @@ $(document).ready(function(){
         $("#td-gem-3000").html(valor*4400);
         $("#td-tempo-3000").html(string);
         verifica_tr();
+        let infernal = $('#form-infernal').val();
+        if(infernal){
+            calcula_tempo_infernal();
+        }
     });
     $("#num-700").on("input", function(){
         var textoDigitado = $(this).val();
@@ -401,6 +451,10 @@ $(document).ready(function(){
         $("#td-gem-700").html(valor*10000);
         $("#td-tempo-700").html(string);
         verifica_tr();
+        let infernal = $('#form-infernal').val();
+        if(infernal){
+            calcula_tempo_infernal();
+        }
     });
     $("#num-30000").on("input", function(){
         let textoDigitado = $(this).val();
@@ -411,6 +465,10 @@ $(document).ready(function(){
         $("#td-gem-30000").html(valor*40000);
         $("#td-tempo-30000").html(string);
         verifica_tr();
+        let infernal = $('#form-infernal').val();
+        if(infernal){
+            calcula_tempo_infernal();
+        }
     });
     
     $("#danger").on("input", function(){
