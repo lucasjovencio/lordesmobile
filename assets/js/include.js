@@ -264,6 +264,7 @@ function converte_tempo(valor){
 function calcula_tempo_infernal(){
     tempo_ace_usado[2]=tempo_aceleradores[2];
     let pontu_aux = pontu_nece;
+    let pontuvali=0;
     for(let i=0; i<id_fonte;i++){
         let tempo = $("#tempo-real-"+i).val();
         tempo = tempo.split(' ');
@@ -276,7 +277,7 @@ function calcula_tempo_infernal(){
 
         if(tempo_ace_usado[2]>tempo){
             tempo_ace_usado[2] = tempo_ace_usado[2]-tempo;
-            pontu_aux -= parseFloat($('#poder-recebido-'+i).val());
+            pontuvali += parseFloat($('#poder-recebido-'+i).val());
             $("#fonte-valicacao-"+i).val(1);
             $("#button-check-"+i).addClass("button-success");
             $("#button-check-"+i).removeClass("button-warning");
@@ -296,12 +297,13 @@ function calcula_tempo_infernal(){
             }
         }
     }
+    pontu_aux -=pontuvali;
     if(pontu_aux<=0){
         $("#pontu-necessaria").addClass("button-warning");
         $("#pontu-necessaria").removeClass("button-success");
         $("#pontu-necessaria").removeClass("button-error");
     }else{
-        let porcento = (pontu_aux/pontu_nece)*100;
+        let porcento = (pontuvali/pontu_aux)*100;
         if(porcento>70){
             $("#pontu-necessaria").addClass("button-warning");
             $("#pontu-necessaria").removeClass("button-success");
