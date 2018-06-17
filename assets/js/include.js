@@ -150,6 +150,7 @@ function calculo_dano_monstro(valorInicial,qtnAtaque,vidaInitial,ataqConseq){
     check_td_danger();
     if(ataqConseq){
         for(let i=1;i<=qtnAtaque;i++){
+            valorInicial = parseFloat(valorInicial).toFixed(2);
             $("#atac-m-"+i).html('#');
             $("#dan-m-"+i).html(valorInicial);
             vidaInitial=parseFloat(vidaInitial).toFixed(2);
@@ -157,7 +158,7 @@ function calculo_dano_monstro(valorInicial,qtnAtaque,vidaInitial,ataqConseq){
             vidaInitial=vidaInitial-valorInicial;
             vidaInitial = vidaInitial <=0 ? 0 : parseFloat(vidaInitial).toFixed(2);
             $("#vida-mm-"+i).html(vidaInitial);
-            valorInicial+=valorInicial;
+            valorInicial=valorInicial+valorInicial;
             
         }
     }else{
