@@ -1,5 +1,6 @@
 var gemas = [5,0,0,0,70,0,130,300,650,1000,1500,4400,10000,40000];
 var tempo_aceleradores = [0,0,0]; // quantidade , gemas , tempo
+var tempo_sub_aceleradores = [0,0,0]; // quantidade , gemas , tempo
 function verifica_tr(){
     let table = $('table.table-vel');
     let i = 0;
@@ -267,10 +268,13 @@ function calcula_tempo_infernal(){
         tempo = tempo.split(' ');
         let dia = parseInt(tempo[0]);
         console.log(tempo);
-        tempo = tempo[3];
+        tempo = tempo[2];
         tempo = tempo.split(':');
+        let hora = parseInt(tempo[0]);
+        let minuto = parseInt(tempo[1]);
         console.log(dia);
-        console.log(tempo);
+        console.log(hora);
+        console.log(minuto);
     }
 }
 $(document).ready(function(){
