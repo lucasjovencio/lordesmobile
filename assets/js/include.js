@@ -53,7 +53,7 @@ function adicionarFonte(){
             
             '<div class="pure-u-1-2 pure-u-md-1-2">'+
                 '<label for="min">Peso da Fonte</label>'+
-                '<input id="peso-fonte-'+id_fonte+'"  class="pure-u-23-24" type="number" placeholder="0" min="0" max="20000">
+                '<input id="peso-fonte-'+id_fonte+'"  class="pure-u-23-24" type="number" placeholder="0" min="0" max="20000">'+
             '</div>'+
             
             '<div class="pure-u-1-2 pure-u-md-1-2">'+
