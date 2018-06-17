@@ -305,8 +305,8 @@ function calcula_tempo_infernal(){
     pontu_aux -=pontuvali;
     console.log("Pontu Auxiliar: "+pontu_aux);
     if(pontu_aux<=0){
-        $("#pontu-necessaria").addClass("button-warning");
-        $("#pontu-necessaria").removeClass("button-success");
+        $("#pontu-necessaria").addClass("button-success");
+        $("#pontu-necessaria").removeClass("button-warning");
         $("#pontu-necessaria").removeClass("button-error");
     }else{
         let porcento = (pontuvali/pontu_aux)*100;
