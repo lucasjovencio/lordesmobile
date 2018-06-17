@@ -46,10 +46,10 @@ $.jMaskGlobals = {
     watchDataMask: true,
     byPassKeys: [9, 16, 17, 18, 36, 37, 38, 39, 40, 91],
     translation: {
-      '0': {pattern: /\d/},
+      '0': {pattern: /[0-24]/},
       '9': {pattern: /\d/, optional: true},
       '#': {pattern: /\d/, recursive: true},
-      'A': {pattern: /[a-zA-Z0-9]/},
+      'A': {pattern: /[0-200]/},
       'S': {pattern: /[a-zA-Z]/}
     }
   };
