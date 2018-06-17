@@ -41,6 +41,22 @@ function removerFonte(id){
     $("#fonte-add-"+id).remove();
 }
 function definiPeso(tipo,id){
+    switch(tipo){
+        case 1:
+            break;
+        case 2:
+            $("#peso-fonte-2").prop('disabled', true);
+            $('#peso-fonte-2').val(1);
+            break;
+        case 3:
+            $("#peso-fonte-3").prop('disabled', true);
+            $('#peso-fonte-2').val(1);
+            break;
+        case 4:
+            break;
+        default:
+        break;
+    }
     alert(tipo+" "+id);
 }
 function adicionarFonte(){
