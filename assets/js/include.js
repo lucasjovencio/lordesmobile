@@ -1,7 +1,7 @@
 var gemas = [5,0,0,0,70,0,130,300,650,1000,1500,4400,10000,40000];
 var tempo_aceleradores = [0,0,0]; // quantidade , gemas , tempo
 var tempo_ace_usado = [0,0,0]; // quantidade , gemas , tempo
-var tempo_ace_sub = [0,0,0]; // quantidade , gemas , tempo
+var pontu_nece = 0;
 function verifica_tr(){
     let table = $('table.table-vel');
     tempo_aceleradores[0]=0;tempo_aceleradores[1]=0;tempo_aceleradores[2]=0;
@@ -45,6 +45,7 @@ function applyDatMaskJs(){
 var id_fonte=0;
 function removerFonte(id){
     $("#fonte-add-"+id).remove();
+    calcula_tempo_infernal();
 }
 function definiPeso(tipo,id){
     tipo = parseInt(tipo);
@@ -79,7 +80,7 @@ function adicionarFonte(){
                     '<!--<option value="4">Tropa</option>-->'+
                 '</select>'+
             '</div>'+
-            
+            '<input id="fonte-valicacao-'+id_fonte+'" type="hidden" value="0">'+
             '<div class="pure-u-1-2 pure-u-md-1-2">'+
                 '<label for="min">Peso da Fonte</label>'+
                 '<input id="peso-fonte-'+id_fonte+'"  class="pure-u-23-24" type="number" placeholder="0" min="0" max="20000">'+
@@ -262,7 +263,7 @@ function converte_tempo(valor){
 }
 function calcula_tempo_infernal(){
     tempo_ace_usado[2]=tempo_aceleradores[2];
-
+    let pontu_aux = pontu_nece;
     for(let i=0; i<id_fonte;i++){
         let tempo = $("#tempo-real-"+i).val();
         tempo = tempo.split(' ');
@@ -275,10 +276,13 @@ function calcula_tempo_infernal(){
 
         if(tempo_ace_usado[2]>tempo){
             tempo_ace_usado[2] = tempo_ace_usado[2]-tempo;
+            pontu_aux -= parseFloat($('#poder-recebido-'+i).val());
+            $("#fonte-valicacao-"+i).val(1);
             $("#button-check-"+i).addClass("button-success");
             $("#button-check-"+i).removeClass("button-warning");
             $("#button-check-"+i).removeClass("button-error");
         }else{
+            $("#fonte-valicacao-"+i).val(0);
             let porcento = (tempo_ace_usado[2]/tempo)*100;
             tempo_ace_usado[2] = tempo_ace_usado[2]-tempo;
             if(porcento>70){
@@ -290,6 +294,22 @@ function calcula_tempo_infernal(){
                 $("#button-check-"+i).removeClass("button-warning");
                 $("#button-check-"+i).removeClass("button-success");
             }
+        }
+    }
+    if(pontu_aux<=0){
+        $("#pontu-necessaria").addClass("button-warning");
+        $("#pontu-necessaria").removeClass("button-success");
+        $("#pontu-necessaria").removeClass("button-error");
+    }else{
+        let porcento = (pontu_aux/pontu_nece)*100;
+        if(porcento>70){
+            $("#pontu-necessaria").addClass("button-warning");
+            $("#pontu-necessaria").removeClass("button-success");
+            $("#pontu-necessaria").removeClass("button-error");
+        }else{
+            $("#pontu-necessaria").addClass("button-error");
+            $("#pontu-necessaria").removeClass("button-warning");
+            $("#pontu-necessaria").removeClass("button-success");
         }
     }
 }
@@ -563,5 +583,8 @@ $(document).ready(function(){
         console.log(qtnAtaque);
         console.log(vidaInitial);
         console.log(ataqConseq);
+    });
+    $("#pontu-necessaria").on("input", function(){
+        pontu_nece = pontu_nece   == '' ? 1 : parseFloat($(this).val());
     });
 });
