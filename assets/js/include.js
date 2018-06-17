@@ -38,7 +38,38 @@ function verifica_tr(){
 }
 var id_fonte=0;
 function adicionarFonte(){
-    alert(id_fonte);
+
+    let html = '<div id="fonte-add-'+id_fonte+'"'+ 
+        '<div class="pure-g">'+
+            '<div class="pure-u-1-2 pure-u-md-1-2">'+
+                '<label for="min">Tipo de Fonte</label>'+
+                '<select id="tipo-fonte-'+id_fonte+'" class="pure-u-23-24">'+
+                    '<!--<option value="1">Fundir Pactos</option>-->'+
+                    '<option value="2">Construção</option>'+
+                    '<option value="3">Pesquisa</option>'+
+                    '<!--<option value="4">Tropa</option>-->'+
+                '</select>'+
+            '</div>'+
+            
+            '<div class="pure-u-1-2 pure-u-md-1-2">'+
+                '<label for="min">Peso da Fonte</label>'+
+                '<input id="peso-fonte-'+id_fonte+'"  class="pure-u-23-24" type="number" placeholder="0" min="0" max="20000">
+            '</div>'+
+            
+            '<div class="pure-u-1-2 pure-u-md-1-2">'+
+                '<label for="min">Poder Recebido</label>'+
+                '<input id="poder-recebido-'+id_fonte+'" class="pure-u-23-24" type="number" step="any" min="0" placeholder="0">'+
+            '</div>'+
+
+            '<div class="pure-u-1-2 pure-u-md-1-2">'+
+                '<label for="min">Tempo Real</label>'+
+                '<input id="tempo-real-'+id_fonte+'" class="pure-u-23-24" type="text" step="any" min="0" placeholder="0">'+
+            '</div>'+
+        '<hr>'+
+        '</div>'+
+    '</div>';
+    $("#html-fonte").append(html);
+        
     id_fonte +=1;
 }
 function check_td_danger(reset=1){
