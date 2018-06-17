@@ -36,7 +36,11 @@ function verifica_tr(){
     }
 
 }
-
+var id_fonte=0;
+function adicionarFonte(){
+    alert(id_fonte);
+    id_fonte +=1;
+}
 function check_td_danger(reset=1){
     let table = $('table.table-vel');
     let i = 0;
