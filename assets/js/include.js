@@ -95,11 +95,17 @@ function adicionarFonte(){
                 '<label for="min">Tempo Real</label>'+
                 '<input data-mask="00 D 00:00" data-mask-reverse="true" id="tempo-real-'+id_fonte+'" class="pure-u-23-24" type="text" step="any" min="0" placeholder="30 D 23:55">'+
             '</div>'+
-            '<div class="pure-u-1-1 pure-u-md-1-1">'+
+            '<div class="pure-u-1-2 pure-u-md-1-2">'+
                 '<label for="min">&emsp;</label>'+
-                '<button class="pure-button" onclick="removerFonte('+id_fonte+');return false;">'+
+                '<button class="pure-u-23-24 pure-button" onclick="removerFonte('+id_fonte+');return false;">'+
                     '<i class="fas fa-minus-square"></i>'+
                     'Remover fonte de pontuação'+
+                '</button>'+
+            '</div>'+
+            '<div class="pure-u-1-2 pure-u-md-1-2">'+
+                '<label for="min">&emsp;</label>'+
+                '<button id="button-check-'+id_fonte+'" class="pure-u-23-24 pure-button" onclick="return false;">'+
+                    '<i class="fas fa-clock"></i>'+
                 '</button>'+
             '</div>'+
         '<hr class="hr-fonte-pontuacao">'+
