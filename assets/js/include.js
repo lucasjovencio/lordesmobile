@@ -2,6 +2,9 @@ var gemas = [5,0,0,0,70,0,130,300,650,1000,1500,4400,10000,40000];
 var tempo_aceleradores = [0,0,0]; // quantidade , gemas , tempo
 var tempo_ace_usado = [0,0,0]; // quantidade , gemas , tempo
 var pontu_nece = 0;
+$(document).ready(function () {
+    applyDatMaskJs();
+})
 function verifica_tr(){
     let table = $('table.table-vel');
     tempo_aceleradores[0]=0;tempo_aceleradores[1]=0;tempo_aceleradores[2]=0;
