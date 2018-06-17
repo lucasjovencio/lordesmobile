@@ -262,7 +262,7 @@ function converte_tempo(valor){
     return string;
 }
 function calcula_tempo_infernal(){
-    for(let i; i<id_fonte;i++){
+    for(let i=0; i<id_fonte;i++){
         let tempo = $("#tempo-real-"+i).val();
         console.log(tempo);
     }
