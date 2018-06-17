@@ -88,7 +88,7 @@ function adicionarFonte(){
             
             '<div class="pure-u-1-2 pure-u-md-1-2">'+
                 '<label for="min">Poder Recebido</label>'+
-                '<input data-mask="000,000" data-mask-reverse="true" onkeypress="atualizaTempo(3,'+id_fonte+');return false;" id="poder-recebido-'+id_fonte+'" class="pure-u-23-24" type="number" step="any" min="0" placeholder="0">'+
+                '<input data-mask="000,000" data-mask-reverse="true" onkeypress="atualizaTempo(3,'+id_fonte+');return false;" id="poder-recebido-'+id_fonte+'" class="pure-u-23-24" type="text" step="any" min="0" placeholder="0">'+
             '</div>'+
 
             '<div class="pure-u-1-2 pure-u-md-1-2">'+
