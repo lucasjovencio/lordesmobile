@@ -36,6 +36,10 @@ function verifica_tr(){
     }
 
 }
+
+function applyDatMaskJs(){
+    $.applyDataMask([selector]);
+}
 var id_fonte=0;
 function removerFonte(id){
     $("#fonte-add-"+id).remove();
@@ -101,7 +105,8 @@ function adicionarFonte(){
         '</div>'+
     '</div>';
     $("#html-fonte").append(html);
-        
+    
+    applyDatMaskJs();
     id_fonte +=1;
 }
 function check_td_danger(reset=1){
