@@ -276,12 +276,18 @@ function calcula_tempo_infernal(){
         if(tempo_ace_usado[2]>tempo){
             tempo_ace_usado[2] = tempo_ace_usado[2]-tempo;
             $("#button-check-"+i).addClass("button-success");
+            $("#button-check-"+i).removeClass("button-warning");
+            $("#button-check-"+i).removeClass("button-error");
         }else{
             let porcento = (tempo_ace_usado[2]/tempo)*100;
             if(porcento>70){
                 $("#button-check-"+i).addClass("button-warning");
+                $("#button-check-"+i).removeClass("button-success");
+                $("#button-check-"+i).removeClass("button-error");
             }else{
                 $("#button-check-"+i).addClass("button-error");
+                $("#button-check-"+i).removeClass("button-warning");
+                $("#button-check-"+i).removeClass("button-success");
             }
         }
     }
