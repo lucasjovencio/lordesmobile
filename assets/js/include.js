@@ -91,7 +91,7 @@ function adicionarFonte(){
             
             '<div class="pure-u-1-2 pure-u-md-1-2">'+
                 '<label for="min">Poder Recebido</label>'+
-                '<input data-mask="000,000" data-mask-reverse="true" onkeypress="atualizaTempo(3,'+id_fonte+');return false;" id="poder-recebido-'+id_fonte+'" class="pure-u-23-24" type="text" placeholder="000,000">'+
+                '<input data-mask="000,000" data-mask-reverse="true" id="poder-recebido-'+id_fonte+'" class="pure-u-23-24" type="text" placeholder="000,000">'+
             '</div>'+
 
             '<div class="pure-u-1-2 pure-u-md-1-2">'+
@@ -116,6 +116,7 @@ function adicionarFonte(){
     '</div>';
     $("#html-fonte").append(html);
     
+    applyDatMaskJs();
     id_fonte +=1;
 }
 function check_td_danger(reset=1){
@@ -202,7 +203,6 @@ function converte_tempo(valor){
             dias = parseInt(horas/24);
             horas = horas%24;
             minutos = minutos%60;
-            console.log(horas);
             if(dias>1 && horas>1 && minutos>1){
                 string = dias+" Dias "+horas+" Hrs "+minutos+" mins";
             }
