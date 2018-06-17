@@ -267,6 +267,9 @@ function calcula_tempo_infernal(){
     let pontuvali=0;
     for(let i=0; i<id_fonte;i++){
         let tempo = $("#tempo-real-"+i).val();
+        if(tempo==''){
+            continue;
+        }
         tempo = tempo.split(' ');
         let dia = (parseInt(tempo[0]))*1440;
         tempo = tempo[2];
@@ -297,13 +300,17 @@ function calcula_tempo_infernal(){
             }
         }
     }
+    console.log("Pontu Maxima: "+pontu_nece);
+    console.log("Pontu Calculada: "+pontuvali);
     pontu_aux -=pontuvali;
+    console.log("Pontu Auxiliar: "+pontu_aux);
     if(pontu_aux<=0){
         $("#pontu-necessaria").addClass("button-warning");
         $("#pontu-necessaria").removeClass("button-success");
         $("#pontu-necessaria").removeClass("button-error");
     }else{
         let porcento = (pontuvali/pontu_aux)*100;
+        console.log("Pontu Porcento: "+porcento);
         if(porcento>70){
             $("#pontu-necessaria").addClass("button-warning");
             $("#pontu-necessaria").removeClass("button-success");
