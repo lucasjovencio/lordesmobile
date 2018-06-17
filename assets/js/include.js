@@ -37,16 +37,14 @@ function verifica_tr(){
 
 }
 
-$(document).ready(function(){
-    $.jMaskGlobals = {
-        dataMaskAttr: '*[data-mask]',
-        dataMask: true,
-        translation: {
-            'AA': {pattern: /[0-600*]/},
-            'HH': {pattern: /[0-24*]/},
-            'MM': {pattern: /[0-59*]/}
-        }
-    };
+$.jMaskGlobals = {
+    dataMaskAttr: '*[data-mask]',
+    dataMask: true,
+    translation: {
+        'AA': {pattern: /[0-600*]/},
+        'HH': {pattern: /[0-24*]/},
+        'MM': {pattern: /[0-59*]/}
+    }
 }
 
 function applyDatMaskJs(){
