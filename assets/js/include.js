@@ -155,7 +155,7 @@ function calculo_dano_monstro(valorInicial,qtnAtaque,vidaInitial,ataqConseq){
             vidaInitial=parseFloat(vidaInitial).toFixed(2);
             $("#vida-m-"+i).html(vidaInitial);
             vidaInitial=vidaInitial-valorInicial;
-            vidaInitial = vidaInitial <=0 ? 0 : vidaInitial;
+            vidaInitial = vidaInitial <=0 ? 0 : parseFloat(vidaInitial).toFixed(2);
             $("#vida-mm-"+i).html(vidaInitial);
             valorInicial+=valorInicial;
             
@@ -173,17 +173,16 @@ function calculo_dano_monstro(valorInicial,qtnAtaque,vidaInitial,ataqConseq){
             }else{
                 let valT = tabelaDano[(i-1)];
                 let porcento = parseFloat(valT)/parseFloat(valorInicial);
-                porcento = porcento.toFixed(1);
+                porcento = porcento.toFixed(5);
                 let porcentM = parseFloat(valorInicial) + parseFloat(porcento);
                 porcentM = porcentM.toFixed(2);
 
                 $("#atac-m-"+i).html(tabelaDano[(i-1)]);
                 $("#dan-m-"+i).html(porcentM);
                 vidaInitial=parseFloat(vidaInitial);
-                vidaInitial = vidaInitial.toFixed(2);
                 $("#vida-m-"+i).html(vidaInitial);
                 vidaInitial=parseFloat(vidaInitial-porcentM);
-                vidaInitial = vidaInitial.toFixed(2);
+                vidaInitial = vidaInitial <=0 ? 0 : parseFloat(vidaInitial).toFixed(2);
                 $("#vida-mm-"+i).html(vidaInitial);
                 valorInicial=valorInicial+porcentM;
             }
@@ -280,7 +279,7 @@ function calcula_tempo_infernal(){
     for(let i=0; i<id_fonte;i++){
         let tempo = $("#tempo-real-"+i).val();
         console.log(tempo);
-        if(tempo==null){
+        if(tempo==null || tempo==''){
             continue;
         }
         else{
