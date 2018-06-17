@@ -271,6 +271,12 @@ $(document).ready(function(){
         $("#td-gem-1").html(valor*5);
         $("#td-tempo-1").html(string);
         verifica_tr();
+
+        let infernal = $('#form-infernal').val();
+        if(infernal){
+            alert('Ok');
+        }
+
     });
     $("#num-3").on("input", function(){
         let textoDigitado = $(this).val();
