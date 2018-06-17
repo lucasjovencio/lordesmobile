@@ -42,12 +42,9 @@ function removerFonte(id){
 }
 function adicionarFonte(){
 
-    let html = '<div id="fonte-add-'+id_fonte+'"'+
-        '<div class="pure-g">';
-        if (id_fonte==0){
-            html +='<hr class="hr-fonte-pontuacao">';
-        }
-    html += '<div class="pure-u-1-2 pure-u-md-1-2">'+
+    let html = '<div id="fonte-add-'+id_fonte+'"'+ 
+        '<div class="pure-g">'+
+            '<div class="pure-u-1-2 pure-u-md-1-2">'+
                 '<label for="min">Tipo de Fonte</label>'+
                 '<select id="tipo-fonte-'+id_fonte+'" class="pure-u-23-24">'+
                     '<!--<option value="1">Fundir Pactos</option>-->'+
