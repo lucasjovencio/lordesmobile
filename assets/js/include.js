@@ -37,6 +37,9 @@ function verifica_tr(){
 
 }
 var id_fonte=0;
+function removerFonte(id){
+    $("#fonte-add-"+id).remove();
+}
 function adicionarFonte(){
 
     let html = '<div id="fonte-add-'+id_fonte+'"'+ 
@@ -64,6 +67,13 @@ function adicionarFonte(){
             '<div class="pure-u-1-2 pure-u-md-1-2">'+
                 '<label for="min">Tempo Real</label>'+
                 '<input id="tempo-real-'+id_fonte+'" class="pure-u-23-24" type="text" step="any" min="0" placeholder="0">'+
+            '</div>'+
+            '<div class="pure-u-1-1 pure-u-md-1-1">'+
+                '<label for="min">&emsp;</label>'+
+                '<button class="pure-button" onclick="removerFonte('+id_fonte+');return false;">'+
+                    '<i class="fas fa-minus-square"></i>'+
+                    'Adicionar Fonte de Pontuação'+
+                '</button>'+
             '</div>'+
         '<hr>'+
         '</div>'+
