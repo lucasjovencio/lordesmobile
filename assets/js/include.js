@@ -72,10 +72,10 @@ function adicionarFonte(){
                 '<label for="min">&emsp;</label>'+
                 '<button class="pure-button" onclick="removerFonte('+id_fonte+');return false;">'+
                     '<i class="fas fa-minus-square"></i>'+
-                    'Adicionar Fonte de Pontuação'+
+                    'Remover fonte de pontuação'+
                 '</button>'+
             '</div>'+
-        '<hr>'+
+        '<hr class="hr-fonte-pontuacao">'+
         '</div>'+
     '</div>';
     $("#html-fonte").append(html);
