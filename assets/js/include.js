@@ -268,6 +268,7 @@ function calcula_tempo_infernal(){
     for(let i=0; i<id_fonte;i++){
         let tempo = '';
         tempo = $("#tempo-real-"+i).val();
+        console.log(tempo);
         if(tempo==''){
             continue;
         }
