@@ -91,7 +91,7 @@ function adicionarFonte(){
             
             '<div class="pure-u-1-2 pure-u-md-1-2">'+
                 '<label for="min">Poder Recebido</label>'+
-                '<input data-mask="000,000" onkeypress="atualizaTempo(3,'+id_fonte+');" data-mask-reverse="true" id="poder-recebido-'+id_fonte+'" class="pure-u-23-24" type="text" placeholder="000,000">'+
+                '<input data-mask="000,000" onkeypress="atualizaTempo(3,'+id_fonte+');" data-mask-reverse="true" id="poder-recebido-'+id_fonte+'" class="pure-u-23-24" type="text" step="any" placeholder="000,000">'+
             '</div>'+
 
             '<div class="pure-u-1-2 pure-u-md-1-2">'+
