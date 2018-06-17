@@ -1,8 +1,8 @@
 var gemas = [5,0,0,0,70,0,130,300,650,1000,1500,4400,10000,40000];
 var tempo_aceleradores = [0,0,0]; // quantidade , gemas , tempo
-var tempo_sub_aceleradores = [0,0,0]; // quantidade , gemas , tempo
 function verifica_tr(){
     let table = $('table.table-vel');
+    tempo_aceleradores[0]=0;tempo_aceleradores[1]=0;tempo_aceleradores[2]=0;
     let i = 0;
     table.find('tbody > tr').each(function() {
 
@@ -37,8 +37,6 @@ function verifica_tr(){
     }
 
 }
-
-
 function applyDatMaskJs(){
     $.applyDataMask();
 }
@@ -65,8 +63,6 @@ function definiPeso(tipo,id){
         break;
     }
 }
-
-
 function adicionarFonte(){
 
     let html = '<div id="fonte-add-'+id_fonte+'"'+ 
@@ -266,15 +262,12 @@ function calcula_tempo_infernal(){
     for(let i=0; i<id_fonte;i++){
         let tempo = $("#tempo-real-"+i).val();
         tempo = tempo.split(' ');
-        let dia = parseInt(tempo[0]);
+        let dia = (parseInt(tempo[0]))*1440;
         console.log(tempo);
         tempo = tempo[2];
         tempo = tempo.split(':');
-        let hora = parseInt(tempo[0]);
+        let hora = (parseInt(tempo[0]))*60;
         let minuto = parseInt(tempo[1]);
-        console.log(dia);
-        console.log(hora);
-        console.log(minuto);
     }
 }
 $(document).ready(function(){
