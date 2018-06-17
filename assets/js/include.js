@@ -264,8 +264,11 @@ function converte_tempo(valor){
 function calcula_tempo_infernal(){
     for(let i=0; i<id_fonte;i++){
         let tempo = $("#tempo-real-"+i).val();
+        tempo = tempo.split(' ');
+        let dia = parseInt(tempo[0]);
+        tempo = tempo[4].split(':');
+        console.log(dia);
         console.log(tempo);
-        console.log(tempo_aceleradores);
     }
 }
 $(document).ready(function(){
