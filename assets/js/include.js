@@ -266,7 +266,8 @@ function calcula_tempo_infernal(){
         let tempo = $("#tempo-real-"+i).val();
         tempo = tempo.split(' ');
         let dia = parseInt(tempo[0]);
-        tempo = tempo[4].split(':');
+        tempo = tempo[4];
+        tempo = tempo.split(':');
         console.log(dia);
         console.log(tempo);
     }
