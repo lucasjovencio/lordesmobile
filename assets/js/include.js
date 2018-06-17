@@ -86,17 +86,17 @@ function adicionarFonte(){
             '<input id="fonte-valicacao-'+id_fonte+'" type="hidden" value="0">'+
             '<div class="pure-u-1-2 pure-u-md-1-2">'+
                 '<label for="min">Peso da Fonte</label>'+
-                '<input onkeypress="atualizaTempo(2,'+id_fonte+');return false;" id="peso-fonte-'+id_fonte+'"  class="pure-u-23-24" type="number" placeholder="0" min="0" max="20000">'+
+                '<input onkeyup="atualizaTempo(2,'+id_fonte+');return false;" id="peso-fonte-'+id_fonte+'"  class="pure-u-23-24" type="number" placeholder="0" min="0" max="20000">'+
             '</div>'+
             
             '<div class="pure-u-1-2 pure-u-md-1-2">'+
                 '<label for="min">Poder Recebido</label>'+
-                '<input data-mask="000,000" onkeypress="atualizaTempo(3,'+id_fonte+');" data-mask-reverse="true" id="poder-recebido-'+id_fonte+'" class="pure-u-23-24" type="text" step="any" placeholder="000,000">'+
+                '<input data-mask="000,000" onkeyup="atualizaTempo(3,'+id_fonte+');" data-mask-reverse="true" id="poder-recebido-'+id_fonte+'" class="pure-u-23-24" type="text" step="any" placeholder="000,000">'+
             '</div>'+
 
             '<div class="pure-u-1-2 pure-u-md-1-2">'+
                 '<label for="min">Tempo Real</label>'+
-                '<input onkeypress="atualizaTempo(4,'+id_fonte+');" data-mask="00 D 00:00" data-mask-reverse="true" id="tempo-real-'+id_fonte+'" class="pure-u-23-24" type="text" placeholder="30 D 23:55">'+
+                '<input onkeyup="atualizaTempo(4,'+id_fonte+');" data-mask="00 D 00:00" data-mask-reverse="true" id="tempo-real-'+id_fonte+'" class="pure-u-23-24" type="text" placeholder="30 D 23:55">'+
             '</div>'+
             '<div class="pure-u-1-2 pure-u-md-1-2">'+
                 '<label for="min">&emsp;</label>'+
