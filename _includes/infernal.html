@@ -28,6 +28,36 @@
             //tour.start();
         //});
     });
+    
+    (function(){
+        var name = "Friend";
+        var tour = new Tour({
+            storage : false
+        });
+
+        tour.addSteps([
+          {
+            element: ".tour-step.tour-step-one",
+            placement: "bottom",
+            title: "Welcome to our landing page!",
+            content: "What's your name? <br><input class='form-control' type='text' name='your_name'>",
+            onNext : function(tour){
+                var nameProvided = $("input[name=your_name]").val();
+                if ($.trim(nameProvided) !== ""){
+                    name = nameProvided;
+                }
+            }
+          },
+
+        ]);
+
+        // Initialize the tour
+        tour.init();
+
+        // Start the tour
+        tour.start();
+
+    }());
 </script>
 
 <form class="pure-form pure-form-stacked">
@@ -37,7 +67,7 @@
                     <input type="hidden" value='1' id="form-infernal">
                 <div class="pure-u-1-2 pure-u-md-1-2">
                     <label for="min">Pontuação Necessaria</label>
-                    <input data-mask="000,000" data-mask-reverse="true" id="pontu-necessaria" class="pure-u-23-24 one-steep" type="text" step="any" placeholder="000,000">
+                    <input data-mask="000,000" data-mask-reverse="true" id="pontu-necessaria" class="pure-u-23-24 tour-step tour-step-one" type="text" step="any" placeholder="000,000">
                 </div>
 
                 <div class="pure-u-1-2 pure-u-md-1-2">
