@@ -286,7 +286,6 @@ function calcula_tempo_infernal(){
     let prosseguir = 1;
     for(let i=0; i<id_fonte;i++){
         let tempo = $("#tempo-real-"+i).val();
-        console.log(tempo);
         if(tempo==null || tempo==''){
             prosseguir =0;
             continue;
@@ -304,7 +303,7 @@ function calcula_tempo_infernal(){
             if(tempo_ace_usado[2]>tempo){
                 tempo_ace_usado[2] = tempo_ace_usado[2]-tempo;
                 pontuvali += parseFloat($('#poder-recebido-'+i).val().replace(',', '.'));
-
+                console.log(parseFloat($('#poder-recebido-'+i).val().replace(',', '.')));
                 pontuvali += parseFloat($('#poder-recebido-'+i).val());
                 $("#fonte-valicacao-"+i).val(1);
                 $("#button-check-"+i).addClass("button-success");
@@ -328,11 +327,11 @@ function calcula_tempo_infernal(){
 
         }
     }
-    console.log("Pontu Maxima: "+pontu_nece);
-    console.log("Pontu Calculada: "+pontuvali);
+    //console.log("Pontu Maxima: "+pontu_nece);
+    //console.log("Pontu Calculada: "+pontuvali);
     
-    console.log("Tempo Maximo: "+tempo_aceleradores[2]);
-    console.log("Tempo Usado: "+tempo_ace_usado[2]);
+    //console.log("Tempo Maximo: "+tempo_aceleradores[2]);
+    //console.log("Tempo Usado: "+tempo_ace_usado[2]);
 
     pontu_aux -=pontuvali;
     if(prosseguir){
@@ -633,7 +632,7 @@ $(document).ready(function(){
         console.log(ataqConseq);
     });
     $("#pontu-necessaria").on("input", function(){
-        pontu_nece = pontu_nece   == '' ? 1 : parseFloat($(this).val().replace(',', '.')).toFixed(3);
+        pontu_nece = pontu_nece   == '' ? 1 : parseFloat($(this).val().replace(',', '.'));
         console.log(parseFloat($(this).val().replace(',', '.')));
     });
 });
