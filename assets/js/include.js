@@ -272,7 +272,7 @@ function atualizaTempo(tipo,id){
     let tipoFonte = parseInt($('#tipo-fonte-'+id).val());
     let pesoFonte = parseInt($('#peso-fonte-'+id).val());
 
-    let poderRece = parseFloat($('#poder-recebido-'+id).val().replace(',', '.')).toFixed(3);
+    let poderRece = parseFloat($('#poder-recebido-'+id).val().replace(',', '.'));
     let tempoReal = $('#tempo-real-'+id).val();
 
     if(tipoFonte !=0 && pesoFonte !=null && pesoFonte >0 && (poderRece.length)>3 && tempoReal.length > 6 && pontu_nece > 1 ){
