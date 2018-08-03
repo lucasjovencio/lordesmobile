@@ -321,6 +321,13 @@ function calcula_tempo_infernal(){
     pontu_aux -=pontuvali;
     console.log("Tempo Maximo: "+tempo_aceleradores[2]);
     console.log("Tempo Usado: "+tempo_ace_usado[2]);
+
+    //converte_tempo(valor)
+    $(".pontu-atingida").val(pontuvali);
+    $(".tempo-restante").val(converte_tempo(tempo_ace_usado[2]));
+    
+    $( ".infernal_informacoes_extras" ).removeClass( "display-of" ).addClass( "display-on" );
+
     if(pontu_aux<=0){
         $("#pontu-necessaria").addClass("button-success");
         $("#pontu-necessaria").removeClass("button-warning");
