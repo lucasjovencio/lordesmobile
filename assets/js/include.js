@@ -47,8 +47,10 @@ function applyDatMaskJs(){
     $.applyDataMask();
 }
 var id_fonte=0;
+var qtd_fonte = 0;
 function removerFonte(id){
     $("#fonte-add-"+id).remove();
+    qtd_fonte -=1;
     calcula_tempo_infernal();
 }
 function definiPeso(tipo,id){
@@ -120,6 +122,7 @@ function adicionarFonte(){
     
     applyDatMaskJs();
     id_fonte +=1;
+    qtd_fonte +=1;
 }
 function check_td_danger(reset=1){
     let table = $('table.table-vel');
@@ -366,7 +369,7 @@ $(document).ready(function(){
         verifica_tr();
 
         let infernal = $('#form-infernal').val();
-        if(infernal){
+        if(infernal && qtd_fonte){
             calcula_tempo_infernal();
         }
 
@@ -381,7 +384,7 @@ $(document).ready(function(){
         $("#td-tempo-3").html(string);
         verifica_tr();
         let infernal = $('#form-infernal').val();
-        if(infernal){
+        if(infernal && qtd_fonte){
             calcula_tempo_infernal();
         }
     });
@@ -395,7 +398,7 @@ $(document).ready(function(){
         $("#td-tempo-5").html(string);
         verifica_tr();
         let infernal = $('#form-infernal').val();
-        if(infernal){
+        if(infernal && qtd_fonte){
             calcula_tempo_infernal();
         }
     });
@@ -409,7 +412,7 @@ $(document).ready(function(){
         $("#td-tempo-10").html(string);
         verifica_tr();
         let infernal = $('#form-infernal').val();
-        if(infernal){
+        if(infernal && qtd_fonte){
             calcula_tempo_infernal();
         }
     });
@@ -423,7 +426,7 @@ $(document).ready(function(){
         $("#td-tempo-15").html(string);
         verifica_tr();
         let infernal = $('#form-infernal').val();
-        if(infernal){
+        if(infernal && qtd_fonte){
             calcula_tempo_infernal();
         }
     });
@@ -438,7 +441,7 @@ $(document).ready(function(){
         $("#td-tempo-30").html(string);
         verifica_tr();
         let infernal = $('#form-infernal').val();
-        if(infernal){
+        if(infernal && qtd_fonte){
             calcula_tempo_infernal();
         }
     });
@@ -453,7 +456,7 @@ $(document).ready(function(){
         $("#td-tempo-60").html(string);
         verifica_tr();
         let infernal = $('#form-infernal').val();
-        if(infernal){
+        if(infernal && qtd_fonte){
             calcula_tempo_infernal();
         }
     });
@@ -468,7 +471,7 @@ $(document).ready(function(){
         $("#td-tempo-300").html(string);
         verifica_tr();
         let infernal = $('#form-infernal').val();
-        if(infernal){
+        if(infernal && qtd_fonte){
             calcula_tempo_infernal();
         }
     });
@@ -483,7 +486,7 @@ $(document).ready(function(){
         $("#td-tempo-800").html(string);
         verifica_tr();
         let infernal = $('#form-infernal').val();
-        if(infernal){
+        if(infernal && qtd_fonte){
             calcula_tempo_infernal();
         }
     });
@@ -497,7 +500,7 @@ $(document).ready(function(){
         $("#td-tempo-1500").html(string);
         verifica_tr();
         let infernal = $('#form-infernal').val();
-        if(infernal){
+        if(infernal && qtd_fonte){
             calcula_tempo_infernal();
         }
     });
@@ -511,7 +514,7 @@ $(document).ready(function(){
         $("#td-tempo-240").html(string);
         verifica_tr();
         let infernal = $('#form-infernal').val();
-        if(infernal){
+        if(infernal && qtd_fonte){
             calcula_tempo_infernal();
         }
     });
@@ -525,7 +528,7 @@ $(document).ready(function(){
         $("#td-tempo-3000").html(string);
         verifica_tr();
         let infernal = $('#form-infernal').val();
-        if(infernal){
+        if(infernal && qtd_fonte){
             calcula_tempo_infernal();
         }
     });
@@ -539,7 +542,7 @@ $(document).ready(function(){
         $("#td-tempo-700").html(string);
         verifica_tr();
         let infernal = $('#form-infernal').val();
-        if(infernal){
+        if(infernal && qtd_fonte){
             calcula_tempo_infernal();
         }
     });
@@ -553,7 +556,7 @@ $(document).ready(function(){
         $("#td-tempo-30000").html(string);
         verifica_tr();
         let infernal = $('#form-infernal').val();
-        if(infernal){
+        if(infernal && qtd_fonte){
             calcula_tempo_infernal();
         }
     });
