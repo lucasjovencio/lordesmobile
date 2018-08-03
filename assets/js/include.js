@@ -369,7 +369,7 @@ $(document).ready(function(){
         verifica_tr();
 
         let infernal = $('#form-infernal').val();
-        if(infernal && qtd_fonte){
+        if(infernal && qtd_fonte && pontu_nece > 1){
             calcula_tempo_infernal();
         }
 
@@ -384,7 +384,7 @@ $(document).ready(function(){
         $("#td-tempo-3").html(string);
         verifica_tr();
         let infernal = $('#form-infernal').val();
-        if(infernal && qtd_fonte){
+        if(infernal && qtd_fonte && pontu_nece > 1){
             calcula_tempo_infernal();
         }
     });
@@ -398,7 +398,7 @@ $(document).ready(function(){
         $("#td-tempo-5").html(string);
         verifica_tr();
         let infernal = $('#form-infernal').val();
-        if(infernal && qtd_fonte){
+        if(infernal && qtd_fonte && pontu_nece > 1){
             calcula_tempo_infernal();
         }
     });
@@ -412,7 +412,7 @@ $(document).ready(function(){
         $("#td-tempo-10").html(string);
         verifica_tr();
         let infernal = $('#form-infernal').val();
-        if(infernal && qtd_fonte){
+        if(infernal && qtd_fonte && pontu_nece > 1){
             calcula_tempo_infernal();
         }
     });
@@ -426,7 +426,7 @@ $(document).ready(function(){
         $("#td-tempo-15").html(string);
         verifica_tr();
         let infernal = $('#form-infernal').val();
-        if(infernal && qtd_fonte){
+        if(infernal && qtd_fonte && pontu_nece > 1){
             calcula_tempo_infernal();
         }
     });
@@ -441,7 +441,7 @@ $(document).ready(function(){
         $("#td-tempo-30").html(string);
         verifica_tr();
         let infernal = $('#form-infernal').val();
-        if(infernal && qtd_fonte){
+        if(infernal && qtd_fonte && pontu_nece > 1){
             calcula_tempo_infernal();
         }
     });
@@ -456,7 +456,7 @@ $(document).ready(function(){
         $("#td-tempo-60").html(string);
         verifica_tr();
         let infernal = $('#form-infernal').val();
-        if(infernal && qtd_fonte){
+        if(infernal && qtd_fonte && pontu_nece > 1){
             calcula_tempo_infernal();
         }
     });
@@ -471,7 +471,7 @@ $(document).ready(function(){
         $("#td-tempo-300").html(string);
         verifica_tr();
         let infernal = $('#form-infernal').val();
-        if(infernal && qtd_fonte){
+        if(infernal && qtd_fonte && pontu_nece > 1){
             calcula_tempo_infernal();
         }
     });
@@ -486,7 +486,7 @@ $(document).ready(function(){
         $("#td-tempo-800").html(string);
         verifica_tr();
         let infernal = $('#form-infernal').val();
-        if(infernal && qtd_fonte){
+        if(infernal && qtd_fonte && pontu_nece > 1){
             calcula_tempo_infernal();
         }
     });
@@ -500,7 +500,7 @@ $(document).ready(function(){
         $("#td-tempo-1500").html(string);
         verifica_tr();
         let infernal = $('#form-infernal').val();
-        if(infernal && qtd_fonte){
+        if(infernal && qtd_fonte && pontu_nece > 1){
             calcula_tempo_infernal();
         }
     });
@@ -514,7 +514,7 @@ $(document).ready(function(){
         $("#td-tempo-240").html(string);
         verifica_tr();
         let infernal = $('#form-infernal').val();
-        if(infernal && qtd_fonte){
+        if(infernal && qtd_fonte && pontu_nece > 1){
             calcula_tempo_infernal();
         }
     });
@@ -528,7 +528,7 @@ $(document).ready(function(){
         $("#td-tempo-3000").html(string);
         verifica_tr();
         let infernal = $('#form-infernal').val();
-        if(infernal && qtd_fonte){
+        if(infernal && qtd_fonte && pontu_nece > 1){
             calcula_tempo_infernal();
         }
     });
@@ -542,7 +542,7 @@ $(document).ready(function(){
         $("#td-tempo-700").html(string);
         verifica_tr();
         let infernal = $('#form-infernal').val();
-        if(infernal && qtd_fonte){
+        if(infernal && qtd_fonte && pontu_nece > 1){
             calcula_tempo_infernal();
         }
     });
@@ -556,7 +556,7 @@ $(document).ready(function(){
         $("#td-tempo-30000").html(string);
         verifica_tr();
         let infernal = $('#form-infernal').val();
-        if(infernal && qtd_fonte){
+        if(infernal && qtd_fonte && pontu_nece > 1){
             calcula_tempo_infernal();
         }
     });
