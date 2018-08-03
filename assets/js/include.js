@@ -278,13 +278,16 @@ function calcula_tempo_infernal(){
     tempo_ace_usado[2]=tempo_aceleradores[2];
     let pontu_aux = pontu_nece;
     let pontuvali=0;
+    let prosseguir = 1;
     for(let i=0; i<id_fonte;i++){
         let tempo = $("#tempo-real-"+i).val();
         console.log(tempo);
         if(tempo==null || tempo==''){
+            prosseguir =0;
             continue;
         }
         else{
+            prosseguir = 1;
             tempo = tempo.split(' ');
             let dia = (parseInt(tempo[0]))*1440;
             tempo = tempo[2];
@@ -314,36 +317,40 @@ function calcula_tempo_infernal(){
                     $("#button-check-"+i).removeClass("button-success");
                 }
             }
+
+
         }
     }
     console.log("Pontu Maxima: "+pontu_nece);
     console.log("Pontu Calculada: "+pontuvali);
-    pontu_aux -=pontuvali;
+    
     console.log("Tempo Maximo: "+tempo_aceleradores[2]);
     console.log("Tempo Usado: "+tempo_ace_usado[2]);
 
-    //converte_tempo(valor)
-    $("#pontu-atingida").val(pontuvali);
-    $("#tempo-restante").val(converte_tempo(tempo_ace_usado[2]));
-    $("#pontu-atingida").css({"background-color": "#fff", "color": "#be334f"});
-    $("#tempo-restante").css({"background-color": "#fff", "color": "#be334f"});
-    $( ".infernal_informacoes_extras" ).removeClass( "display-of" ).addClass( "display-on" );
+    pontu_aux -=pontuvali;
+    if(prosseguir){
+        $("#pontu-atingida").val(pontuvali);
+        $("#tempo-restante").val(converte_tempo(tempo_ace_usado[2]));
+        $("#pontu-atingida").css({"background-color": "#fff", "color": "#be334f"});
+        $("#tempo-restante").css({"background-color": "#fff", "color": "#be334f"});
+        $( ".infernal_informacoes_extras" ).removeClass( "display-of" ).addClass( "display-on" );
 
-    if(pontu_aux<=0){
-        $("#pontu-necessaria").addClass("button-success");
-        $("#pontu-necessaria").removeClass("button-warning");
-        $("#pontu-necessaria").removeClass("button-error");
-    }else{
-        let porcento = (pontuvali/pontu_aux)*100;
-        console.log("Pontu Porcento: "+porcento);
-        if(porcento>70){
-            $("#pontu-necessaria").addClass("button-warning");
-            $("#pontu-necessaria").removeClass("button-success");
+        if(pontu_aux<=0){
+            $("#pontu-necessaria").addClass("button-success");
+            $("#pontu-necessaria").removeClass("button-warning");
             $("#pontu-necessaria").removeClass("button-error");
         }else{
-            $("#pontu-necessaria").addClass("button-error");
-            $("#pontu-necessaria").removeClass("button-warning");
-            $("#pontu-necessaria").removeClass("button-success");
+            let porcento = (pontuvali/pontu_aux)*100;
+            console.log("Pontu Porcento: "+porcento);
+            if(porcento>70){
+                $("#pontu-necessaria").addClass("button-warning");
+                $("#pontu-necessaria").removeClass("button-success");
+                $("#pontu-necessaria").removeClass("button-error");
+            }else{
+                $("#pontu-necessaria").addClass("button-error");
+                $("#pontu-necessaria").removeClass("button-warning");
+                $("#pontu-necessaria").removeClass("button-success");
+            }
         }
     }
 }
