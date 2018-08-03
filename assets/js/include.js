@@ -276,7 +276,6 @@ function atualizaTempo(tipo,id){
     let tempoReal = $('#tempo-real-'+id).val();
     verifica_tr();
     if(tipoFonte !=0 && pesoFonte !=null && pesoFonte >0 && poderRece && tempoReal.length > 6 && pontu_nece > 1){
-        console.log('oi');
         calcula_tempo_infernal();
     }
 }
