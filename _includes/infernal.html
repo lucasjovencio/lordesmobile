@@ -1,26 +1,33 @@
-<script>
-    (function(){
-        var name = "Friend";
-        var tour = new Tour({
-            storage : false
-        });
+<script> 
 
-        // Add your steps
-        tour.addSteps([
-          {
-            element: ".tour-step.tour-step-one", // element selector to show the popover next to;
+    $(function () {
+        var tour = new Tour();
+        tour.addStep({
+            element: ".one-steep", // element selector to show the popover next to;
             title: "Bem-Vindo a calculadora infernal!",
             content: "Vamos começar escrevendo o total de pontos que você precisa."
-          }
-        ]);
+        });
 
+        //tour.addStep({
+          //element: "#two",
+          //title: "Step 2",
+          //content: "Content for step 2"
+        //});
+
+        //tour.addStep({
+          //element: "#three",
+          //title: "Step 3",
+          //content: "Content for step 3"
+        //});
         // Initialize the tour
         tour.init();
-
-        // Start the tour
         tour.start();
-
-    }());
+        
+        //$('#tour-go').click(function () {
+            // Start the tour
+            //tour.start();
+        //});
+    });
 </script>
 
 <form class="pure-form pure-form-stacked">
@@ -30,7 +37,7 @@
                     <input type="hidden" value='1' id="form-infernal">
                 <div class="pure-u-1-2 pure-u-md-1-2">
                     <label for="min">Pontuação Necessaria</label>
-                    <input data-mask="000,000" data-mask-reverse="true" id="pontu-necessaria" class="pure-u-23-24 tour-step tour-step-one" type="text" step="any" placeholder="000,000">
+                    <input data-mask="000,000" data-mask-reverse="true" id="pontu-necessaria" class="pure-u-23-24 one-steep" type="text" step="any" placeholder="000,000">
                 </div>
 
                 <div class="pure-u-1-2 pure-u-md-1-2">
