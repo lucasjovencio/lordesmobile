@@ -274,7 +274,7 @@ function atualizaTempo(tipo,id){
 
     let poderRece = parseFloat($('#poder-recebido-'+id).val().replace(',', '.'));
     let tempoReal = $('#tempo-real-'+id).val();
-
+    console.log(poderRece);
     if(tipoFonte !=0 && pesoFonte !=null && pesoFonte >0 && (poderRece.length)>3 && tempoReal.length > 6 && pontu_nece > 1 ){
         calcula_tempo_infernal();
     }
@@ -304,6 +304,8 @@ function calcula_tempo_infernal(){
             if(tempo_ace_usado[2]>tempo){
                 tempo_ace_usado[2] = tempo_ace_usado[2]-tempo;
                 pontuvali += parseFloat($('#poder-recebido-'+i).val().replace(',', '.'));
+
+                pontuvali += parseFloat($('#poder-recebido-'+i).val());
                 $("#fonte-valicacao-"+i).val(1);
                 $("#button-check-"+i).addClass("button-success");
                 $("#button-check-"+i).removeClass("button-warning");
