@@ -121,3 +121,9 @@
 .visivel{
     visibility: visible;
 }
+.display-of{
+    display: none;
+}
+.display-on{
+    display: initial;
+}
