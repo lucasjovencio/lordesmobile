@@ -632,6 +632,6 @@ $(document).ready(function(){
     });
     $("#pontu-necessaria").on("input", function(){
         pontu_nece = pontu_nece   == '' ? 1 : parseFloat($(this).val().replace(',', '.')).toFixed(3);
-        console(parseFloat($(this).val().replace(',', '.')));
+        console.log(parseFloat($(this).val().replace(',', '.')));
     });
 });
