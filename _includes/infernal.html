@@ -1,36 +1,5 @@
-<script> 
-
-    $(function () {
-        var tour = new Tour();
-        tour.addStep({
-            element: ".one-steep", // element selector to show the popover next to;
-            title: "Bem-Vindo a calculadora infernal!",
-            content: "Vamos começar escrevendo o total de pontos que você precisa."
-        });
-
-        //tour.addStep({
-          //element: "#two",
-          //title: "Step 2",
-          //content: "Content for step 2"
-        //});
-
-        //tour.addStep({
-          //element: "#three",
-          //title: "Step 3",
-          //content: "Content for step 3"
-        //});
-        // Initialize the tour
-        tour.init();
-        tour.start();
-        
-        //$('#tour-go').click(function () {
-            // Start the tour
-            //tour.start();
-        //});
-    });
-    
+<script>     
     (function(){
-        var name = "Friend";
         var tour = new Tour({
             storage : false
         });
@@ -39,14 +8,8 @@
           {
             element: ".tour-step.tour-step-one",
             placement: "bottom",
-            title: "Welcome to our landing page!",
-            content: "What's your name? <br><input class='form-control' type='text' name='your_name'>",
-            onNext : function(tour){
-                var nameProvided = $("input[name=your_name]").val();
-                if ($.trim(nameProvided) !== ""){
-                    name = nameProvided;
-                }
-            }
+            title: "Bem-Vindo a calculadora infernal!",
+            content: "Vamos começar escrevendo o total de pontos que você precisa.",
           },
 
         ]);
