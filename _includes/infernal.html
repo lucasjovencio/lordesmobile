@@ -1,53 +1,53 @@
 <script>
-    // Instance the tour
-    var tour = new Tour({
-      name: "tour",
-      steps: [],
-      container: "body",
-      smartPlacement: true,
-      keyboard: true,
-      storage: window.localStorage,
-      debug: false,
-      backdrop: false,
-      backdropContainer: 'body',
-      backdropPadding: 0,
-      redirect: true,
-      orphan: false,
-      duration: false,
-      delay: false,
-      basePath: "",
-      template: "<div class='popover tour'>
-        <div class='arrow'></div>
-        <h3 class='popover-title'></h3>
-        <div class='popover-content'></div>
-        <div class='popover-navigation'>
-            <button class='btn btn-default' data-role='prev'>« Prev</button>
-            <span data-role='separator'>|</span>
-            <button class='btn btn-default' data-role='next'>Next »</button>
-        </div>
-        <button class='btn btn-default' data-role='end'>End tour</button>
-      </div>",
-      afterGetState: function (key, value) {},
-      afterSetState: function (key, value) {},
-      afterRemoveState: function (key, value) {},
-      onStart: function (tour) {},
-      onEnd: function (tour) {},
-      onShow: function (tour) {},
-      onShown: function (tour) {},
-      onHide: function (tour) {},
-      onHidden: function (tour) {},
-      onNext: function (tour) {},
-      onPrev: function (tour) {},
-      onPause: function (tour, duration) {},
-      onResume: function (tour, duration) {},
-      onRedirectError: function (tour) {}
-    });
-    
-    // Initialize the tour
-    tour.init();
+    (function(){
+        var name = "Friend";
+        var tour = new Tour({
+            storage : false
+        });
 
-    // Start the tour
-    tour.start();
+        tour.addSteps([
+          {
+            element: ".tour-step.tour-step-one",
+            placement: "bottom",
+            title: "Welcome to our landing page!",
+            content: "What's your name? <br><input class='form-control' type='text' name='your_name'>",
+            onNext : function(tour){
+                var nameProvided = $("input[name=your_name]").val();
+                if ($.trim(nameProvided) !== ""){
+                    name = nameProvided;
+                }
+            }
+          },
+          {
+            element: ".tour-step.tour-step-two",
+            placement: "bottom",
+            title: function(){ return "Welcome, " + name; },
+            content: "Here are the sections of this page, easily laid out."
+          },
+          {
+            element: ".tour-step.tour-step-three",
+            placement: "top",
+            backdrop: true,
+            title: "Main section",
+            content: "This is a section that you can read. It has valuable information."
+          },
+          {
+            element: ".tour-step.tour-step-four",
+            placement: "top",
+            orphan: true,
+            title: "Thank you.",
+            content: function(){ return "We can't wait to see what you think, "+name+"!" }
+          },
+
+        ]);
+
+        // Initialize the tour
+        tour.init();
+
+        // Start the tour
+        tour.start();
+
+    }());
 </script>
 
 <form class="pure-form pure-form-stacked">
