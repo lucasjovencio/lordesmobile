@@ -4,7 +4,7 @@ var tempo_ace_usado = [0,0,0]; // quantidade , gemas , tempo
 var pontu_nece = 0;
 $(document).ready(function () {
     applyDatMaskJs();
-    $( ".infernal_informacoes_extras" ).addClass( "invisivel" );
+    $( ".infernal_informacoes_extras" ).addClass( "display-of" );
 })
 function verifica_tr(){
     let table = $('table.table-vel');
