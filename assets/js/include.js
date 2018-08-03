@@ -325,7 +325,8 @@ function calcula_tempo_infernal(){
     //converte_tempo(valor)
     $("#pontu-atingida").val(pontuvali);
     $("#tempo-restante").val(converte_tempo(tempo_ace_usado[2]));
-
+    $("#pontu-atingida").css({"background-color": "#fff", "color": "#be334f"});
+    $("#tempo-restante").css({"background-color": "#fff", "color": "#be334f"});
     $( ".infernal_informacoes_extras" ).removeClass( "display-of" ).addClass( "display-on" );
 
     if(pontu_aux<=0){
