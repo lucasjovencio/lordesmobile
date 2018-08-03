@@ -17,7 +17,13 @@
         placement: "bottom",
         title: "Adicionando Aceleradores.",
         content: "Agora vamos registrar todos os aceleradores, olhe na sua bolsa e coloque a quantidade indicada!, Dica, some os aceleradores comuns com os aceleradores de pesquisa e adicione o total.",
-      }
+      },
+      {
+        element: ".tour-step.tour-step-tree",
+        placement: "bottom",
+        title: "Adicionando fonte de pontuação.",
+        content: "Vamos adicionar a fonte de pontuação. Essa fonte de pontuação equivale a sua construção, pesquisa, monstro ou labirinto, ou sejá é um item do evento infernal que você deseja completar.",
+      },
  
     ]);
  
@@ -42,7 +48,7 @@
 
                 <div class="pure-u-1-2 pure-u-md-1-2">
                     <label for="min">&emsp;</label>
-                    <button class="pure-button" onclick="adicionarFonte();return false;">
+                    <button class="pure-button tour-step tour-step-tree" onclick="adicionarFonte();return false;">
                         <i class="fas fa-plus-square"></i>
                         Adicionar Fonte de Pontuação
                     </button>
