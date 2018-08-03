@@ -319,7 +319,8 @@ function calcula_tempo_infernal(){
     console.log("Pontu Maxima: "+pontu_nece);
     console.log("Pontu Calculada: "+pontuvali);
     pontu_aux -=pontuvali;
-    console.log("Pontu Auxiliar: "+pontu_aux);
+    console.log("Tempo Maximo: "+tempo_aceleradores[2]);
+    console.log("Tempo Usado: "+tempo_ace_usado[2]);
     if(pontu_aux<=0){
         $("#pontu-necessaria").addClass("button-success");
         $("#pontu-necessaria").removeClass("button-warning");
