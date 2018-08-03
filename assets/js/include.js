@@ -629,8 +629,6 @@ $(document).ready(function(){
         console.log(ataqConseq);
     });
     $("#pontu-necessaria").on("input", function(){
-        //console.log($(this).val());
-        pontu_nece = pontu_nece   == '' ? 1 : parseFloat($(this).val());
-        console.log(parseFloat($(this).val().replace(',', '.')).toFixed(3));
+        pontu_nece = pontu_nece   == '' ? 1 : parseFloat($(this).val().replace(',', '.')).toFixed(3);
     });
 });
