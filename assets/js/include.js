@@ -273,7 +273,7 @@ function atualizaTempo(tipo,id){
     let pesoFonte = parseInt($('#peso-fonte-'+id).val());
     let poderRece = $('#poder-recebido-'+id).val();
     let tempoReal = $('#tempo-real-'+id).val();
-    if(tipoFonte !=0 && pesoFonte !=null && pesoFonte >0 && (poderRece.length)>3 && tempoReal.length > 6 ){
+    if(tipoFonte !=0 && pesoFonte !=null && pesoFonte >0 && (poderRece.length)>3 && tempoReal.length > 6 && pontu_nece > 1 ){
         calcula_tempo_infernal();
     }
 }
