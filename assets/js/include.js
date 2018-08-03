@@ -271,8 +271,10 @@ function converte_tempo(valor){
 function atualizaTempo(tipo,id){
     let tipoFonte = parseInt($('#tipo-fonte-'+id).val());
     let pesoFonte = parseInt($('#peso-fonte-'+id).val());
-    let poderRece = $('#poder-recebido-'+id).val();
+
+    let poderRece = parseFloat($('#poder-recebido-'+id).val().replace(',', '.')).toFixed(3);
     let tempoReal = $('#tempo-real-'+id).val();
+
     if(tipoFonte !=0 && pesoFonte !=null && pesoFonte >0 && (poderRece.length)>3 && tempoReal.length > 6 && pontu_nece > 1 ){
         calcula_tempo_infernal();
     }
@@ -630,5 +632,6 @@ $(document).ready(function(){
     });
     $("#pontu-necessaria").on("input", function(){
         pontu_nece = pontu_nece   == '' ? 1 : parseFloat($(this).val().replace(',', '.')).toFixed(3);
+        console(parseFloat($(this).val().replace(',', '.')));
     });
 });
