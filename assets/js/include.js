@@ -53,8 +53,44 @@ function removerFonte(id){
     qtd_fonte -=1;
     calcula_tempo_infernal();
 }
-function definiPeso(tipo,id){
+function definiFormPree(tipo,id_fonte)){
     tipo = parseInt(tipo);
+    definiPeso(tipo,id_fonte);
+
+    let text = '<input id="fonte-valicacao-'+id_fonte+'" type="hidden" value="0">'+
+    '<div class="pure-u-1-2 pure-u-md-1-2">'+
+        '<label for="min">Peso da Fonte</label>'+
+        '<input onkeyup="atualizaTempo(2,'+id_fonte+');return false;" id="peso-fonte-'+id_fonte+'"  class="pure-u-23-24 '+exeF1+'" type="number" placeholder="0" min="0" max="20000">'+
+    '</div>'+
+    
+    '<div class="pure-u-1-2 pure-u-md-1-2">'+
+        '<label for="min">Poder Recebido</label>'+
+        '<input data-mask="000,000" onkeyup="atualizaTempo(3,'+id_fonte+');" data-mask-reverse="true" id="poder-recebido-'+id_fonte+'" class="pure-u-23-24 '+exeF2+'" type="text" step="any" placeholder="000,000">'+
+    '</div>'+
+
+    '<div class="pure-u-1-2 pure-u-md-1-2">'+
+        '<label for="min">Tempo Real</label>'+
+        '<input onkeyup="atualizaTempo(4,'+id_fonte+');" data-mask="00 D 00:00" data-mask-reverse="true" id="tempo-real-'+id_fonte+'" class="pure-u-23-24 '+exeF3+'" type="text" placeholder="30 D 23:55">'+
+    '</div>'+
+    '<div class="pure-u-1-2 pure-u-md-1-2">'+
+        '<label for="min">&emsp;</label>'+
+        '<button class="pure-u-23-24 pure-button '+1+'" onclick="removerFonte('+id_fonte+');return false;">'+
+            '<i class="fas fa-minus-square"></i>'+
+            'Remover fonte de pontuação'+
+        '</button>'+
+    '</div>'+
+    '<div class="pure-u-1-2 pure-u-md-1-2">'+
+        '<label for="min">&emsp;</label>'+
+        '<button id="button-check-'+id_fonte+'" class="pure-u-23-24 pure-button '+2+'" onclick="return false;">'+
+            '<i class="fas fa-clock"></i>'+
+        '</button>'+
+    '</div>';
+
+    $("#form-pree").append(html);
+
+}
+function definiPeso(tipo,id){
+    
     switch(tipo){
         case 1:
             break;
@@ -92,42 +128,17 @@ function adicionarFonte(){
         '<div class="pure-g">'+
             '<div class="pure-u-1-2 pure-u-md-1-2">'+
                 '<label for="min">Tipo de Fonte</label>'+
-                '<select  id="tipo-fonte-'+id_fonte+'" onchange="definiPeso(this.value,'+id_fonte+')" class="pure-u-23-24 '+exeF+'">'+
+                // definiPeso(this.value,'+id_fonte+')
+                '<select  id="tipo-fonte-'+id_fonte+'" onchange="definiFormPree(this.value,'+id_fonte+')" class="pure-u-23-24 '+exeF+'">'+
                     '<option value="0">Selecione...</option>'+
                     '<!--<option value="1">Fundir Pactos</option>-->'+
                     '<option value="2">Construção</option>'+
                     '<option value="3">Pesquisa</option>'+
-                    '<!--<option value="4">Tropa</option>-->'+
+                    '<option value="4">Tropa</option>'+
                 '</select>'+
             '</div>'+
-            '<input id="fonte-valicacao-'+id_fonte+'" type="hidden" value="0">'+
-            '<div class="pure-u-1-2 pure-u-md-1-2">'+
-                '<label for="min">Peso da Fonte</label>'+
-                '<input onkeyup="atualizaTempo(2,'+id_fonte+');return false;" id="peso-fonte-'+id_fonte+'"  class="pure-u-23-24 '+exeF1+'" type="number" placeholder="0" min="0" max="20000">'+
-            '</div>'+
+            '<div id="form-pree"> </div>'+
             
-            '<div class="pure-u-1-2 pure-u-md-1-2">'+
-                '<label for="min">Poder Recebido</label>'+
-                '<input data-mask="000,000" onkeyup="atualizaTempo(3,'+id_fonte+');" data-mask-reverse="true" id="poder-recebido-'+id_fonte+'" class="pure-u-23-24 '+exeF2+'" type="text" step="any" placeholder="000,000">'+
-            '</div>'+
-
-            '<div class="pure-u-1-2 pure-u-md-1-2">'+
-                '<label for="min">Tempo Real</label>'+
-                '<input onkeyup="atualizaTempo(4,'+id_fonte+');" data-mask="00 D 00:00" data-mask-reverse="true" id="tempo-real-'+id_fonte+'" class="pure-u-23-24 '+exeF3+'" type="text" placeholder="30 D 23:55">'+
-            '</div>'+
-            '<div class="pure-u-1-2 pure-u-md-1-2">'+
-                '<label for="min">&emsp;</label>'+
-                '<button class="pure-u-23-24 pure-button '+exeF4+'" onclick="removerFonte('+id_fonte+');return false;">'+
-                    '<i class="fas fa-minus-square"></i>'+
-                    'Remover fonte de pontuação'+
-                '</button>'+
-            '</div>'+
-            '<div class="pure-u-1-2 pure-u-md-1-2">'+
-                '<label for="min">&emsp;</label>'+
-                '<button id="button-check-'+id_fonte+'" class="pure-u-23-24 pure-button '+exeF5+'" onclick="return false;">'+
-                    '<i class="fas fa-clock"></i>'+
-                '</button>'+
-            '</div>'+
         '<hr class="hr-fonte-pontuacao">'+
         '</div>'+
     '</div>';
