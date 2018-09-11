@@ -55,7 +55,7 @@ function removerFonte(id){
 }
 function definiFormPree(tipo,id_fonte){
     tipo = parseInt(tipo);
-    definiPeso(tipo,id_fonte);
+    
 
     let text = '<input id="fonte-valicacao-'+id_fonte+'" type="hidden" value="0">'+
     '<div class="pure-u-1-2 pure-u-md-1-2">'+
@@ -87,6 +87,7 @@ function definiFormPree(tipo,id_fonte){
     '</div>';
 
     $("#form-pree").append(text);
+    definiPeso(tipo,id_fonte);
 
 }
 function definiPeso(tipo,id){
