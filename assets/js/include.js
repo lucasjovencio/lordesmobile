@@ -96,7 +96,7 @@ function definiFormPree(tipo,id_fonte){
         '</button>'+
     '</div>';
 
-    $("#form-pree-"+id_fonte+).html(text);
+    $("#form-pree-"+id_fonte).html(text);
     definiPeso(tipo,id_fonte);
 
 }
