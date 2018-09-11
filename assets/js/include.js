@@ -63,7 +63,7 @@ function definiFormPree(tipo,id_fonte){
             '<option value="0">Selecione...</option>'+
             '<!--<option value="1">Fundir Pactos</option>-->'+
             '<option value="2">Construção</option>'+
-            '<option value="3">Pesquisa</option>'+
+            '<option selected value="3">Pesquisa</option>'+
             '<option value="4">Tropa</option>'+
         '</select>'+
     '</div>'+
