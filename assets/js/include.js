@@ -96,7 +96,7 @@ function definiFormPree(tipo,id_fonte){
         '</button>'+
     '</div>';
 
-    $("#form-pree").html(text);
+    $("#form-pree-"+id_fonte+).html(text);
     definiPeso(tipo,id_fonte);
 
 }
@@ -137,8 +137,8 @@ function adicionarFonte(){
     }
     let html = '<div id="fonte-add-'+id_fonte+'"'+ 
         '<div class="pure-g" id="form-pree">'+
-            '<div id="form-pree">'+
-                '<div class="pure-u-1-2 pure-u-md-1-2">'+
+            '<div id="form-pree-'+id_fonte+'">'+
+                '<div class="pure-g">'+
                     '<label for="min">Tipo de Fonte</label>'+
                     '<select  id="tipo-fonte-'+id_fonte+'" onchange="definiFormPree(this.value,'+id_fonte+')" class="pure-u-23-24 '+exeF+'">'+
                         '<option value="0">Selecione...</option>'+
