@@ -53,7 +53,7 @@ function removerFonte(id){
     qtd_fonte -=1;
     calcula_tempo_infernal();
 }
-function definiFormPree(tipo,id_fonte)){
+function definiFormPree(tipo,id_fonte){
     tipo = parseInt(tipo);
     definiPeso(tipo,id_fonte);
 
