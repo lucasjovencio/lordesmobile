@@ -57,12 +57,23 @@ function definiFormPree(tipo,id_fonte){
     tipo = parseInt(tipo);
     
 
-    let text = '<input id="fonte-valicacao-'+id_fonte+'" type="hidden" value="0">'+
+    let text = '<div class="pure-u-1-2 pure-u-md-1-2">'+
+        '<label for="min">Tipo de Fonte</label>'+
+        '<select  id="tipo-fonte-'+id_fonte+'" onchange="definiFormPree(this.value,'+id_fonte+')" class="pure-u-23-24 '+exeF+'">'+
+            '<option value="0">Selecione...</option>'+
+            '<!--<option value="1">Fundir Pactos</option>-->'+
+            '<option value="2">Construção</option>'+
+            '<option value="3">Pesquisa</option>'+
+            '<option value="4">Tropa</option>'+
+        '</select>'+
+    '</div>'+
+
+    '<input id="fonte-valicacao-'+id_fonte+'" type="hidden" value="0">'+
     '<div class="pure-u-1-2 pure-u-md-1-2">'+
         '<label for="min">Peso da Fonte</label>'+
         '<input onkeyup="atualizaTempo(2,'+id_fonte+');return false;" id="peso-fonte-'+id_fonte+'"  class="pure-u-23-24 '+1+'" type="number" placeholder="0" min="0" max="20000">'+
     '</div>'+
-    
+
     '<div class="pure-u-1-2 pure-u-md-1-2">'+
         '<label for="min">Poder Recebido</label>'+
         '<input data-mask="000,000" onkeyup="atualizaTempo(3,'+id_fonte+');" data-mask-reverse="true" id="poder-recebido-'+id_fonte+'" class="pure-u-23-24 '+1+'" type="text" step="any" placeholder="000,000">'+
