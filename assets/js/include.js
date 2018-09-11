@@ -128,7 +128,6 @@ function adicionarFonte(){
         '<div class="pure-g">'+
             '<div class="pure-u-1-2 pure-u-md-1-2">'+
                 '<label for="min">Tipo de Fonte</label>'+
-                // definiPeso(this.value,'+id_fonte+')
                 '<select  id="tipo-fonte-'+id_fonte+'" onchange="definiFormPree(this.value,'+id_fonte+')" class="pure-u-23-24 '+exeF+'">'+
                     '<option value="0">Selecione...</option>'+
                     '<!--<option value="1">Fundir Pactos</option>-->'+
