@@ -138,7 +138,7 @@ function adicionarFonte(){
     let html = '<div id="fonte-add-'+id_fonte+'"'+ 
         '<div class="pure-g" id="form-pree">'+
             '<div id="form-pree-'+id_fonte+'">'+
-                '<div class="pure-g">'+
+                '<div class="pure-u">'+
                     '<label for="min">Tipo de Fonte</label>'+
                     '<select  id="tipo-fonte-'+id_fonte+'" onchange="definiFormPree(this.value,'+id_fonte+')" class="pure-u-23-24 '+exeF+'">'+
                         '<option value="0">Selecione...</option>'+
