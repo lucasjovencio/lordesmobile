@@ -59,7 +59,7 @@ function definiFormPree(tipo,id_fonte){
 
     let text = '<div class="pure-u-1-2 pure-u-md-1-2">'+
         '<label for="min">Tipo de Fonte</label>'+
-        '<select  id="tipo-fonte-'+id_fonte+'" onchange="definiFormPree(this.value,'+id_fonte+')" class="pure-u-23-24 '+exeF+'">'+
+        '<select  id="tipo-fonte-'+id_fonte+'" onchange="definiFormPree(this.value,'+id_fonte+')" class="pure-u-23-24 '+1+'">'+
             '<option value="0">Selecione...</option>'+
             '<!--<option value="1">Fundir Pactos</option>-->'+
             '<option value="2">Construção</option>'+
@@ -67,7 +67,6 @@ function definiFormPree(tipo,id_fonte){
             '<option value="4">Tropa</option>'+
         '</select>'+
     '</div>'+
-
     '<input id="fonte-valicacao-'+id_fonte+'" type="hidden" value="0">'+
     '<div class="pure-u-1-2 pure-u-md-1-2">'+
         '<label for="min">Peso da Fonte</label>'+
@@ -137,7 +136,7 @@ function adicionarFonte(){
         exeF5 = "tour-step tour-step-nine";
     }
     let html = '<div id="fonte-add-'+id_fonte+'"'+ 
-        '<div class="pure-g">'+
+        '<div class="pure-g" id="form-pree">'+
             '<div id="form-pree">'+
                 '<div class="pure-u-1-2 pure-u-md-1-2">'+
                     '<label for="min">Tipo de Fonte</label>'+
