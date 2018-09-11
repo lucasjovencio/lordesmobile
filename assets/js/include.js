@@ -61,7 +61,7 @@ function definiFormPree(tipo,id_fonte){
         '<label for="min">Tipo de Fonte</label>'+
         '<select  id="tipo-fonte-'+id_fonte+'" onchange="definiFormPree(this.value,'+id_fonte+')" class="pure-u-23-24 '+1+'">'+
             '<option '+ (tipo==0 ? "selected" : ' ') +' value="0">Selecione...</option>'+
-            '<!--<option '+(tipo==1 ? "selected")+' value="1">Fundir Pactos</option>-->'+
+            '<!--<option '+(tipo==1 ? "selected" : ' ')+' value="1">Fundir Pactos</option>-->'+
             '<option '+(tipo==2 ? "selected" : ' ')+' value="2">Construção</option>'+
             '<option '+(tipo==3 ? "selected" : ' ')+' value="3">Pesquisa</option>'+
             '<option '+(tipo==4 ? "selected" : ' ')+' value="4">Tropa</option>'+
