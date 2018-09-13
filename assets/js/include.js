@@ -208,8 +208,9 @@ function definiFormPree(tipo,id_fonte){
     }
 
     
-    applyDatMaskJs();
+
     $("#form-pree-"+id_fonte).html(text);
+    applyDatMaskJs();
     definiPeso(tipo,id_fonte);
 
 }
