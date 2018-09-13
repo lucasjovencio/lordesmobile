@@ -92,7 +92,7 @@ function loadPeso(tipo,id_fonte){
 function tempoMultiplicado(multiplicador,id_fonte){
     mult = parseInt(multiplicador);
     if(mult>=1){
-
+        $('#tempo-multiplicado-'+id_fonte).val(converte_tempo((mult*converte_tempo_string($("#tempo-real-"+id_fonte).val()))));
     }
 }
 function definiFormPree(tipo,id_fonte){
@@ -199,7 +199,7 @@ function definiFormPree(tipo,id_fonte){
 
             '<div class="pure-u-1-2 pure-u-md-1-2">'+
                 '<label for="min">Multiplicador de Quantidade</label>'+
-                '<input onkeyup="tempoMultiplicado(this.value,'+id_fonte+');return false;" id="multiplicador-fonte-'+id_fonte+'"  class="pure-u-23-24 '+1+'" type="number" placeholder="0" min="0" max="1000">'+
+                '<input onkeyup="tempoMultiplicado(this.value,'+id_fonte+');return false;" id="multiplicador-fonte-'+id_fonte+'"  class="pure-u-23-24 '+1+'" type="number" placeholder="0" min="1" max="1000">'+
             '</div>'+
 
             '<div class="pure-u-1-2 pure-u-md-1-2">'+
@@ -459,14 +459,6 @@ function atualizaTempo(tipo,id){
         }
     }
 }
-function calcula_tempo_tropa(){
-    tempo_ace_usado[2]=tempo_aceleradores[2];
-    let pontu_aux = pontu_nece;
-    let pontuvali=0;
-    let prosseguir = 1;
-    console.log('Tempo de Tropa');
-}
-
 function converte_tempo_string(temp){
     let tempo = temp.split(' ');
     let dia = (parseInt(tempo[0]))*1440;
@@ -476,6 +468,25 @@ function converte_tempo_string(temp){
     let minuto = parseInt(tempo[1]);
     return (dia+hora+minuto);
 }
+
+function calcula_tempo_tropa(){
+    tempo_ace_usado[2]=tempo_aceleradores[2];
+    let pontu_aux = pontu_nece;
+    let pontuvali=0;
+    let prosseguir = 1;
+    for(let i=0; i<id_fonte;i++){
+        let tempo = $("#tempo-multiplicado-"+i).val();
+        if(tempo==null || tempo==''){
+            prosseguir =0;
+            continue;
+        }else{
+            prosseguir = 1;
+            tempo = converte_tempo_string(tempo);
+
+        }
+}
+
+
 function calcula_tempo_infernal(){
     tempo_ace_usado[2]=tempo_aceleradores[2];
     let pontu_aux = pontu_nece;
