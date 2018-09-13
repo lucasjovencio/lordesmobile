@@ -71,14 +71,19 @@ function loadPeso(tipo,id_fonte){
             break;
         case 4:
         return ('<div class="pure-u-1-2 pure-u-md-1-2">'+
-                '<label for="min">Peso da Fonte</label>'+
-                '<select onchange="atualizaTempo(2,'+id_fonte+');return false;" id="peso-fonte-'+id_fonte+'"  class="pure-u-23-24 '+1+'">'+
-                    '<option selected value="2">T1</option>'+
-                    '<option value="8">T2</option>'+
-                    '<option value="24">T3</option>'+
-                    '<option value="36">T4</option>'+
-                '</select>'+
-            '</div>');
+                    '<label for="min">Peso da Fonte</label>'+
+                    '<select onchange="atualizaTempo(2,'+id_fonte+');return false;" id="peso-fonte-'+id_fonte+'"  class="pure-u-23-24 '+1+'">'+
+                        '<option selected value="2">T1</option>'+
+                        '<option value="8">T2</option>'+
+                        '<option value="24">T3</option>'+
+                        '<option value="36">T4</option>'+
+                    '</select>'+
+                '</div>'+
+                '<div class="pure-u-1-2 pure-u-md-1-2">'+
+                    '<label for="min">Multiplicador de Quantidade</label>'+
+                    '<input onkeyup="atualizaTempo(2,'+id_fonte+');return false;" id="multiplicador-fonte-'+id_fonte+'"  class="pure-u-23-24 '+1+'" type="number" placeholder="0" min="0" max="1000">'+
+                '</div><br>'
+            );
             break;
         default:
             break;
