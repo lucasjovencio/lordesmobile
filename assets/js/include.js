@@ -205,7 +205,7 @@ function definiFormPree(tipo,id_fonte){
 
             '<div class="pure-u-1-2 pure-u-md-1-2">'+
                 '<label for="min">Tempo Multiplicado</label>'+
-                '<input disabled id="tempo-multiplicado-'+id_fonte+'"  class="pure-u-23-24 '+1+'" type="text" data-mask="00 D 00:00" data-mask-reverse="true" placeholder="00 D 00:00" >'+
+                '<input style="color: #900;" disabled id="tempo-multiplicado-'+id_fonte+'"  class="pure-u-23-24 '+1+'" type="text" data-mask="00 D 00:00" data-mask-reverse="true" placeholder="00 D 00:00" >'+
             '</div>'+
 
             '<div class="pure-u-1-2 pure-u-md-1-2">'+
