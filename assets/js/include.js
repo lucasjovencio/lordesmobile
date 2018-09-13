@@ -423,10 +423,10 @@ function atualizaTempo(tipo,id){
 
 
     let poderRece   = $('#poder-recebido-'+id).val();
-    let quantiRece  = parseFloat($('#quantidade-tropa-'+id).val().replace(',', '.'));
-    // parseFloat( .replace(',', '.'))
-    let ValiP = (poderRece ? 1 : 0);
-    let ValiQ = (quantiRece ? 1 : 0);
+    let quantiRece  = $('#quantidade-tropa-'+id).val();
+
+    let ValiP = (poderRece ? parseFloat(poderRece.replace(',', '.')) : 0);
+    let ValiQ = (quantiRece ? parseFloat(quantiRece.replace(',', '.')) : 0);
     let QR=0;
     if(poderRece || quantiRece){
         QR=1;
@@ -435,10 +435,13 @@ function atualizaTempo(tipo,id){
     verifica_tr();
     if(tipoFonte !=0 && pesoFonte !=null && pesoFonte >0 && QR && tempoReal.length > 6 && pontu_nece > 1){
         if(ValiP){
+            console.log('1');
             calcula_tempo_infernal();
         }else if (ValiQ) {
+            console.log('2');
             calcula_tempo_tropa();
         }
+        console.log('3');
     }
 }
 function calcula_tempo_tropa(){
