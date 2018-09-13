@@ -435,13 +435,10 @@ function atualizaTempo(tipo,id){
     verifica_tr();
     if(tipoFonte !=0 && pesoFonte !=null && pesoFonte >0 && QR && tempoReal.length > 6 && pontu_nece > 1){
         if(ValiP){
-            console.log('1');
             calcula_tempo_infernal();
         }else if (ValiQ) {
-            console.log('2');
             calcula_tempo_tropa();
         }
-        console.log('3');
     }
 }
 function calcula_tempo_tropa(){
@@ -457,6 +454,10 @@ function calcula_tempo_infernal(){
     let pontuvali=0;
     let prosseguir = 1;
     for(let i=0; i<id_fonte;i++){
+        if($("#tipo-fonte-"+i).val()==4){
+            calcula_tempo_tropa();
+            continue;
+        }
         let tempo = $("#tempo-real-"+i).val();
         if(tempo==null || tempo==''){
             prosseguir =0;
