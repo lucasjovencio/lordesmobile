@@ -208,7 +208,7 @@ function definiFormPree(tipo,id_fonte){
     }
 
     
-
+    applyDatMaskJs();
     $("#form-pree-"+id_fonte).html(text);
     definiPeso(tipo,id_fonte);
 
@@ -268,7 +268,7 @@ function adicionarFonte(){
     '</div>';
     $("#html-fonte").append(html);
     
-    applyDatMaskJs();
+    
     id_fonte +=1;
     qtd_fonte +=1;
 }
