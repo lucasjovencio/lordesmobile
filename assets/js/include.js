@@ -93,6 +93,7 @@ function tempoMultiplicado(multiplicador,id_fonte){
     mult = parseInt(multiplicador);
     if(mult>=1){
         $('#tempo-multiplicado-'+id_fonte).val(converte_tempo((mult*converte_tempo_string($("#tempo-real-"+id_fonte).val()))));
+        
     }
 }
 function definiFormPree(tipo,id_fonte){
@@ -460,13 +461,24 @@ function atualizaTempo(tipo,id){
     }
 }
 function converte_tempo_string(temp){
-    let tempo = temp.split(' ');
-    let dia = (parseInt(tempo[0]))*1440;
-    tempo = tempo[2];
-    tempo = tempo.split(':');
-    let hora = (parseInt(tempo[0]))*60;
-    let minuto = parseInt(tempo[1]);
-    return (dia+hora+minuto);
+    let tempo;
+    let hora;
+    let minuto;
+    let dia;
+    if(temp.length>5){
+        tempo = temp.split(' ');
+        dia = (parseInt(tempo[0]))*1440;
+        tempo = tempo[2];
+        tempo = tempo.split(':');
+        hora = (parseInt(tempo[0]))*60;
+        minuto = parseInt(tempo[1]);
+        return (dia+hora+minuto);
+    }
+    tempo = temp.split(':');
+    hora = (parseInt(tempo[0]))*60;
+    minuto = parseInt(tempo[1]);
+    return (hora+minuto);
+    
 }
 
 function calcula_tempo_tropa(){
