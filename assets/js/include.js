@@ -183,7 +183,7 @@ function definiFormPree(tipo,id_fonte){
             loadPeso(tipo,id_fonte)+
             '<div class="pure-u-1-2 pure-u-md-1-2">'+
                 '<label for="min">Quantidade de Tropas</label>'+
-                '<input onkeyup="atualizaTempo(4,'+id_fonte+');" data-mask="000.000,000" data-mask-reverse="true" id="quantidade-tropa-'+id_fonte+'" class="pure-u-23-24 '+1+'" type="text" placeholder="1,000">'+
+                '<input onkeyup="atualizaTempo(4,'+id_fonte+');" data-mask="000,000" data-mask-reverse="true" id="quantidade-tropa-'+id_fonte+'" class="pure-u-23-24 '+1+'" type="text" placeholder="1,000">'+
             '</div>'+
             '<div class="pure-u-1-2 pure-u-md-1-2">'+
                 '<label for="min">Tempo Real</label>'+
@@ -420,12 +420,31 @@ function atualizaTempo(tipo,id){
     let tipoFonte = parseInt($('#tipo-fonte-'+id).val());
     let pesoFonte = parseInt($('#peso-fonte-'+id).val());
 
-    let poderRece = parseFloat($('#poder-recebido-'+id).val().replace(',', '.'));
+    let poderRece   = parseFloat($('#poder-recebido-'+id).val().replace(',', '.'));
+    let quantiRece  = parseFloat($('#quantidade-tropa-'+id).val().replace(',', '.'));
+
+    let ValiP = (poderRece ? 1 : 0);
+    let ValiQ = (quantiRece ? 1 : 0);
+    let QR=0;
+    if(poderRece || quantiRece){
+        QR=1;
+    }
     let tempoReal = $('#tempo-real-'+id).val();
     verifica_tr();
-    if(tipoFonte !=0 && pesoFonte !=null && pesoFonte >0 && poderRece && tempoReal.length > 6 && pontu_nece > 1){
-        calcula_tempo_infernal();
+    if(tipoFonte !=0 && pesoFonte !=null && pesoFonte >0 && QR && tempoReal.length > 6 && pontu_nece > 1){
+        if(ValiP){
+            calcula_tempo_infernal();
+        }else if (ValiQ) {
+            calcula_tempo_tropa();
+        }
     }
+}
+function calcula_tempo_tropa(){
+    tempo_ace_usado[2]=tempo_aceleradores[2];
+    let pontu_aux = pontu_nece;
+    let pontuvali=0;
+    let prosseguir = 1;
+    console.log('Tempo de Tropa');
 }
 function calcula_tempo_infernal(){
     tempo_ace_usado[2]=tempo_aceleradores[2];
