@@ -156,10 +156,6 @@ function definiFormPree(tipo,id_fonte){
                 '<input onkeyup="atualizaTempo(4,'+id_fonte+');" data-mask="00 D 00:00" data-mask-reverse="true" id="tempo-real-'+id_fonte+'" class="pure-u-23-24 '+1+'" type="text" placeholder="30 D 23:55">'+
             '</div>'+
             '<div class="pure-u-1-2 pure-u-md-1-2">'+
-                '<label for="min">Multiplicador de Quantidade</label>'+
-                '<input onkeyup="atualizaTempo(2,'+id_fonte+');return false;" id="multiplicador-fonte-'+id_fonte+'"  class="pure-u-23-24 '+1+'" type="number" placeholder="0" min="0" max="1000">'+
-            '</div><br>'+
-            '<div class="pure-u-1-2 pure-u-md-1-2">'+
                 '<label for="min">&emsp;</label>'+
                 '<button class="pure-u-23-24 pure-button '+1+'" onclick="removerFonte('+id_fonte+');return false;">'+
                     '<i class="fas fa-minus-square"></i>'+
@@ -194,6 +190,12 @@ function definiFormPree(tipo,id_fonte){
                 '<label for="min">Tempo Real</label>'+
                 '<input onkeyup="atualizaTempo(4,'+id_fonte+');" data-mask="00 D 00:00" data-mask-reverse="true" id="tempo-real-'+id_fonte+'" class="pure-u-23-24 '+1+'" type="text" placeholder="30 D 23:55">'+
             '</div>'+
+            
+            '<div class="pure-u-1-2 pure-u-md-1-2">'+
+                '<label for="min">Multiplicador de Quantidade</label>'+
+                '<input onkeyup="atualizaTempo(2,'+id_fonte+');return false;" id="multiplicador-fonte-'+id_fonte+'"  class="pure-u-23-24 '+1+'" type="number" placeholder="0" min="0" max="1000">'+
+            '</div><br>'+
+
             '<div class="pure-u-1-2 pure-u-md-1-2">'+
                 '<label for="min">&emsp;</label>'+
                 '<button class="pure-u-23-24 pure-button '+1+'" onclick="removerFonte('+id_fonte+');return false;">'+
