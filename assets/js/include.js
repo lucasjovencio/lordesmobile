@@ -185,7 +185,10 @@ function definiFormPree(tipo,id_fonte){
                 '<label for="min">Poder Recebido</label>'+
                 '<input data-mask="000,000" onkeyup="atualizaTempo(3,'+id_fonte+');" data-mask-reverse="true" id="poder-recebido-'+id_fonte+'" class="pure-u-23-24 '+1+'" type="text" step="any" placeholder="000,000">'+
             '</div>'+
-
+            '<div class="pure-u-1-2 pure-u-md-1-2">'+
+                '<label for="min">Quantidade de Tropas</label>'+
+                '<input onkeyup="atualizaTempo(4,'+id_fonte+');" data-mask="000.000,000" data-mask-reverse="true" id="quantidade-tropa-'+id_fonte+'" class="pure-u-23-24 '+1+'" type="text" placeholder="1,000">'+
+            '</div>'+
             '<div class="pure-u-1-2 pure-u-md-1-2">'+
                 '<label for="min">Tempo Real</label>'+
                 '<input onkeyup="atualizaTempo(4,'+id_fonte+');" data-mask="00 D 00:00" data-mask-reverse="true" id="tempo-real-'+id_fonte+'" class="pure-u-23-24 '+1+'" type="text" placeholder="30 D 23:55">'+
