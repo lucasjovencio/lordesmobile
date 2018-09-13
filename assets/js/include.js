@@ -89,6 +89,9 @@ function loadPeso(tipo,id_fonte){
     //    '<input onkeyup="atualizaTempo(2,'+id_fonte+');return false;" id="peso-fonte-'+id_fonte+'"  class="pure-u-23-24 '+1+'" type="number" placeholder="0" min="0" max="20000">'+
     //'</div>'
 }
+function tempoMultiplicado(multiplicador,id_fonte){
+    console.log('Multiplica o tempo');
+}
 function definiFormPree(tipo,id_fonte){
     tipo = parseInt(tipo);
     let text;
@@ -190,11 +193,16 @@ function definiFormPree(tipo,id_fonte){
                 '<label for="min">Tempo Real</label>'+
                 '<input onkeyup="atualizaTempo(4,'+id_fonte+');" data-mask="00 D 00:00" data-mask-reverse="true" id="tempo-real-'+id_fonte+'" class="pure-u-23-24 '+1+'" type="text" placeholder="30 D 23:55">'+
             '</div>'+
-            
+
             '<div class="pure-u-1-2 pure-u-md-1-2">'+
                 '<label for="min">Multiplicador de Quantidade</label>'+
-                '<input onkeyup="atualizaTempo(2,'+id_fonte+');return false;" id="multiplicador-fonte-'+id_fonte+'"  class="pure-u-23-24 '+1+'" type="number" placeholder="0" min="0" max="1000">'+
-            '</div><br>'+
+                '<input onkeyup="tempoMultiplicado(this.value,'+id_fonte+');return false;" id="multiplicador-fonte-'+id_fonte+'"  class="pure-u-23-24 '+1+'" type="number" placeholder="0" min="0" max="1000">'+
+            '</div>'+
+
+            '<div class="pure-u-1-2 pure-u-md-1-2">'+
+                '<label for="min">Tempo Multiplicado</label>'+
+                '<input disabled id="tempo-multiplicado-'+id_fonte+'"  class="pure-u-23-24 '+1+'" type="text" data-mask="00 D 00:00" data-mask-reverse="true" placeholder="30 D 23:55" >'+
+            '</div>'+
 
             '<div class="pure-u-1-2 pure-u-md-1-2">'+
                 '<label for="min">&emsp;</label>'+
