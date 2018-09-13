@@ -420,9 +420,10 @@ function atualizaTempo(tipo,id){
     let tipoFonte = parseInt($('#tipo-fonte-'+id).val());
     let pesoFonte = parseInt($('#peso-fonte-'+id).val());
 
-    let poderRece   = parseFloat($('#poder-recebido-'+id).val().replace(',', '.'));
-    let quantiRece  = parseFloat($('#quantidade-tropa-'+id).val().replace(',', '.'));
 
+    let poderRece   = $('#poder-recebido-'+id).val();
+    let quantiRece  = parseFloat($('#quantidade-tropa-'+id).val().replace(',', '.'));
+    // parseFloat( .replace(',', '.'))
     let ValiP = (poderRece ? 1 : 0);
     let ValiQ = (quantiRece ? 1 : 0);
     let QR=0;
