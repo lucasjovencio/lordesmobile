@@ -70,6 +70,15 @@ function loadPeso(tipo,id_fonte){
             '</div>');
             break;
         case 4:
+        return ('<div class="pure-u-1-2 pure-u-md-1-2">'+
+                '<label for="min">Peso da Fonte</label>'+
+                '<select onchange="atualizaTempo(2,'+id_fonte+');return false;" id="peso-fonte-'+id_fonte+'"  class="pure-u-23-24 '+1+'">'+
+                    '<option selected value="2">T1</option>'+
+                    '<option value="8">T2</option>'+
+                    '<option value="24">T3</option>'+
+                    '<option value="36">T4</option>'+
+                '</select>'+
+            '</div>');
             break;
         default:
             break;
