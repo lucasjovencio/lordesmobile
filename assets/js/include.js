@@ -53,6 +53,32 @@ function removerFonte(id){
     qtd_fonte -=1;
     calcula_tempo_infernal();
 }
+function loadPeso(tipo,id_fonte){
+    switch(tipo){
+        case 1:
+            break;
+        case 2:
+            return ('<div class="pure-u-1-2 pure-u-md-1-2">'+
+                '<label for="min">Peso da Fonte</label>'+
+                '<input onkeyup="atualizaTempo(2,'+id_fonte+');return false;" id="peso-fonte-'+id_fonte+'"  class="pure-u-23-24 '+1+'" type="number" placeholder="0" min="0" max="20000">'+
+            '</div>');
+            break;
+        case 3:
+            return ('<div class="pure-u-1-2 pure-u-md-1-2">'+
+                '<label for="min">Peso da Fonte</label>'+
+                '<input onkeyup="atualizaTempo(2,'+id_fonte+');return false;" id="peso-fonte-'+id_fonte+'"  class="pure-u-23-24 '+1+'" type="number" placeholder="0" min="0" max="20000">'+
+            '</div>');
+            break;
+        case 4:
+            break;
+        default:
+            break;
+    }
+    //'<div class="pure-u-1-2 pure-u-md-1-2">'+
+    //'<label for="min">Peso da Fonte</label>'+
+    //    '<input onkeyup="atualizaTempo(2,'+id_fonte+');return false;" id="peso-fonte-'+id_fonte+'"  class="pure-u-23-24 '+1+'" type="number" placeholder="0" min="0" max="20000">'+
+    //'</div>'
+}
 function definiFormPree(tipo,id_fonte){
     tipo = parseInt(tipo);
     let text;
@@ -71,10 +97,7 @@ function definiFormPree(tipo,id_fonte){
                 '</select>'+
             '</div>'+
             '<input id="fonte-valicacao-'+id_fonte+'" type="hidden" value="0">'+
-            '<div class="pure-u-1-2 pure-u-md-1-2">'+
-                '<label for="min">Peso da Fonte</label>'+
-                '<input onkeyup="atualizaTempo(2,'+id_fonte+');return false;" id="peso-fonte-'+id_fonte+'"  class="pure-u-23-24 '+1+'" type="number" placeholder="0" min="0" max="20000">'+
-            '</div>'+
+            loadPeso(tipo,id_fonte) +
 
             '<div class="pure-u-1-2 pure-u-md-1-2">'+
                 '<label for="min">Poder Recebido</label>'+
@@ -111,10 +134,7 @@ function definiFormPree(tipo,id_fonte){
                 '</select>'+
             '</div>'+
             '<input id="fonte-valicacao-'+id_fonte+'" type="hidden" value="0">'+
-            '<div class="pure-u-1-2 pure-u-md-1-2">'+
-                '<label for="min">Peso da Fonte</label>'+
-                '<input onkeyup="atualizaTempo(2,'+id_fonte+');return false;" id="peso-fonte-'+id_fonte+'"  class="pure-u-23-24 '+1+'" type="number" placeholder="0" min="0" max="20000">'+
-            '</div>'+
+            loadPeso(tipo,id_fonte)+
 
             '<div class="pure-u-1-2 pure-u-md-1-2">'+
                 '<label for="min">Poder Recebido</label>'+
@@ -151,11 +171,7 @@ function definiFormPree(tipo,id_fonte){
                 '</select>'+
             '</div>'+
             '<input id="fonte-valicacao-'+id_fonte+'" type="hidden" value="0">'+
-            '<div class="pure-u-1-2 pure-u-md-1-2">'+
-                '<label for="min">Peso da Fonte</label>'+
-                '<input onkeyup="atualizaTempo(2,'+id_fonte+');return false;" id="peso-fonte-'+id_fonte+'"  class="pure-u-23-24 '+1+'" type="number" placeholder="0" min="0" max="20000">'+
-            '</div>'+
-
+            loadPeso(tipo,id_fonte)+
             '<div class="pure-u-1-2 pure-u-md-1-2">'+
                 '<label for="min">Poder Recebido</label>'+
                 '<input data-mask="000,000" onkeyup="atualizaTempo(3,'+id_fonte+');" data-mask-reverse="true" id="poder-recebido-'+id_fonte+'" class="pure-u-23-24 '+1+'" type="text" step="any" placeholder="000,000">'+
