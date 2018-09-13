@@ -90,7 +90,10 @@ function loadPeso(tipo,id_fonte){
     //'</div>'
 }
 function tempoMultiplicado(multiplicador,id_fonte){
-    console.log('Multiplica o tempo');
+    mult = parseInt(multiplicador);
+    if(mult>=1){
+
+    }
 }
 function definiFormPree(tipo,id_fonte){
     tipo = parseInt(tipo);
@@ -201,7 +204,7 @@ function definiFormPree(tipo,id_fonte){
 
             '<div class="pure-u-1-2 pure-u-md-1-2">'+
                 '<label for="min">Tempo Multiplicado</label>'+
-                '<input disabled id="tempo-multiplicado-'+id_fonte+'"  class="pure-u-23-24 '+1+'" type="text" data-mask="00 D 00:00" data-mask-reverse="true" placeholder="30 D 23:55" >'+
+                '<input disabled id="tempo-multiplicado-'+id_fonte+'"  class="pure-u-23-24 '+1+'" type="text" data-mask="00 D 00:00" data-mask-reverse="true" placeholder="00 D 00:00" >'+
             '</div>'+
 
             '<div class="pure-u-1-2 pure-u-md-1-2">'+
@@ -463,6 +466,16 @@ function calcula_tempo_tropa(){
     let prosseguir = 1;
     console.log('Tempo de Tropa');
 }
+
+function converte_tempo_string(temp){
+    let tempo = temp.split(' ');
+    let dia = (parseInt(tempo[0]))*1440;
+    tempo = tempo[2];
+    tempo = tempo.split(':');
+    let hora = (parseInt(tempo[0]))*60;
+    let minuto = parseInt(tempo[1]);
+    return (dia+hora+minuto);
+}
 function calcula_tempo_infernal(){
     tempo_ace_usado[2]=tempo_aceleradores[2];
     let pontu_aux = pontu_nece;
@@ -480,14 +493,7 @@ function calcula_tempo_infernal(){
         }
         else{
             prosseguir = 1;
-            tempo = tempo.split(' ');
-            let dia = (parseInt(tempo[0]))*1440;
-            tempo = tempo[2];
-            tempo = tempo.split(':');
-            let hora = (parseInt(tempo[0]))*60;
-            let minuto = parseInt(tempo[1]);
-            tempo = dia+hora+minuto;
-
+            tempo = converte_tempo_string(tempo);
             if(tempo_ace_usado[2]>tempo){
                 tempo_ace_usado[2] = tempo_ace_usado[2]-tempo;
                 pontuvali += parseFloat($('#poder-recebido-'+i).val().replace(',', '.'));
