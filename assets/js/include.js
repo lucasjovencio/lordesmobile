@@ -484,6 +484,7 @@ function calcula_tempo_tropa(){
             tempo = converte_tempo_string(tempo);
 
         }
+    }
 }
 
 
