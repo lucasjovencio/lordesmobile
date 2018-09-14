@@ -93,7 +93,7 @@ function tempoMultiplicado(multiplicador,id_fonte){
     mult = parseInt(multiplicador);
     if(mult>=1){
         $('#tempo-multiplicado-'+id_fonte).val(converte_tempo((mult*converte_tempo_string($("#tempo-real-"+id_fonte).val()))));
-        
+        calcula_tempo_tropa();
     }
 }
 function definiFormPree(tipo,id_fonte){
@@ -528,6 +528,7 @@ function objetos_mochila(){
 
 }
 function calcula_tempo_tropa(){
+    console.log("Oi");
     tempo_ace_usado[2]=tempo_aceleradores[2];
     let pontu_aux = pontu_nece;
     let pontuvali=0;
