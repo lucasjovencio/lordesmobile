@@ -365,9 +365,9 @@ function calculo_dano_monstro(valorInicial,qtnAtaque,vidaInitial,ataqConseq){
                 $("#vida-m-"+i).html(vidaInitial);
 
 
-                vidaInitial=parseFloat(vidaInitial-porcentM);
+                vidaInitial=parseFloat(vidaInitial-valorInicial);
 
-                vidaInitial = vidaInitial <=0 ? 0 : parseFloat(vidaInitial).toFixed(5);
+                vidaInitial = vidaInitial <=0 ? 0 : parseFloat(vidaInitial).toFixed(3);
 
                 $("#vida-mm-"+i).html(vidaInitial);
             }
