@@ -552,9 +552,9 @@ function calcula_tempo_infernal(){
     let pontuvali=0;
     let prosseguir = 1;
     for(let i=0; i<id_fonte;i++){
-        if($("#tipo-fonte-"+i).val()==4){
+        if( parseInt($("#tipo-fonte-"+i).val()) == 4){
             calcula_tempo_tropa();
-            continue;
+            return;
         }
         let tempo = $("#tempo-real-"+i).val();
         if(tempo==null || tempo==''){
