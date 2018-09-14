@@ -506,40 +506,25 @@ function converte_tempo_string(temp){
 
 function objetos_mochila(){
     let table = $('table.table-vel');
-    /*
+    
     let lista = new Array();
     let i = 0;
     table.find('tbody > tr').each(function() {
         let valor = $(this).find('td').eq(2).text();
         let gema=0;
         let tempo=0;
+        let qtn=0;
         let valor2 = parseInt(valor);
-        if (valor2<=0 || valor=='') {
+        if (valor2<=0 || valor=='' ) {
           $(this).hide();
         }else{
-            gema = $(this).find('td').eq(4).text();
-            tempo = $(this).find('td').eq(6).find('span').text();
-            gema = parseInt(gema);
-            tempo = parseInt(tempo);
-            let aux1 = parseInt(tempo_aceleradores[0]);
-            let aux2 = parseInt(tempo_aceleradores[1]);
-            let aux3 = parseInt(tempo_aceleradores[2]);
-            tempo_aceleradores[0]= aux1+valor2;
-            tempo_aceleradores[1]= aux2+gema;
-            tempo_aceleradores[2]= aux3+tempo;
-            $(this).show();
+            tempo   = $(this).find('td').eq(6).find('pre').text();
+            qtn     = $(this).find('td').eq(6).find('i').text();
+            lista.push(new Array(tempo,qtn));
         }
     });
-    if(tempo_aceleradores[0]>0){
-        $("#total-td-vel").html(tempo_aceleradores[0]);
-        $("#total-td-gem-vel").html(tempo_aceleradores[1]);
-        $("#total-td-temp-vel").html(converte_tempo(tempo_aceleradores[2]));
-        
-        $("#tr-total-val").show();
-    }else{
-        $("#tr-total-val").hide();
-    }
-    */
+    console.log(lista);
+    
 
 }
 function calcula_tempo_tropa(){
@@ -644,6 +629,7 @@ $(document).ready(function(){
         let string = converte_tempo(valor*1);
         string+="<span class='oculta-span'>"+valor*1+"</span>";
         string+="<pre class='oculta-span'>"+1+"</pre>";
+        string+="<i class='oculta-span'>"+valor+"</i>";
         $("#td-vel-1").html(textoDigitado);
         $("#td-gem-1").html(valor*5);
         $("#td-tempo-1").html(string);
@@ -661,6 +647,7 @@ $(document).ready(function(){
         let string = converte_tempo(valor*3);
         string+="<span class='oculta-span'>"+valor*3+"</span>";
         string+="<pre class='oculta-span'>"+3+"</pre>";
+        string+="<i class='oculta-span'>"+valor+"</i>";
         $("#td-vel-3").html(textoDigitado);
         $("#td-gem-3").html('0');
         $("#td-tempo-3").html(string);
@@ -676,6 +663,7 @@ $(document).ready(function(){
         let string = converte_tempo(valor*5);
         string+="<span class='oculta-span'>"+valor*5+"</span>";
         string+="<pre class='oculta-span'>"+5+"</pre>";
+        string+="<i class='oculta-span'>"+valor+"</i>";
         $("#td-vel-5").html(textoDigitado);
         $("#td-gem-5").html('0');
         $("#td-tempo-5").html(string);
@@ -691,6 +679,7 @@ $(document).ready(function(){
         let string = converte_tempo(valor*10);
         string+="<span class='oculta-span'>"+valor*10+"</span>";
         string+="<pre class='oculta-span'>"+10+"</pre>";
+        string+="<i class='oculta-span'>"+valor+"</i>";
         $("#td-vel-10").html(textoDigitado);
         $("#td-gem-10").html('0');
         $("#td-tempo-10").html(string);
@@ -706,6 +695,7 @@ $(document).ready(function(){
         let string = converte_tempo(valor*15);
         string+="<span class='oculta-span'>"+valor*15+"</span>";
         string+="<pre class='oculta-span'>"+15+"</pre>";
+        string+="<i class='oculta-span'>"+valor+"</i>";
         $("#td-vel-15").html(textoDigitado);
         $("#td-gem-15").html(valor*70);
         $("#td-tempo-15").html(string);
@@ -722,6 +712,7 @@ $(document).ready(function(){
         let string = converte_tempo(valor*30);
         string+="<span class='oculta-span'>"+valor*30+"</span>";
         string+="<pre class='oculta-span'>"+30+"</pre>";
+        string+="<i class='oculta-span'>"+valor+"</i>";
         $("#td-vel-30").html(textoDigitado);
         $("#td-gem-30").html('0');
         $("#td-tempo-30").html(string);
@@ -738,6 +729,7 @@ $(document).ready(function(){
         let string = converte_tempo(valor*60);
         string+="<span class='oculta-span'>"+valor*60+"</span>";
         string+="<pre class='oculta-span'>"+60+"</pre>";
+        string+="<i class='oculta-span'>"+valor+"</i>";
         $("#td-vel-60").html(textoDigitado);
         $("#td-gem-60").html(valor*130);
         $("#td-tempo-60").html(string);
@@ -754,6 +746,7 @@ $(document).ready(function(){
         let string = converte_tempo(valor*180);
         string+="<span class='oculta-span'>"+valor*180+"</span>";
         string+="<pre class='oculta-span'>"+180+"</pre>";
+        string+="<i class='oculta-span'>"+valor+"</i>";
         $("#td-vel-300").html(textoDigitado);
         $("#td-gem-300").html(valor*800);
         $("#td-tempo-300").html(string);
@@ -770,6 +763,7 @@ $(document).ready(function(){
         let string = converte_tempo(valor*480);
         string+="<span class='oculta-span'>"+valor*480+"</span>";
         string+="<pre class='oculta-span'>"+480+"</pre>";
+        string+="<i class='oculta-span'>"+valor+"</i>";
         $("#td-vel-800").html(textoDigitado);
         $("#td-gem-800").html(valor*650);
         $("#td-tempo-800").html(string);
@@ -785,6 +779,7 @@ $(document).ready(function(){
         let string = converte_tempo(valor*900);
         string+="<span class='oculta-span'>"+valor*900+"</span>";
         string+="<pre class='oculta-span'>"+900+"</pre>";
+        string+="<i class='oculta-span'>"+valor+"</i>";
         $("#td-vel-1500").html(textoDigitado);
         $("#td-gem-1500").html(valor*1000);
         $("#td-tempo-1500").html(string);
@@ -800,6 +795,7 @@ $(document).ready(function(){
         let string = converte_tempo(valor*1440);
         string+="<span class='oculta-span'>"+valor*1400+"</span>";
         string+="<pre class='oculta-span'>"+1400+"</pre>";
+        string+="<i class='oculta-span'>"+valor+"</i>";
         $("#td-vel-240").html(textoDigitado);
         $("#td-gem-240").html(valor*1500);
         $("#td-tempo-240").html(string);
@@ -815,6 +811,7 @@ $(document).ready(function(){
         let string = converte_tempo(valor*4320);
         string+="<span class='oculta-span'>"+valor*4320+"</span>";
         string+="<pre class='oculta-span'>"+4320+"</pre>";
+        string+="<i class='oculta-span'>"+valor+"</i>";
         $("#td-vel-3000").html(textoDigitado);
         $("#td-gem-3000").html(valor*4400);
         $("#td-tempo-3000").html(string);
@@ -830,6 +827,7 @@ $(document).ready(function(){
         let string = converte_tempo(valor*10080);
         string+="<span class='oculta-span'>"+valor*10080+"</span>";
         string+="<pre class='oculta-span'>"+10080+"</pre>";
+        string+="<i class='oculta-span'>"+valor+"</i>";
         $("#td-vel-700").html(textoDigitado);
         $("#td-gem-700").html(valor*10000);
         $("#td-tempo-700").html(string);
@@ -845,6 +843,7 @@ $(document).ready(function(){
         let string = converte_tempo(valor*43200);
         string+="<span class='oculta-span'>"+valor*43200+"</span>";
         string+="<pre class='oculta-span'>"+43200+"</pre>";
+        string+="<i class='oculta-span'>"+valor+"</i>";
         $("#td-vel-30000").html(textoDigitado);
         $("#td-gem-30000").html(valor*40000);
         $("#td-tempo-30000").html(string);
