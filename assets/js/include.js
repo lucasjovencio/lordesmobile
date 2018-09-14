@@ -350,7 +350,7 @@ function calculo_dano_monstro(valorInicial,qtnAtaque,vidaInitial,ataqConseq){
                 console.log("Dano Inicial: "+valorInicial);
                 let porcento = (valT/valorInicial).toFixed(5);
                 console.log("Porcentagem: "+porcento);
-                let porcentM = parseFloat(valorInicial+porcento).toFixed(5);
+                let porcentM = (valorInicial+porcento).toFixed(5);
                 console.log("Dano + Porcentagem: "+porcentM);
                 //porcentM = porcentM.toFixed(2);
 
@@ -363,7 +363,7 @@ function calculo_dano_monstro(valorInicial,qtnAtaque,vidaInitial,ataqConseq){
 
                 vidaInitial=parseFloat(vidaInitial-porcentM);
 
-                vidaInitial = vidaInitial <=0 ? 0 : parseFloat(vidaInitial).toFixed(2);
+                vidaInitial = vidaInitial <=0 ? 0 : parseFloat(vidaInitial).toFixed(5);
 
                 $("#vida-mm-"+i).html(vidaInitial);
                 valorInicial=valorInicial+porcentM;
