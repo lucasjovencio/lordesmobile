@@ -349,27 +349,38 @@ function calculo_dano_monstro(valorInicial,qtnAtaque,vidaInitial,ataqConseq){
                 vidaInitial = vidaInitial.toFixed(2);
                 $("#vida-mm-"+i).html(vidaInitial);
             }else{
-                let valT = (parseFloat(tabelaDano[(i-1)])/100).toFixed(5);
-                console.log("Tabela de Dano: "+valT);
-                console.log("Dano Inicial: "+valorInicial);
-                let porcento = parseFloat(valT/valorInicial).toFixed(5);
-                console.log("Porcentagem: "+porcento);
-                valorInicial = Number(valorInicial)+Number(porcento);
-                console.log("Dano + Porcentagem: "+valorInicial);
-                //porcentM = porcentM.toFixed(2);
+                if(i<=6){
+                    let valT = (parseFloat(tabelaDano[(i-1)])/100).toFixed(5);
+                    console.log("Tabela de Dano: "+valT);
+                    console.log("Dano Inicial: "+valorInicial);
+                    let porcento = parseFloat(valT/valorInicial).toFixed(5);
+                    console.log("Porcentagem: "+porcento);
+                    valorInicial = Number(valorInicial)+Number(porcento);
+                    console.log("Dano + Porcentagem: "+valorInicial);
+                    //porcentM = porcentM.toFixed(2);
 
-                $("#atac-m-"+i).html(tabelaDano[(i-1)]);
-                $("#dan-m-"+i).html(valorInicial);
+                    $("#atac-m-"+i).html(tabelaDano[(i-1)]);
+                    $("#dan-m-"+i).html(valorInicial);
 
-                vidaInitial=parseFloat(vidaInitial);
-                $("#vida-m-"+i).html(vidaInitial);
+                    vidaInitial=parseFloat(vidaInitial);
+                    $("#vida-m-"+i).html(vidaInitial);
 
 
-                vidaInitial=parseFloat(vidaInitial-valorInicial);
+                    vidaInitial=parseFloat(vidaInitial-valorInicial);
 
-                vidaInitial = vidaInitial <=0 ? 0 : parseFloat(vidaInitial).toFixed(3);
+                    vidaInitial = vidaInitial <=0 ? 0 : parseFloat(vidaInitial).toFixed(3);
 
-                $("#vida-mm-"+i).html(vidaInitial);
+                    $("#vida-mm-"+i).html(vidaInitial);
+                }else{
+                    console.log("Dano: "+valorInicial);
+                    $("#atac-m-"+i).html('#');
+                    $("#dan-m-"+i).html(parseFloat(valorInicial).toFixed(3));
+                    $("#vida-m-"+i).html(vidaInitial);
+                    vidaInitial=parseFloat(vidaInitial-valorInicial);
+                    vidaInitial = vidaInitial <=0 ? 0 : parseFloat(vidaInitial).toFixed(3);
+                    $("#vida-mm-"+i).html(vidaInitial);
+                }
+                
             }
         }
     }
