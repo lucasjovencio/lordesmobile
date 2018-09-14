@@ -344,11 +344,12 @@ function calculo_dano_monstro(valorInicial,qtnAtaque,vidaInitial,ataqConseq){
                 vidaInitial = vidaInitial.toFixed(2);
                 $("#vida-mm-"+i).html(vidaInitial);
             }else{
-                let valT = parseFloat(tabelaDano[(i-1)]);
+                let valT = parseFloat(tabelaDano[(i-1)]).toFixed(5);
                 valorInicial = parseFloat().toFixed(2);
                 let porcento = (valT/valorInicial).toFixed(5);
-
+                console.log("Porcentagem: "+porcento);
                 let porcentM = valorInicial + porcento;
+                console.log("Dano + Porcentagem: "+porcentM);
                 //porcentM = porcentM.toFixed(2);
 
                 $("#atac-m-"+i).html(tabelaDano[(i-1)]);
