@@ -445,8 +445,10 @@ function converte_tempo(valor){
                 }
             }
             else{
-                string = horas+":00";
+                string = "0"+horas+":00";
+                console.log("1: Hora "+horas);
             }
+            console.log("2: Hora "+horas);
         }
     }else{
         if(minutos < 10){
