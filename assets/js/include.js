@@ -413,7 +413,7 @@ function converte_tempo(valor){
             }
 
             else if(dias==1 && horas>1 && minutos>1){
-                string = dias+" D "+horas+":"+minutos+" mins";
+                string = dias+" D "+horas+":"+minutos;
             }
             else if(dias==1 && horas==1 && minutos==1){
                 string = dias+" D "+horas+":"+minutos;
@@ -434,15 +434,15 @@ function converte_tempo(valor){
 
             if(horas>1 && horas < 10){
                 if(minutos>9){
-                    string = horas+":"+minutos;
-                }else{
-                    string = horas+":0"+minutos;
-                }
-            }else if(horas>9){
-                if(minutos>9){
                     string = "0"+horas+":"+minutos;
                 }else{
                     string = "0"+horas+":0"+minutos;
+                }
+            }else if(horas>9){
+                if(minutos>9){
+                    string = horas+":"+minutos;
+                }else{
+                    string = horas+":0"+minutos;
                 }
             }
             else{
