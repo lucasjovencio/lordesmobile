@@ -528,7 +528,6 @@ function objetos_mochila(){
 
 }
 function calcula_tempo_tropa(){
-    console.log("Oi");
     tempo_ace_usado[2]=tempo_aceleradores[2];
     let pontu_aux = pontu_nece;
     let pontuvali=0;
@@ -541,9 +540,10 @@ function calcula_tempo_tropa(){
         }else{
             prosseguir = 1;
             tempo = converte_tempo_string(tempo);
-
         }
     }
+
+    objetos_mochila();
 }
 
 
