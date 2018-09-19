@@ -399,7 +399,7 @@ function converte_tempo(valor){
             dias = parseInt(horas/24);
             horas = horas%24;
             minutos = minutos%60;
-            
+
             if( dias>1 && dias < 10 ){
                 if(horas>1 && horas < 10){
                     if(minutos>9){
@@ -792,8 +792,8 @@ $(document).ready(function(){
         let textoDigitado = $(this).val();
         let valor = parseInt(textoDigitado);
         let string = converte_tempo(valor*1440);
-        string+="<span class='oculta-span'>"+valor*1400+"</span>";
-        string+="<pre class='oculta-span'>"+1400+"</pre>";
+        string+="<span class='oculta-span'>"+valor*1440+"</span>";
+        string+="<pre class='oculta-span'>"+1440+"</pre>";
         string+="<i class='oculta-span'>"+valor+"</i>";
         $("#td-vel-240").html(textoDigitado);
         $("#td-gem-240").html(valor*1500);
