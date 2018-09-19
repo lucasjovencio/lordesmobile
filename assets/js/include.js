@@ -431,26 +431,29 @@ function converte_tempo(valor){
                 string = dias+" D 00:00";
             }
         }else{
-            if(horas>1 && minutos>1){
-                string = horas+":"+minutos;
+
+            if(horas>1 && horas < 10){
+                if(minutos>9){
+                    string = horas+":"+minutos;
+                }else{
+                    string = horas+":0"+minutos;
+                }
+            }else if(horas>9){
+                if(minutos>9){
+                    string = "0"+horas+":"+minutos;
+                }else{
+                    string = "0"+horas+":0"+minutos;
+                }
             }
-            else if(horas>1 && minutos==1){
-                string = horas+":"+minutos;
-            }
-            else if(horas==1 && minutos>1){
-                string = horas+":"+minutos;
-            }
-            else if(horas==1 && minutos==1){
-                string = horas+":"+minutos;
-            }else{
+            else{
                 string = horas+":00";
             }
         }
     }else{
         if(minutos < 10){
-            string = "0:0"+minutos;
+            string = "00:0"+minutos;
         }else{
-            string = "0:"+minutos;
+            string = "00:"+minutos;
         }
     }
     return string;
