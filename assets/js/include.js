@@ -400,61 +400,57 @@ function converte_tempo(valor){
             horas = horas%24;
             minutos = minutos%60;
             if(dias>1 && horas>1 && minutos>1){
-                string = dias+" Dias "+horas+" Hrs "+minutos+" mins";
+                string = dias+" D "+horas+":"+minutos;
             }
             else if(dias>1 && horas==1 && minutos>1){
-                string = dias+" Dias "+horas+" Hr "+minutos+" mins";
+                string = dias+" D "+horas+":"+minutos;
             }
             else if(dias>1 && horas==1 && minutos==1){
-                string = dias+" Dias "+horas+" Hr "+minutos+" min";
+                string = dias+" D "+horas+":"+minutos;
             }
             else if(dias>1 && horas>1 && minutos==0){
-                string = dias+" Dias "+horas+" Hrs";
+                string = dias+" D "+horas+":00";
             }
 
             else if(dias==1 && horas>1 && minutos>1){
-                string = dias+" Dia "+horas+" Hrs "+minutos+" mins";
+                string = dias+" D "+horas+":"+minutos+" mins";
             }
             else if(dias==1 && horas==1 && minutos==1){
-                string = dias+" Dia "+horas+" Hr "+minutos+" min";
+                string = dias+" D "+horas+":"+minutos;
             }
             else if(dias==1 && horas==1 && minutos>1){
-                string = dias+" Dia "+horas+" Hr "+minutos+" min";
+                string = dias+" D "+horas+":"+minutos;
             }
             else if(dias==1 && horas==0 && minutos>1){
-                string = dias+" Dia "+minutos+" min";
+                string = dias+" D "+minutos;
             }
             else if(dias==1 && horas>1 && minutos==0){
-                string = dias+" Dia "+horas+" Hrs";
+                string = dias+" D "+horas+":00";
             }
             else{
-                if(dias==1){
-                    string = dias+" Dia";
-                }else{
-                    string = dias+" Dias";
-                }
+                string = dias+" D 00:00";
             }
         }else{
             if(horas>1 && minutos>1){
-                string = horas+" Hrs "+minutos+" mins";
+                string = horas+":"+minutos;
             }
             else if(horas>1 && minutos==1){
-                string = horas+" Hrs "+minutos+" min";
+                string = horas+":"+minutos;
             }
             else if(horas==1 && minutos>1){
-                string = horas+" Hr "+minutos+" mins";
+                string = horas+":"+minutos;
             }
             else if(horas==1 && minutos==1){
-                string = horas+" Hr "+minutos+" min";
+                string = horas+":"+minutos;
             }else{
-                string = horas+" Hr";
+                string = horas+":00";
             }
         }
     }else{
-        if(minutos==1){
-            string = minutos+" Minuto";
+        if(minutos < 10){
+            string = "0:0"+minutos;
         }else{
-            string = minutos+" Minutos";
+            string = "0:"+minutos;
         }
     }
     return string;
