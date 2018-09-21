@@ -430,7 +430,7 @@ function converte_tempo(valor){
                         string = dias+" D "+horas+":0"+minutos;
                     }
                 }else{
-                    string = "0"+dias+" D 00:0"+minutos;
+                    string = dias+" D 00:0"+minutos;
                 }
             }
         }else{
