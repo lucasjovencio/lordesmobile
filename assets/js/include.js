@@ -400,7 +400,7 @@ function converte_tempo(valor){
             horas = horas%24;
             minutos = minutos%60;
 
-            if( dias>1 && dias < 10 ){
+            if( dias>=1 && dias < 10 ){
                 if(horas>1 && horas < 10){
                     if(minutos>9){
                         string = "0"+dias+" D "+"0"+horas+":"+minutos;
@@ -413,8 +413,10 @@ function converte_tempo(valor){
                     }else{
                         string = "0"+dias+" D "+horas+":0"+minutos;
                     }
+                }else{
+                    string = "0"+dias+" D 00:0"+minutos;
                 }
-            }else{
+            }else if(dias>9){
                 if(horas>1 && horas < 10){
                     if(minutos>9){
                         string = dias+" D "+"0"+horas+":"+minutos;
