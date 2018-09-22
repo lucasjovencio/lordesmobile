@@ -516,16 +516,18 @@ function obter_min_moedas(cartas,tempo_total,tam_cartas)
     console.log("Quantidade de Cartas: "+tam_cartas);
     console.log("Cartas: "+cartas);
     */
-    if(tempo_total <= 0)
+    if(tempo_total <= 0){
         return 0;
+    }
     
     for(let i = 0; i < tam_cartas; i++)
     {
         if(tempo_total >= cartas[0][i])
         {
             let cont = 1 + obter_min_moedas(cartas, tempo_total - cartas[0][i], tam_cartas);
-            if(min_moedas > cont)
+            if(min_moedas > cont){
                 min_moedas = cont;
+            }
         }
     }
 
