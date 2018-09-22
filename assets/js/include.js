@@ -516,7 +516,7 @@ function obter_min_moedas(cartas,tempo_total,tam_cartas,array_carta = new Array(
     console.log("Quantidade de Cartas: "+tam_cartas);
     console.log("Cartas: "+cartas);
     */
-    if(troco == 0)
+    if(tempo_total == 0)
         return 0;
     
     for(let i = 0; i < tam_cartas; i++)
