@@ -508,15 +508,15 @@ function converte_tempo_string(temp){
     
 }
 
-function obter_min_moedas(cartas,tempo_total,tam_cartas,array_carta = new Array())
+function obter_min_moedas(cartas,tempo_total,tam_cartas)
 {
-    let min_moedas = 10000000;
+    let min_moedas = 10000000000;
     /*
     console.log("Tempo Necessario: "+troco);
     console.log("Quantidade de Cartas: "+tam_cartas);
     console.log("Cartas: "+cartas);
     */
-    if(tempo_total == 0)
+    if(tempo_total <= 0)
         return 0;
     
     for(let i = 0; i < tam_cartas; i++)
@@ -553,7 +553,8 @@ function objetos_mochila(tempo_total){
         }
     });
     
-    console.log(obter_min_moedas(lista,tempo_total,lista.length));
+    let arg = obter_min_moedas(lista,tempo_total,lista.length);
+    console.log(arg);
 }
 function calcula_tempo_tropa(){
     tempo_ace_usado[2]=tempo_aceleradores[2];
