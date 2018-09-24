@@ -571,9 +571,7 @@ function objetos_mochila(tempo_total,mult){
         }else{
             tempo   = $(this).find('td').eq(6).find('pre').text();
             qtn     = $(this).find('td').eq(6).find('i').text();
-            let item = {"w":tempo};
-            let tem_v = converte_tempo(tempo);
-            itemKey = tempo;
+            let itemKey = tempo;
 
             itemObj = Object.create(null);
             itemObj[itemKey] = qtn;
@@ -627,8 +625,9 @@ function calcula_tempo_tropa(){
                 pontuAux = pontu[1];
                 pontuAux = parseFloat(pontuAux);
                 
-                console.log(pontuAux+" "+qtn_tropa);
-                pontuvali += ( ((pontuAux*qtn_tropa)*mult).toFixed(3) );
+                
+                pontuvali += ((pontuAux*qtn_tropa)*mult);
+                console.log(pontuAux+" "+qtn_tropa+" "+pontuvali);
 
                 $("#fonte-valicacao-"+i).val(1);
                 $("#button-check-"+i).addClass("button-success");
