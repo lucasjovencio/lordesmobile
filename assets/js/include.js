@@ -624,6 +624,7 @@ function calcula_tempo_tropa(){
                 tempo_ace_usado[2] = tempo_ace_usado[2]-tempo;
                 let pontu = $('#peso-fonte-'+i).val();
                 pontu  = pontu.split('|');
+                console.log(pontu+" "+qtn_tropa);
                 pontuvali += (parseFloat(pontu[1])*qtn_tropa);
 
                 $("#fonte-valicacao-"+i).val(1);
