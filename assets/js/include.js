@@ -606,9 +606,12 @@ function calcula_tempo_tropa(){
     let prosseguir = 1;
     let tempo;
     let dadosArgh;
+    let qtn_tropa;
     for(let i=0; i<id_fonte;i++){
         tempo = $("#tempo-real-"+i).val();
         mult = $("#multiplicador-fonte-"+i).val();
+        qtn_tropa = parseFloat($('#quantidade-tropa-'+i).val().replace(',', '.'));
+
         if(tempo==null || tempo==''){
             prosseguir =0;
             continue;
@@ -621,8 +624,8 @@ function calcula_tempo_tropa(){
                 tempo_ace_usado[2] = tempo_ace_usado[2]-tempo;
                 let pontu = $('#peso-fonte-'+i).val();
                 pontu  = pontu.split('|');
-                pontuvali += (parseFloat(pontu[1])*mult);
-                
+                pontuvali += (parseFloat(pontu[1])*qtn_tropa);
+
                 $("#fonte-valicacao-"+i).val(1);
                 $("#button-check-"+i).addClass("button-success");
                 $("#button-check-"+i).removeClass("button-warning");
