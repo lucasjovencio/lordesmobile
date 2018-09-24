@@ -450,9 +450,7 @@ function converte_tempo(valor){
             }
             else{
                 string = "0"+horas+":00";
-                console.log("1: Hora "+horas);
             }
-            console.log("2: Hora "+horas);
         }
     }else{
         if(minutos < 10){
@@ -508,37 +506,57 @@ function converte_tempo_string(temp){
     
 }
 
-function obter_min_moedas(cartas,tempo_total,tam_cartas)
-{
-    let min_moedas = 10000000000;
-    /*
-    console.log("Tempo Necessario: "+troco);
-    console.log("Quantidade de Cartas: "+tam_cartas);
-    console.log("Cartas: "+cartas);
-    */
-    if(tempo_total <= 0){
-        return 0;
-    }
-    
-    for(let i = 0; i < tam_cartas; i++)
-    {
-        if(tempo_total >= cartas[0][i])
-        {
-            let cont = 1 + obter_min_moedas(cartas, tempo_total - cartas[0][i], tam_cartas);
-            if(min_moedas > cont){
-                min_moedas = cont;
+function ReduzTempoUtilizadoDeAceleradores(ace_usados,lista_dispo){
+    tempo_ace_usado[2]=tempo_aceleradores[2];
+    let tempoCalc=0;
+    for (let i = 0; i < ace_usados.length; i++) {
+        let entry = ace_usados[i];
+        let key = entry.coinValue;
+
+        for(item in lista_dispo) {
+            if(lista_dispo.hasOwnProperty(item)) {
+                itemKey = Object.keys(lista_dispo[item])[0];
+
+                itemVal = lista_dispo[item][itemKey];
+
+                if(itemKey==key){
+                    itemObj = Object.create(null);
+                    itemVal = parseInt(itemVal)-1;
+
+                    if(itemVal>=1){
+                        itemObj[itemKey] = itemVal-1;
+                        lista_dispo.push(itemObj);
+                    }
+                    tempoCalc+= parseInt(itemKey);
+                    delete lista_dispo[item];
+                    break;
+                }
             }
         }
+
     }
 
-    return min_moedas;
-    
-}
+    let arrayAux = new Array();
 
-function objetos_mochila(tempo_total){
+    for(item in lista_dispo) {
+        if(lista_dispo.hasOwnProperty(item)) {
+            itemKey = Object.keys(lista_dispo[item])[0];
+            arrayAux.push(itemKey);
+        }
+    }
+    return array(arrayAux,tempoCalc);
+
+}
+function objetos_mochila(tempo_total,mult){
+    let tempoUsado=0;
+
     let table = $('table.table-vel');
     
     let lista = new Array();
+    let lista_aux = new Array();
+    let lista_qtn = new Array();
+    let denominations = new Array();
+    let array_aceleradores_tropas = new Array();
     let i = 0;
     table.find('tbody > tr').each(function() {
         let valor = $(this).find('td').eq(2).text();
@@ -551,27 +569,100 @@ function objetos_mochila(tempo_total){
         }else{
             tempo   = $(this).find('td').eq(6).find('pre').text();
             qtn     = $(this).find('td').eq(6).find('i').text();
-            lista.push(new Array(tempo,qtn));
+            let item = {"w":tempo};
+            let tem_v = converte_tempo(tempo);
+            itemKey = tempo;
+
+            itemObj = Object.create(null);
+            itemObj[itemKey] = qtn;
+            denominations.push(tempo);
+            lista.push(itemObj);
+
+            i++;
         }
     });
     
-    let arg = obter_min_moedas(lista,tempo_total,lista.length);
-    console.log(arg);
+    for(let i=0; i<mult;i++){
+        array_aceleradores_tropas.push(makeChange(denominations, tempo_total));
+        let arg = ReduzTempoUtilizadoDeAceleradores(array_aceleradores_tropas[i],lista);
+        denominations = arg[0];
+        tempoUsado+=arg[1];
+        console.log(array_aceleradores_tropas[i]);
+    }
+
+    return ({
+            "arg":array_aceleradores_tropas,"qtn":tempoUsado
+        });
+
+
 }
+
 function calcula_tempo_tropa(){
     tempo_ace_usado[2]=tempo_aceleradores[2];
     let pontu_aux = pontu_nece;
     let pontuvali=0;
     let prosseguir = 1;
+    let tempo;
+    let dadosArgh;
     for(let i=0; i<id_fonte;i++){
-        let tempo = $("#tempo-multiplicado-"+i).val();
+        tempo = $("#tempo-real-"+i).val();
+        mult = $("#multiplicador-fonte-"+i).val();
         if(tempo==null || tempo==''){
             prosseguir =0;
             continue;
         }else{
             prosseguir = 1;
             tempo = converte_tempo_string(tempo);
-            objetos_mochila(tempo);
+            dadosArgh = objetos_mochila(tempo,mult);
+            tempo = dadosArgh.qtn;
+            if(tempo_ace_usado[2]>tempo){
+                tempo_ace_usado[2] = tempo_ace_usado[2]-tempo;
+                pontuvali += parseFloat($('#poder-recebido-'+i).val().replace(',', '.'));
+                $("#fonte-valicacao-"+i).val(1);
+                $("#button-check-"+i).addClass("button-success");
+                $("#button-check-"+i).removeClass("button-warning");
+                $("#button-check-"+i).removeClass("button-error");
+            }else{
+                $("#fonte-valicacao-"+i).val(0);
+                let porcento = (tempo_ace_usado[2]/tempo)*100;
+                tempo_ace_usado[2] = tempo_ace_usado[2]-tempo;
+                if(porcento>70){
+                    $("#button-check-"+i).addClass("button-warning");
+                    $("#button-check-"+i).removeClass("button-success");
+                    $("#button-check-"+i).removeClass("button-error");
+                }else{
+                    $("#button-check-"+i).addClass("button-error");
+                    $("#button-check-"+i).removeClass("button-warning");
+                    $("#button-check-"+i).removeClass("button-success");
+                }
+            }
+        }
+    }
+    
+    pontu_aux -=pontuvali;
+    if(prosseguir){
+        $("#pontu-atingida").val(pontuvali);
+        $("#tempo-restante").val(converte_tempo(tempo_ace_usado[2]));
+        $("#pontu-atingida").css({"background-color": "#fff", "color": "#be334f"});
+        $("#tempo-restante").css({"background-color": "#fff", "color": "#be334f"});
+        $( ".infernal_informacoes_extras" ).removeClass( "display-of" ).addClass( "display-on" );
+
+        if(pontu_aux<=0){
+            $("#pontu-necessaria").addClass("button-success");
+            $("#pontu-necessaria").removeClass("button-warning");
+            $("#pontu-necessaria").removeClass("button-error");
+        }else{
+            let porcento = (pontuvali/pontu_aux)*100;
+            console.log("Pontu Porcento: "+porcento);
+            if(porcento>70){
+                $("#pontu-necessaria").addClass("button-warning");
+                $("#pontu-necessaria").removeClass("button-success");
+                $("#pontu-necessaria").removeClass("button-error");
+            }else{
+                $("#pontu-necessaria").addClass("button-error");
+                $("#pontu-necessaria").removeClass("button-warning");
+                $("#pontu-necessaria").removeClass("button-success");
+            }
         }
     }
 
@@ -587,7 +678,7 @@ function calcula_tempo_infernal(){
     for(let i=0; i<id_fonte;i++){
         if( parseInt($("#tipo-fonte-"+i).val()) == 4){
             calcula_tempo_tropa();
-            return;
+            continue;
         }
         let tempo = $("#tempo-real-"+i).val();
         if(tempo==null || tempo==''){
@@ -959,3 +1050,77 @@ $(document).ready(function(){
         console.log(parseFloat($(this).val().replace(',', '.')));
     });
 });
+
+
+
+function makeChange(coins, value) {
+    var solutions = [];
+    makeChangeBacktracking(coins, value, [], solutions);
+
+    if (!solutions.length) {
+        //no solution was found
+        return null;
+    }
+
+    var solutionsWithCount = solutions
+        .map(function(solution) {
+            return {
+                cardinality: solution.reduce(function(coinCount, item) {
+                    return coinCount + item.numCoins;
+                }, 0),
+                solution: solution
+            };
+        })
+        .sort(function(a, b) {
+            if (a.cardinality === b.cardinality) {
+                return 0;
+            }
+
+            return a.cardinality < b.cardinality ? -1 : 1;
+        });
+
+    //favor the solution with the least number of coins
+    return solutionsWithCount[0].solution;
+
+}
+
+function makeChangeBacktracking(coins, value, resultCoins, solutions) {
+    var newResult = resultCoins.concat([]);
+
+    for (var i = 0; i < coins.length; i++) {
+        var coinValue = coins[i];
+        if (coinValue > value) {
+            //e.g. trying to change 5 cents with a quarter: can't be done
+            //so try the next coin
+            continue;
+        }
+
+        var remainingValue = value % coinValue,
+            numCoins = Math.floor(value / coinValue);
+
+        newResult.push({
+            coinValue: coinValue,
+            numCoins: numCoins
+        });
+
+        if (remainingValue === 0) {
+            //it worked!
+            solutions.push(newResult.concat([]));
+
+            //but let's keep trying, maybe there's something better?
+            newResult.pop();
+            continue;
+        }
+
+        //there's still some remaining money to change, so keep going
+        makeChangeBacktracking(coins, remainingValue, newResult, solutions);
+
+        //keep trying until we run out of coins
+        newResult.pop();
+    }
+
+    //none of the coins worked out, not a solution :(
+    return null;
+}
+
+
