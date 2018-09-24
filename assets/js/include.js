@@ -73,10 +73,10 @@ function loadPeso(tipo,id_fonte){
         return ('<div class="pure-u-1-2 pure-u-md-1-2">'+
                     '<label for="min">Peso da Fonte</label>'+
                     '<select onchange="atualizaTempo(2,'+id_fonte+');return false;" id="peso-fonte-'+id_fonte+'"  class="pure-u-23-24 '+1+'">'+
-                        '<option selected value="2">T1</option>'+
-                        '<option value="8">T2</option>'+
-                        '<option value="24">T3</option>'+
-                        '<option value="36">T4</option>'+
+                        '<option selected value="2|1">T1</option>'+
+                        '<option value="8|2">T2</option>'+
+                        '<option value="24|5">T3</option>'+
+                        '<option value="36|15">T4</option>'+
                     '</select>'+
                 '</div>'
             );
@@ -619,7 +619,10 @@ function calcula_tempo_tropa(){
             tempo = dadosArgh.qtn;
             if(tempo_ace_usado[2]>tempo){
                 tempo_ace_usado[2] = tempo_ace_usado[2]-tempo;
-                pontuvali += parseFloat($('#poder-recebido-'+i).val().replace(',', '.'));
+                let pontu = $('#peso-fonte-'+i).val();
+                pontu  = pontu.split('|');
+                pontuvali += (parseFloat(pontu[1])*mult);
+                
                 $("#fonte-valicacao-"+i).val(1);
                 $("#button-check-"+i).addClass("button-success");
                 $("#button-check-"+i).removeClass("button-warning");
