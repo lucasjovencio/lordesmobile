@@ -544,7 +544,9 @@ function ReduzTempoUtilizadoDeAceleradores(ace_usados,lista_dispo){
             arrayAux.push(itemKey);
         }
     }
-    return array(arrayAux,tempoCalc);
+    return ({
+            "arg":arrayAux,"qtn":tempoCalc
+        });
 
 }
 function objetos_mochila(tempo_total,mult){
@@ -584,9 +586,9 @@ function objetos_mochila(tempo_total,mult){
     
     for(let i=0; i<mult;i++){
         array_aceleradores_tropas.push(makeChange(denominations, tempo_total));
-        let arg = ReduzTempoUtilizadoDeAceleradores(array_aceleradores_tropas[i],lista);
-        denominations = arg[0];
-        tempoUsado+=arg[1];
+        let Tempoarg    = ReduzTempoUtilizadoDeAceleradores(array_aceleradores_tropas[i],lista);
+        denominations   = Tempoarg.arg;
+        tempoUsado      += Tempoarg.qtn;
         console.log(array_aceleradores_tropas[i]);
     }
 
