@@ -628,7 +628,7 @@ function calcula_tempo_tropa(){
                 pontuAux = parseFloat(pontuAux);
                 
                 console.log(pontuAux+" "+qtn_tropa);
-                pontuvali += (pontuAux*qtn_tropa);
+                pontuvali += ( ((pontuAux*qtn_tropa)*mult).toFixed(3) );
 
                 $("#fonte-valicacao-"+i).val(1);
                 $("#button-check-"+i).addClass("button-success");
