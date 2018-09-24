@@ -619,7 +619,7 @@ function calcula_tempo_tropa(){
             dadosArgh = objetos_mochila(tempo,mult);
             tempo = dadosArgh.qtn;
             if(tempo_ace_usado[2]>tempo){
-                tempo_ace_usado[2] = tempo_ace_usado[2]-tempo;
+                tempo_ace_usado[2] = ((tempo_ace_usado[2]-tempo)>0) ? (tempo_ace_usado[2]-tempo):0;
                 let pontu = $('#peso-fonte-'+i).val();
                 pontu  = pontu.split('|');
                 pontuAux = pontu[1];
@@ -699,7 +699,7 @@ function calcula_tempo_infernal(){
             prosseguir = 1;
             tempo = converte_tempo_string(tempo);
             if(tempo_ace_usado[2]>tempo){
-                tempo_ace_usado[2] = tempo_ace_usado[2]-tempo;
+                tempo_ace_usado[2] = ((tempo_ace_usado[2]-tempo)>0) ? (tempo_ace_usado[2]-tempo):0;
                 pontuvali += parseFloat($('#poder-recebido-'+i).val().replace(',', '.'));
                 $("#fonte-valicacao-"+i).val(1);
                 $("#button-check-"+i).addClass("button-success");
@@ -708,7 +708,7 @@ function calcula_tempo_infernal(){
             }else{
                 $("#fonte-valicacao-"+i).val(0);
                 let porcento = (tempo_ace_usado[2]/tempo)*100;
-                tempo_ace_usado[2] = tempo_ace_usado[2]-tempo;
+                tempo_ace_usado[2] = ((tempo_ace_usado[2]-tempo)>0) ? (tempo_ace_usado[2]-tempo):0;
                 if(porcento>70){
                     $("#button-check-"+i).addClass("button-warning");
                     $("#button-check-"+i).removeClass("button-success");
