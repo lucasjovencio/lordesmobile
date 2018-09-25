@@ -239,9 +239,9 @@ function definiFormPree(tipo,id_fonte){
                     '<i class="fas fa-info-circle"></i> Informações Extras.'+
                 '</button>'+
             '</div>'+
-            '<input type="hidden" value="" name="hidden-pontu-infernal-'+id_fonte+'" id="hidden-pontu-infernal-'+id_fonte+'"/>'+
-            '<input type="hidden" value="" name="hidden-pontu-poder-'+id_fonte+'" id="hidden-pontu-poder-'+id_fonte+'"/>';
-            break;
+            '<span style="display:none;" id="hidden-pontu-infernal-'+id_fonte+'"/></span>'+
+            '<span stye="display:none;" id="hidden-pontu-poder-'+id_fonte+'"></span>';
+            break; 
         default:
         break;
     }
@@ -276,11 +276,12 @@ function openModal(id,tipo){
                 }
             }
             */
-            let name1= "hidden-pontu-poder-"+i;
-            let name2= "hidden-pontu-infernal-"+i;
+            let name1= "#hidden-pontu-poder-"+i;
+            let name2= "#hidden-pontu-infernal-"+i;
 
-            let poder  =   $('input[name="'+name1+'"]').val();
-            let infernal  =   $('input[name="'+name2+'"]').val();
+            
+            let poder  =   $(name1).text();
+            //let infernal  =   $('input[name="'+name2+'"]').val();
             console.log(poder);
 
             //alert(poder);
@@ -724,9 +725,9 @@ function calcula_tempo_tropa(){
 
                 pontuAux2 = parseFloat(((pontuAux2*qtn_tropa)*mult)).toFixed(3);
                 pontuAux2 =  pontuAux2.replace(/^0+(?!\.|$)/, '');
-
-                $("#hidden-pontu-infernal-"+i).val(pontuAux);
-                $("#hidden-pontu-poder-"+i).val(pontuAux2);
+                
+                $("#hidden-pontu-infernal-"+i).text(pontuAux);
+                $("#hidden-pontu-poder-"+i).text(pontuAux2);
 
                 $("#fonte-valicacao-"+i).val(1);
                 $("#button-check-"+i).addClass("button-success");
