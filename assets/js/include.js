@@ -275,14 +275,14 @@ function openModal(id,tipo){
                     }
                 }
             }
-            
+            */
             let infernal = $("#hidden-pontu-infernal-"+i).val();
             let poder = $("#hidden-pontu-poder-"+i).val();
 
             let texto = "<p>Poder total adquirido: "+poder+"</p>"+
             "<p>Pontuação total adquirida para o evento: "+infernal+"</p>"+
             "<p>Ordem de aceleradores a serem utilizados:</p>";
-            
+            /*
             texto +="<ul>";
             for(item in dataMasc){
                 texto +="<li>";
@@ -294,9 +294,9 @@ function openModal(id,tipo){
                 texto +="</li>";
             }
             texto +="</ul>";
-
-            $("#modal-result").html(texto);
             */
+            $("#modal-result").html(texto);
+            
             alert(1);
             break;
         default:
