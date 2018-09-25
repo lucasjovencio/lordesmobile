@@ -53,8 +53,8 @@ var qtd_fonte = 0;
 function removerFonte(id){
 
     for(item in obj_tropas) {
-        if(obj_tropas.hasOwnProperty(item)) {
-            itemKey = Object.keys(obj_tropas[item])[0];
+        if(obj_tropas.hasOwnProperty(item["ac"])) {
+            itemKey = Object.keys(obj_tropas[item]["ac"])[0];
             if(itemKey==id){
                 delete obj_tropas[item];
                 break;
@@ -240,7 +240,7 @@ function definiFormPree(tipo,id_fonte){
                 '</button>'+
             '</div>'+
             '<span style="display:none;" id="hidden-pontu-infernal-'+id_fonte+'"/></span>'+
-            '<span stye="display:none;" id="hidden-pontu-poder-'+id_fonte+'"></span>';
+            '<span style="display:none;" id="hidden-pontu-poder-'+id_fonte+'"></span>';
             break; 
         default:
         break;
@@ -265,24 +265,24 @@ function openModal(id,tipo){
         case 3:
             break;
         case 4:
-            /*
+            
             for(item in obj_tropas) {
-                if(obj_tropas.hasOwnProperty(item)) {
-                    itemKey = Object.keys(obj_tropas[item])[0];
+                if(obj_tropas.hasOwnProperty(item["ac"])) {
+                    itemKey = Object.keys(obj_tropas[item]["ac"])[0];
                     if(itemKey==id){
-                        dataMasc = obj_tropas[item];
+                        dataMasc = obj_tropas[item]["ac"];
                         break;
                     }
                 }
             }
-            */
-            let name1= "#hidden-pontu-poder-"+i;
-            let name2= "#hidden-pontu-infernal-"+i;
+            
+            //let name1= "#hidden-pontu-poder-"+i;
+            //let name2= "#hidden-pontu-infernal-"+i;
 
             
-            let poder  =   $(name1).text();
+            //let poder  =   $(name1).text();
             //let infernal  =   $('input[name="'+name2+'"]').val();
-            console.log(poder);
+            console.log(dataMasc);
 
             //alert(poder);
 
@@ -304,7 +304,7 @@ function openModal(id,tipo){
             */
             //$("#modal-result").html(texto);
             
-            alert(1);
+
             break;
         default:
             break;
@@ -703,9 +703,7 @@ function calcula_tempo_tropa(){
             dadosArgh = objetos_mochila(tempo,mult);
             tempo = dadosArgh.qtn;
             if(tempo_ace_usado[2]>tempo){
-                let itemObj = Object.create(null);
-                itemObj[i] = dadosArgh.arg;
-                obj_tropas.push(itemObj);
+                
 
                 let auxTempo = tempo_ace_usado[2]-tempo;
                 tempo_ace_usado[2] = auxTempo;
@@ -725,7 +723,12 @@ function calcula_tempo_tropa(){
 
                 pontuAux2 = parseFloat(((pontuAux2*qtn_tropa)*mult)).toFixed(3);
                 pontuAux2 =  pontuAux2.replace(/^0+(?!\.|$)/, '');
-                
+
+                let itemObj = Object.create(null);
+                itemObj[i] = dadosArgh.arg;
+
+                obj_tropas.push({"ac":itemObj,"if":pontuAux,"pd":pontuAux2});
+
                 $("#hidden-pontu-infernal-"+i).text(pontuAux);
                 $("#hidden-pontu-poder-"+i).text(pontuAux2);
 
