@@ -481,7 +481,7 @@ function atualizaTempo(tipo,id){
         if(ValiP){
             calcula_tempo_infernal();
         }else if (ValiQ) {
-            let mult = $('#quantidade-tropa-'+id).val();
+            let mult = parseInt($('#quantidade-tropa-'+id).val());
             if(mult){
                 calcula_tempo_tropa();
             }            
@@ -636,6 +636,7 @@ function calcula_tempo_tropa(){
                 pontuAux = parseFloat(pontuAux);
                 
                 pontuvali += parseFloat(((pontuAux*qtn_tropa)*mult)).toFixed(3);
+                pontuvali =  pontuvali.replace(/^0+(?!\.|$)/, '');
                 console.log(pontuAux+" "+qtn_tropa+" "+pontuvali);
 
                 $("#fonte-valicacao-"+i).val(1);
