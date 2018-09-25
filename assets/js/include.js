@@ -285,7 +285,7 @@ function openModal(id,tipo){
             "<p>Pontuação total adquirida para o evento: "+infernal+"</p>"+
             "<p>Ordem de aceleradores a serem utilizados:</p>";
 
-            /*
+            
             texto +="<ul>";
             for(item in dataMasc){
                 texto +="<li>";
@@ -297,10 +297,10 @@ function openModal(id,tipo){
                 texto +="</li>";
             }
             texto +="</ul>";
-            */
+            
             
             console.log(texto);
-            //$("#modal-result").html(texto);
+            $("#modal-result").html(texto);
             
             break;
         default:
