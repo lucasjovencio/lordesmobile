@@ -265,30 +265,26 @@ function openModal(id,tipo){
         case 3:
             break;
         case 4:
-            
+            let poder;
+            let infernal;
             for(item in obj_tropas) {
                 if(obj_tropas.hasOwnProperty(item)) {
                     itemKey = Object.keys(obj_tropas[item]["ac"])[0];
                     if(itemKey==id){
-                        dataMasc = obj_tropas[item]["ac"];
+                        dataMasc    = obj_tropas[item]["ac"];
+                        poder       = obj_tropas[item]["pd"];
+                        infernal    = obj_tropas[item]["if"];
                         break;
                     }
                 }
             }
             
-            //let name1= "#hidden-pontu-poder-"+i;
-            //let name2= "#hidden-pontu-infernal-"+i;
 
-            
-            //let poder  =   $(name1).text();
-            //let infernal  =   $('input[name="'+name2+'"]').val();
-            console.log(dataMasc);
 
-            //alert(poder);
+            let texto = "<p>Poder total adquirido: "+poder+"</p>"+
+            "<p>Pontuação total adquirida para o evento: "+infernal+"</p>"+
+            "<p>Ordem de aceleradores a serem utilizados:</p>";
 
-            //let texto = "<p>Poder total adquirido: "+poder+"</p>"+
-            //"<p>Pontuação total adquirida para o evento: "+infernal+"</p>"+
-            //"<p>Ordem de aceleradores a serem utilizados:</p>";
             /*
             texto +="<ul>";
             for(item in dataMasc){
@@ -302,9 +298,10 @@ function openModal(id,tipo){
             }
             texto +="</ul>";
             */
+            
+            console.log(texto);
             //$("#modal-result").html(texto);
             
-
             break;
         default:
             break;
