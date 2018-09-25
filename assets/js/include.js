@@ -285,25 +285,22 @@ function openModal(id,tipo){
             "<p>Pontuação Infernal: <b>"+infernal+"</b></p>"+
             "<p>Ordem de aceleradores a serem utilizados:</p>";
 
+            texto +="<ul>";
             $.each(dataMasc,function( key, value ) {
-              console.log( key + ": " + value );
-            });
-
-            /*texto +="<ul>";
-            for(item in dataMasc){
-                console.log("1 For: "+item);
-                texto +="<li>";
-                    texto +="<ol>";
-                for(it in item){
-                    console.log("2 For: "+it);
-                    texto +="<li>"+it+"</li>";
+                
+                for(item in value){
+                    console.log("1 For: "+item);
+                    texto +="<li>";
+                        texto +="<ol>";
+                    for(it in item){
+                        console.log("2 For: "+it);
+                        texto +="<li>"+it+"</li>";
+                    }
+                        texto +="</ol>";
+                    texto +="</li>";
                 }
-                    texto +="</ol>";
-                texto +="</li>";
-            }
+            });
             texto +="</ul>";
-            */
-            
             //console.log(texto);
             $("#modal-result").html(texto);
             
