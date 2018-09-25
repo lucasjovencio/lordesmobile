@@ -221,7 +221,7 @@ function definiFormPree(tipo,id_fonte){
                     '<i class="fas fa-clock"></i>'+
                 '</button>'+
             '</div>'+
-            '<div class="pure-u-1-4 pure-u-md-1-4">'+
+            '<div class="pure-u-1-1 pure-u-md-1-1">'+
                 '<label for="min">&emsp;</label>'+
                 '<button style="margin-left: 10px;" id="button-information-'+id_fonte+'" class="pure-u-23-24 pure-button '+2+'" onclick="return false;">'+
                     '<i class="fas fa-info-circle"></i> Informações Extras Sobre as Tropas.'+
