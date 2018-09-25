@@ -281,12 +281,15 @@ function openModal(id,tipo){
             
 
 
-            let texto = "<p>Poder total adquirido: "+poder+"</p>"+
-            "<p>Pontuação total adquirida para o evento: "+infernal+"</p>"+
+            let texto = "<p>Poder total: <b>"+poder+"</b></p>"+
+            "<p>Pontuação Infernal: <b>"+infernal+"</b></p>"+
             "<p>Ordem de aceleradores a serem utilizados:</p>";
 
-            
-            texto +="<ul>";
+            $.each(dataMasc,function( key, value ) {
+              console.log( key + ": " + value );
+            });
+
+            /*texto +="<ul>";
             for(item in dataMasc){
                 console.log("1 For: "+item);
                 texto +="<li>";
@@ -299,7 +302,7 @@ function openModal(id,tipo){
                 texto +="</li>";
             }
             texto +="</ul>";
-            
+            */
             
             //console.log(texto);
             $("#modal-result").html(texto);
