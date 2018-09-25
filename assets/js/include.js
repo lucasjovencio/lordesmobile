@@ -596,6 +596,7 @@ function objetos_mochila(tempo_total,mult){
         array_aceleradores_tropas.push(makeChange(denominations, tempo_total));
         let Tempoarg    = ReduzTempoUtilizadoDeAceleradores(array_aceleradores_tropas[i],lista);
         denominations   = Tempoarg.arg;
+        console.log(tempoUsado+" "+Tempoarg.qtn);
         tempoUsado      += Tempoarg.qtn;
         console.log(array_aceleradores_tropas[i]);
     }
@@ -620,7 +621,7 @@ function calcula_tempo_tropa(){
         mult = $("#multiplicador-fonte-"+i).val();
         qtn_tropa = parseFloat($('#quantidade-tropa-'+i).val().replace(',', '.')).toFixed(3);
 
-        if(tempo==null || tempo==''){
+        if(tempo==null || tempo=='' || mult==null || mult==''){
             prosseguir =0;
             continue;
         }else{
