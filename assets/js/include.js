@@ -53,7 +53,7 @@ var qtd_fonte = 0;
 function removerFonte(id){
 
     for(item in obj_tropas) {
-        if(obj_tropas.hasOwnProperty(item["ac"])) {
+        if(obj_tropas.hasOwnProperty(item)) {
             itemKey = Object.keys(obj_tropas[item]["ac"])[0];
             if(itemKey==id){
                 delete obj_tropas[item];
@@ -267,7 +267,7 @@ function openModal(id,tipo){
         case 4:
             
             for(item in obj_tropas) {
-                if(obj_tropas.hasOwnProperty(item["ac"])) {
+                if(obj_tropas.hasOwnProperty(item)) {
                     itemKey = Object.keys(obj_tropas[item]["ac"])[0];
                     if(itemKey==id){
                         dataMasc = obj_tropas[item]["ac"];
