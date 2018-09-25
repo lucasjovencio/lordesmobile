@@ -241,7 +241,7 @@ function definiFormPree(tipo,id_fonte){
 }
 
 function openModal(id_data){
-    $("#myModal").modal();
+    $("#myModalTropas").modal();
 }
 function definiPeso(tipo,id){
     
