@@ -282,9 +282,11 @@ function openModal(id,tipo){
             let poder  =   $('input[name="'+name1+'"]').val();
             let infernal  =   $('input[name="'+name2+'"]').val();
 
-            let texto = "<p>Poder total adquirido: "+poder+"</p>"+
-            "<p>Pontuação total adquirida para o evento: "+infernal+"</p>"+
-            "<p>Ordem de aceleradores a serem utilizados:</p>";
+            alert(poder);
+            
+            //let texto = "<p>Poder total adquirido: "+poder+"</p>"+
+            //"<p>Pontuação total adquirida para o evento: "+infernal+"</p>"+
+            //"<p>Ordem de aceleradores a serem utilizados:</p>";
             /*
             texto +="<ul>";
             for(item in dataMasc){
