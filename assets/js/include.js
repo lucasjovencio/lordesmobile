@@ -265,6 +265,7 @@ function openModal(id,tipo){
         case 3:
             break;
         case 4:
+            /*
             for(item in obj_tropas) {
                 if(obj_tropas.hasOwnProperty(item)) {
                     itemKey = Object.keys(obj_tropas[item])[0];
@@ -295,6 +296,8 @@ function openModal(id,tipo){
             texto +="</ul>";
 
             $("#modal-result").html(texto);
+            */
+            alert(1);
             break;
         default:
             break;
