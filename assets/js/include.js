@@ -212,7 +212,7 @@ function definiFormPree(tipo,id_fonte){
                 '<label for="min">&emsp;</label>'+
                 '<button class="pure-u-23-24 pure-button '+1+'" onclick="removerFonte('+id_fonte+');return false;">'+
                     '<i class="fas fa-minus-square"></i>'+
-                    'Remover fonte de pontuação'+
+                    ' Remover fonte de pontuação'+
                 '</button>'+
             '</div>'+
             '<div class="pure-u-1-2 pure-u-md-1-2">'+
@@ -224,7 +224,7 @@ function definiFormPree(tipo,id_fonte){
             '<div class="pure-u-1-4 pure-u-md-1-4">'+
                 '<label for="min">&emsp;</label>'+
                 '<button id="button-information-'+id_fonte+'" class="pure-u-23-24 pure-button '+2+'" onclick="return false;">'+
-                    '<i class="fas fa-clock"></i> Informações Extras Sobre as Tropas.'+
+                    '<i class="fas fa-info-circle"></i> Informações Extras Sobre as Tropas.'+
                 '</button>'+
             '</div>';
             break;
