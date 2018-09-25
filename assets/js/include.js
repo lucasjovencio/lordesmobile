@@ -2,6 +2,8 @@ var gemas = [5,0,0,0,70,0,130,300,650,1000,1500,4400,10000,40000];
 var tempo_aceleradores = [0,0,0]; // quantidade , gemas , tempo
 var tempo_ace_usado = [0,0,0]; // quantidade , gemas , tempo
 var pontu_nece = 0;
+var obj_tropas = new Array();
+
 $(document).ready(function () {
     applyDatMaskJs();
     $( ".infernal_informacoes_extras" ).addClass( "display-of" );
@@ -49,6 +51,16 @@ function applyDatMaskJs(){
 var id_fonte=0;
 var qtd_fonte = 0;
 function removerFonte(id){
+
+    for(item in obj_tropas) {
+        if(obj_tropas.hasOwnProperty(item)) {
+            itemKey = Object.keys(obj_tropas[item])[0];
+            if(itemKey==id){
+                delete obj_tropas[item];
+                break;
+            }
+        }
+    }
     $("#fonte-add-"+id).remove();
     qtd_fonte -=1;
     calcula_tempo_infernal();
@@ -224,7 +236,7 @@ function definiFormPree(tipo,id_fonte){
             '<div class="pure-u-1-1 pure-u-md-1-1">'+
                 '<label for="min">&emsp;</label>'+
                 '<button onclick="openModal('+id_fonte+');return false;" data-id-type="'+id_fonte+'" style="margin-left: 10px;" id="button-information-'+id_fonte+'" class="pure-u-23-24 pure-button '+2+'" onclick="return false;">'+
-                    '<i class="fas fa-info-circle"></i> Informações Extras Sobre as Tropas.'+
+                    '<i class="fas fa-info-circle"></i> Informações Extras.'+
                 '</button>'+
             '</div>';
             break;
@@ -240,7 +252,18 @@ function definiFormPree(tipo,id_fonte){
 
 }
 
-function openModal(id_data){
+function openModal(id){
+    let dataMasc;
+    for(item in obj_tropas) {
+        if(obj_tropas.hasOwnProperty(item)) {
+            itemKey = Object.keys(obj_tropas[item])[0];
+            if(itemKey==id){
+                dataMasc = obj_tropas[item];
+                break;
+            }
+        }
+    }
+    console.log(dataMasc);
     $("#myModalTropas").modal();
 }
 function definiPeso(tipo,id){
@@ -324,9 +347,7 @@ function check_td_danger(reset=1){
             }
         });
     }
-
 }
-
 function calculo_dano_monstro(valorInicial,qtnAtaque,vidaInitial,ataqConseq){
     let tabelaDano = [0,14,24.5,35.5,47,59];
     check_td_danger();
@@ -516,9 +537,7 @@ function converte_tempo_string(temp){
     hora = (parseInt(tempo[0]))*60;
     minuto = parseInt(tempo[1]);
     return (hora+minuto);
-    
 }
-
 function ReduzTempoUtilizadoDeAceleradores(ace_usados,lista_dispo){
     tempo_ace_usado[2]=tempo_aceleradores[2];
     let tempoCalc=0;
@@ -568,7 +587,6 @@ function ReduzTempoUtilizadoDeAceleradores(ace_usados,lista_dispo){
     return ({
             "arg":arrayAux,"qtn":tempoCalc
         });
-
 }
 function objetos_mochila(tempo_total,mult){
     let tempoUsado=0;
@@ -607,18 +625,15 @@ function objetos_mochila(tempo_total,mult){
         array_aceleradores_tropas.push(makeChange(denominations, tempo_total));
         let Tempoarg    = ReduzTempoUtilizadoDeAceleradores(array_aceleradores_tropas[i],lista);
         denominations   = Tempoarg.arg;
-        console.log(tempoUsado+" "+Tempoarg.qtn);
+        //console.log(tempoUsado+" "+Tempoarg.qtn);
         tempoUsado      += Tempoarg.qtn;
-        console.log(array_aceleradores_tropas[i]);
+        //console.log(array_aceleradores_tropas[i]);
     }
 
     return ({
             "arg":array_aceleradores_tropas,"qtn":tempoUsado
         });
-
-
 }
-
 function calcula_tempo_tropa(){
     tempo_ace_usado[2]=tempo_aceleradores[2];
     let pontu_aux = pontu_nece;
@@ -641,6 +656,10 @@ function calcula_tempo_tropa(){
             dadosArgh = objetos_mochila(tempo,mult);
             tempo = dadosArgh.qtn;
             if(tempo_ace_usado[2]>tempo){
+                let itemObj = Object.create(null);
+                itemObj[i] = dadosArgh.arg;
+                obj_tropas.push(itemObj);
+
                 let auxTempo = tempo_ace_usado[2]-tempo;
                 tempo_ace_usado[2] = auxTempo;
                 let pontu = $('#peso-fonte-'+i).val();
@@ -650,7 +669,7 @@ function calcula_tempo_tropa(){
                 
                 pontuvali += parseFloat(((pontuAux*qtn_tropa)*mult)).toFixed(3);
                 pontuvali =  pontuvali.replace(/^0+(?!\.|$)/, '');
-                console.log(pontuAux+" "+qtn_tropa+" "+pontuvali);
+                //console.log(pontuAux+" "+qtn_tropa+" "+pontuvali);
 
                 $("#fonte-valicacao-"+i).val(1);
                 $("#button-check-"+i).addClass("button-success");
