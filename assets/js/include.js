@@ -279,11 +279,11 @@ function openModal(id,tipo){
             let name1= "hidden-pontu-poder-"+i;
             let name2= "hidden-pontu-infernal-"+i;
 
-            let poder  =   $('input[name="'+name1+'"]').val();
-            let infernal  =   $('input[name="'+name2+'"]').val();
+            //let poder  =   $('input[name="'+name1+'"]').val();
+            //let infernal  =   $('input[name="'+name2+'"]').val();
 
-            alert(poder);
-            
+            //alert(poder);
+
             //let texto = "<p>Poder total adquirido: "+poder+"</p>"+
             //"<p>Pontuação total adquirida para o evento: "+infernal+"</p>"+
             //"<p>Ordem de aceleradores a serem utilizados:</p>";
@@ -727,7 +727,14 @@ function calcula_tempo_tropa(){
                 $("#hidden-pontu-infernal-"+i).val(pontuAux);
                 $("#hidden-pontu-poder-"+i).val(pontuAux2);
                 
+                let name1= "hidden-pontu-poder-"+i;
+                let name2= "hidden-pontu-infernal-"+i;
 
+                let poder  =   $('input[name="'+name1+'"]').val();
+                //let infernal  =   $('input[name="'+name2+'"]').val();
+
+                console.log(poder);
+                
                 $("#fonte-valicacao-"+i).val(1);
                 $("#button-check-"+i).addClass("button-success");
                 $("#button-check-"+i).removeClass("button-warning");
