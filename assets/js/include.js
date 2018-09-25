@@ -286,17 +286,8 @@ function openModal(id,tipo){
             "<p>Ordem de aceleradores a serem utilizados:</p>";
 
             texto +="<ul>";
-            for(item in dataMasc[0]){
-                itemKey = Object.keys(dataMasc[0][item])[0];
-                console.log("1 For: "+item[itemKey]);
-                texto +="<li>";
-                    texto +="<ol>";
-                for(it in item){
-                    console.log("2 For: "+it);
-                    texto +="<li>"+it+"</li>";
-                }
-                    texto +="</ol>";
-                texto +="</li>";
+            for(item in dataMasc[0]) {
+                console.log(item);
             }
             texto +="</ul>";
             //console.log(texto);
