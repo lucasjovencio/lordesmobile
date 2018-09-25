@@ -629,7 +629,8 @@ function calcula_tempo_tropa(){
             dadosArgh = objetos_mochila(tempo,mult);
             tempo = dadosArgh.qtn;
             if(tempo_ace_usado[2]>tempo){
-                tempo_ace_usado[2] = ((tempo_ace_usado[2]-tempo)>0) ? (tempo_ace_usado[2]-tempo):0;
+                let auxTempo = tempo_ace_usado[2]-tempo;
+                tempo_ace_usado[2] = auxTempo;
                 let pontu = $('#peso-fonte-'+i).val();
                 pontu  = pontu.split('|');
                 pontuAux = pontu[1];
