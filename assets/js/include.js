@@ -259,11 +259,11 @@ function openModal(id,tipo){
 
     switch(tipo){
         case 1:
-        break;
+            break;
         case 2:
-        break;
+            break;
         case 3:
-        break;
+            break;
         case 4:
             for(item in obj_tropas) {
                 if(obj_tropas.hasOwnProperty(item)) {
@@ -295,10 +295,13 @@ function openModal(id,tipo){
             texto +="</ul>";
 
             $("#modal-result").html(texto);
-        break;
+            break;
+        default:
+            break;
     }
     
     $("#myModalTropas").modal();
+    return false;
 }
 function definiPeso(tipo,id){
     
