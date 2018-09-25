@@ -223,20 +223,9 @@ function definiFormPree(tipo,id_fonte){
             '</div>'+
             '<div class="pure-u-1-1 pure-u-md-1-1">'+
                 '<label for="min">&emsp;</label>'+
-                '<a href="#myModal-'+id_fonte+'" data-toggle="modal" style="margin-left: 10px;" id="button-information-'+id_fonte+'" class="pure-u-23-24 pure-button '+2+'" onclick="return false;">'+
+                '<a href="#myModal" data-toggle="modal" style="margin-left: 10px;" id="button-information-'+id_fonte+'" class="pure-u-23-24 pure-button '+2+'" onclick="return false;">'+
                     '<i class="fas fa-info-circle"></i> Informações Extras Sobre as Tropas.'+
                 '</a>'+
-            '</div>'+
-            '<div id="myModal-'+id_fonte+'" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">'+
-                '<div class="modal-header">'+
-                    '<h1 id="myModalLabel">A Bootstrap Modal with Pure</h1>'+
-                '</div>'+
-                '<div class="modal-body">'+
-                    '<p> Modal de Aceleradores </p>'+
-                '</div>'+
-                '<div class="modal-footer">'+
-                    '<button class="pure-button" data-dismiss="modal" aria-hidden="true">Close</button>'+
-                '</div>'+
             '</div>';
             break;
         default:
