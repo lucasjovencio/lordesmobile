@@ -288,9 +288,11 @@ function openModal(id,tipo){
             
             texto +="<ul>";
             for(item in dataMasc){
+                console.log("1 For: "+item);
                 texto +="<li>";
                     texto +="<ol>";
                 for(it in item){
+                    console.log("2 For: "+it);
                     texto +="<li>"+it+"</li>";
                 }
                     texto +="</ol>";
@@ -299,7 +301,7 @@ function openModal(id,tipo){
             texto +="</ul>";
             
             
-            console.log(texto);
+            //console.log(texto);
             $("#modal-result").html(texto);
             
             break;
