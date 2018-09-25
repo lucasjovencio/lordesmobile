@@ -286,7 +286,7 @@ function openModal(id,tipo){
             "<p>Ordem de aceleradores a serem utilizados:</p>";
 
             texto +="<ul>";
-            for(item in dataMasc[0]) {
+            for(item in dataMasc) {
                 console.log(item);
             }
             texto +="</ul>";
