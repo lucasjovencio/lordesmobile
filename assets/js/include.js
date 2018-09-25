@@ -223,9 +223,9 @@ function definiFormPree(tipo,id_fonte){
             '</div>'+
             '<div class="pure-u-1-1 pure-u-md-1-1">'+
                 '<label for="min">&emsp;</label>'+
-                '<a href="#myModal" data-id-type="'+id_fonte+'" data-toggle="modal" style="margin-left: 10px;" id="button-information-'+id_fonte+'" class="pure-u-23-24 pure-button '+2+'" onclick="return false;">'+
+                '<button onclick="openModal('+id_fonte+');" data-id-type="'+id_fonte+'" style="margin-left: 10px;" id="button-information-'+id_fonte+'" class="pure-u-23-24 pure-button '+2+'" onclick="return false;">'+
                     '<i class="fas fa-info-circle"></i> Informações Extras Sobre as Tropas.'+
-                '</a>'+
+                '</button>'+
             '</div>';
             break;
         default:
@@ -238,6 +238,10 @@ function definiFormPree(tipo,id_fonte){
     applyDatMaskJs();
     definiPeso(tipo,id_fonte);
 
+}
+
+function openModal(id_data){
+    $("#myModal").modal();
 }
 function definiPeso(tipo,id){
     
