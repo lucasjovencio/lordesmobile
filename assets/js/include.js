@@ -628,7 +628,7 @@ function calcula_tempo_tropa(){
             prosseguir = 1;
             tempo = converte_tempo_string(tempo);
             dadosArgh = objetos_mochila(tempo,mult);
-            tempo = dadosArgh.qtn;
+            //tempo = dadosArgh.qtn;
             if(tempo_ace_usado[2]>tempo){
                 let auxTempo = tempo_ace_usado[2]-tempo;
                 tempo_ace_usado[2] = auxTempo;
