@@ -518,6 +518,7 @@ function ReduzTempoUtilizadoDeAceleradores(ace_usados,lista_dispo){
         for (let i = 0; i < tam; i++) {
             let entry = ace_usados[i];
             let key = entry.coinValue;
+            let key_mult = entry.numCoins;
 
             for(item in lista_dispo) {
                 if(lista_dispo.hasOwnProperty(item)) {
@@ -527,13 +528,13 @@ function ReduzTempoUtilizadoDeAceleradores(ace_usados,lista_dispo){
 
                     if(itemKey==key){
                         itemObj = Object.create(null);
-                        itemVal = parseInt(itemVal)-1;
+                        itemVal = parseInt(itemVal)-key_mult;
 
                         if(itemVal>=1){
                             itemObj[itemKey] = itemVal-1;
                             lista_dispo.push(itemObj);
                         }
-                        tempoCalc+= parseInt(itemKey);
+                        tempoCalc+= (parseInt(key))*key_mult;
                         delete lista_dispo[item];
                         break;
                     }
@@ -628,7 +629,7 @@ function calcula_tempo_tropa(){
             prosseguir = 1;
             tempo = converte_tempo_string(tempo);
             dadosArgh = objetos_mochila(tempo,mult);
-            //tempo = dadosArgh.qtn;
+            tempo = dadosArgh.qtn;
             if(tempo_ace_usado[2]>tempo){
                 let auxTempo = tempo_ace_usado[2]-tempo;
                 tempo_ace_usado[2] = auxTempo;
