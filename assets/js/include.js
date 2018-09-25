@@ -240,8 +240,7 @@ function definiFormPree(tipo,id_fonte){
                 '</button>'+
             '</div>'+
             '<input type="hidden" value="" id="hidden-pontu-infernal-'+id_fonte+'"/>'+
-            '<input type="hidden" value="" id="hidden-pontu-poder-'+id_fonte+'"/>'+
-            ;
+            '<input type="hidden" value="" id="hidden-pontu-poder-'+id_fonte+'"/>';
             break;
         default:
         break;
