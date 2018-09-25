@@ -235,10 +235,13 @@ function definiFormPree(tipo,id_fonte){
             '</div>'+
             '<div class="pure-u-1-1 pure-u-md-1-1">'+
                 '<label for="min">&emsp;</label>'+
-                '<button onclick="openModal('+id_fonte+');return false;" data-id-type="'+id_fonte+'" style="margin-left: 10px;" id="button-information-'+id_fonte+'" class="pure-u-23-24 pure-button '+2+'" onclick="return false;">'+
+                '<button onclick="openModal('+id_fonte+',4);return false;" data-id-type="'+id_fonte+'" style="margin-left: 10px;" id="button-information-'+id_fonte+'" class="pure-u-23-24 pure-button '+2+'" onclick="return false;">'+
                     '<i class="fas fa-info-circle"></i> Informações Extras.'+
                 '</button>'+
-            '</div>';
+            '</div>'+
+            '<input type="hidden" value="" id="hidden-pontu-infernal-'+id_fonte+'"/>'+
+            '<input type="hidden" value="" id="hidden-pontu-poder-'+id_fonte+'"/>'+
+            ;
             break;
         default:
         break;
@@ -252,18 +255,50 @@ function definiFormPree(tipo,id_fonte){
 
 }
 
-function openModal(id){
+function openModal(id,tipo){
     let dataMasc;
-    for(item in obj_tropas) {
-        if(obj_tropas.hasOwnProperty(item)) {
-            itemKey = Object.keys(obj_tropas[item])[0];
-            if(itemKey==id){
-                dataMasc = obj_tropas[item];
-                break;
+
+    switch(tipo){
+        case 1:
+        break;
+        case 2:
+        break;
+        case 3:
+        break;
+        case 4:
+            for(item in obj_tropas) {
+                if(obj_tropas.hasOwnProperty(item)) {
+                    itemKey = Object.keys(obj_tropas[item])[0];
+                    if(itemKey==id){
+                        dataMasc = obj_tropas[item];
+                        break;
+                    }
+                }
             }
-        }
+            
+            let infernal = $("#hidden-pontu-infernal-"+i).val();
+            let poder = $("#hidden-pontu-poder-"+i).val();
+
+            let texto = "<p>Poder total adquirido: "+poder+"</p>"+
+            "<p>Pontuação total adquirida para o evento: "+infernal+"</p>"+
+            "<p>Ordem de aceleradores a serem utilizados:</p>";
+            
+            texto +="<ul>";
+            for(item in dataMasc){
+                texto +="<li>";
+                    texto +="<ol>";
+                for(it in item){
+                    texto +="<li>"+it+"</li>";
+                }
+                    texto +="</ol>";
+                texto +="</li>";
+            }
+            texto +="</ul>";
+
+            $("#modal-result").html(texto);
+        break;
     }
-    console.log(dataMasc);
+    
     $("#myModalTropas").modal();
 }
 function definiPeso(tipo,id){
@@ -666,10 +701,22 @@ function calcula_tempo_tropa(){
                 pontu  = pontu.split('|');
                 pontuAux = pontu[1];
                 pontuAux = parseFloat(pontuAux);
-                
+                pontuAux2 = pontu[0];
+                pontuAux2 = parseFloat(pontuAux2);
+
+
                 pontuvali += parseFloat(((pontuAux*qtn_tropa)*mult)).toFixed(3);
                 pontuvali =  pontuvali.replace(/^0+(?!\.|$)/, '');
-                //console.log(pontuAux+" "+qtn_tropa+" "+pontuvali);
+
+                pontuAux = parseFloat(((pontuAux*qtn_tropa)*mult)).toFixed(3);
+                pontuAux =  pontuAux.replace(/^0+(?!\.|$)/, '');
+
+                pontuAux2 = parseFloat(((pontuAux2*qtn_tropa)*mult)).toFixed(3);
+                pontuAux2 =  pontuAux2.replace(/^0+(?!\.|$)/, '');
+
+                $("#hidden-pontu-infernal-"+i).val(pontuAux);
+                $("#hidden-pontu-poder-"+i).val(pontuAux2);
+                
 
                 $("#fonte-valicacao-"+i).val(1);
                 $("#button-check-"+i).addClass("button-success");
