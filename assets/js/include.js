@@ -481,7 +481,10 @@ function atualizaTempo(tipo,id){
         if(ValiP){
             calcula_tempo_infernal();
         }else if (ValiQ) {
-            calcula_tempo_tropa();
+            let mult = $('#quantidade-tropa-'+id).val();
+            if(mult){
+                calcula_tempo_tropa();
+            }            
         }
     }
 }
@@ -509,41 +512,48 @@ function converte_tempo_string(temp){
 function ReduzTempoUtilizadoDeAceleradores(ace_usados,lista_dispo){
     tempo_ace_usado[2]=tempo_aceleradores[2];
     let tempoCalc=0;
-    for (let i = 0; i < ace_usados.length; i++) {
-        let entry = ace_usados[i];
-        let key = entry.coinValue;
+    let tam = (ace_usados.length > 0) ? ace_usados.length : 0;
+    let arrayAux;
+    if(tam){
+        for (let i = 0; i < tam; i++) {
+            let entry = ace_usados[i];
+            let key = entry.coinValue;
+
+            for(item in lista_dispo) {
+                if(lista_dispo.hasOwnProperty(item)) {
+                    itemKey = Object.keys(lista_dispo[item])[0];
+
+                    itemVal = lista_dispo[item][itemKey];
+
+                    if(itemKey==key){
+                        itemObj = Object.create(null);
+                        itemVal = parseInt(itemVal)-1;
+
+                        if(itemVal>=1){
+                            itemObj[itemKey] = itemVal-1;
+                            lista_dispo.push(itemObj);
+                        }
+                        tempoCalc+= parseInt(itemKey);
+                        delete lista_dispo[item];
+                        break;
+                    }
+                }
+            }
+
+        }
+
+        arrayAux = new Array();
 
         for(item in lista_dispo) {
             if(lista_dispo.hasOwnProperty(item)) {
                 itemKey = Object.keys(lista_dispo[item])[0];
-
-                itemVal = lista_dispo[item][itemKey];
-
-                if(itemKey==key){
-                    itemObj = Object.create(null);
-                    itemVal = parseInt(itemVal)-1;
-
-                    if(itemVal>=1){
-                        itemObj[itemKey] = itemVal-1;
-                        lista_dispo.push(itemObj);
-                    }
-                    tempoCalc+= parseInt(itemKey);
-                    delete lista_dispo[item];
-                    break;
-                }
+                arrayAux.push(itemKey);
             }
         }
-
+    }else{
+        arrayAux = new Array();
     }
-
-    let arrayAux = new Array();
-
-    for(item in lista_dispo) {
-        if(lista_dispo.hasOwnProperty(item)) {
-            itemKey = Object.keys(lista_dispo[item])[0];
-            arrayAux.push(itemKey);
-        }
-    }
+    
     return ({
             "arg":arrayAux,"qtn":tempoCalc
         });
