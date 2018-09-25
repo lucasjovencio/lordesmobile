@@ -240,7 +240,7 @@ function definiFormPree(tipo,id_fonte){
                 '</button>'+
             '</div>'+
             '<input type="hidden" value="" name="hidden-pontu-infernal-'+id_fonte+'" id="hidden-pontu-infernal-'+id_fonte+'"/>'+
-            '<input type="hidden" value="" name="hidden-pontu-infernal-'+id_fonte+'" id="hidden-pontu-poder-'+id_fonte+'"/>';
+            '<input type="hidden" value="" name="hidden-pontu-poder-'+id_fonte+'" id="hidden-pontu-poder-'+id_fonte+'"/>';
             break;
         default:
         break;
@@ -276,9 +276,11 @@ function openModal(id,tipo){
                 }
             }
             */
+            let name1= "hidden-pontu-poder-"+i;
+            let name2= "hidden-pontu-infernal-"+i;
 
-            let poder  =   $('input[name="hidden-pontu-poder-"'+i+']').val();
-            let infernal  =   $('input[name="hidden-pontu-infernal-"'+i+']').val();
+            let poder  =   $('input[name="'+name1+'"]').val();
+            let infernal  =   $('input[name="'+name2+'"]').val();
 
             let texto = "<p>Poder total adquirido: "+poder+"</p>"+
             "<p>Pontuação total adquirida para o evento: "+infernal+"</p>"+
