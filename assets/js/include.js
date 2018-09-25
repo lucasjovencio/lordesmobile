@@ -223,7 +223,7 @@ function definiFormPree(tipo,id_fonte){
             '</div>'+
             '<div class="pure-u-1-4 pure-u-md-1-4">'+
                 '<label for="min">&emsp;</label>'+
-                '<button id="button-information-'+id_fonte+'" class="pure-u-23-24 pure-button '+2+'" onclick="return false;">'+
+                '<button style="margin-left: 10px;" id="button-information-'+id_fonte+'" class="pure-u-23-24 pure-button '+2+'" onclick="return false;">'+
                     '<i class="fas fa-info-circle"></i> Informações Extras Sobre as Tropas.'+
                 '</button>'+
             '</div>';
