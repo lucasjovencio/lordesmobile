@@ -293,8 +293,10 @@ function openModal(id,tipo){
                 texto +="<ol>";
                 $.each(value, function(key2, val2) {
                     texto +="<li>";
-                    //texto += val2.coinValue+' '+val2.numCoins;
-                    console.log(val2.coinValue+' '+val2.numCoins+' '+i);
+                    let moeda = val2.coinValue;
+                    let qtn = val2.numCoins;
+                    //texto += "<p>"+moeda+" "+qtn+"</p>";
+                    console.log(moeda+' '+qtn+' '+i);
                     texto +="</li>";
                 });
                 texto +="</ol>";
