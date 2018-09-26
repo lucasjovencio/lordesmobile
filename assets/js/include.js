@@ -715,7 +715,12 @@ function calcula_tempo_tropa(){
                 let itemObj = Object.create(null);
                 itemObj[i] = dadosArgh.arg;
 
-                obj_tropas.push({"ac":itemObj,"if":pontuAux,"pd":pontuAux2});
+                //obj_tropas.push({"ac":itemObj,"if":pontuAux,"pd":pontuAux2});
+                let kias = new Array(itemObj,pontuAux,pontuAux2);
+                obj_tropas.push(kias);
+                obj_tropas.push(kias);
+                console.log(kias);
+                console.log(obj_tropas);
 
                 $("#hidden-pontu-infernal-"+i).text(pontuAux);
                 $("#hidden-pontu-poder-"+i).text(pontuAux2);
