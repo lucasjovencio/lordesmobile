@@ -2,7 +2,7 @@ var gemas = [5,0,0,0,70,0,130,300,650,1000,1500,4400,10000,40000];
 var tempo_aceleradores = [0,0,0]; // quantidade , gemas , tempo
 var tempo_ace_usado = [0,0,0]; // quantidade , gemas , tempo
 var pontu_nece = 0;
-var obj_tropas = new Array();
+var obj_tropas;
 
 $(document).ready(function () {
     applyDatMaskJs();
@@ -284,11 +284,24 @@ function openModal(id,tipo){
             let texto = "<p>Poder total: <b>"+poder+"</b></p>"+
             "<p>Pontuação Infernal: <b>"+infernal+"</b></p>"+
             "<p>Ordem de aceleradores a serem utilizados:</p>";
-
+            // coinValue = coins;
             texto +="<ul>";
-            for(item in dataMasc) {
-                console.log(item);
-            }
+            dataMasc = dataMasc[0];
+            let i=0;
+            Object.entries(dataMasc).forEach(([key, value]) => {
+                texto +="<li>";
+                texto +="<ol>";
+                $.each(value, function(key2, val2) {
+                    texto +="<li>";
+                    //texto += val2.coinValue+' '+val2.numCoins;
+                    console.log(val2.coinValue+' '+val2.numCoins+' '+i);
+                    texto +="</li>";
+                });
+                texto +="</ol>";
+                texto +="</li>";
+                
+            });
+
             texto +="</ul>";
             //console.log(texto);
             $("#modal-result").html(texto);
@@ -576,7 +589,7 @@ function converte_tempo_string(temp){
 function ReduzTempoUtilizadoDeAceleradores(ace_usados,lista_dispo){
     tempo_ace_usado[2]=tempo_aceleradores[2];
     let tempoCalc=0;
-    let tam = (ace_usados.length > 0) ? ace_usados.length : 0;
+    let tam = ace_usados.length;
     let arrayAux;
     if(tam){
         for (let i = 0; i < tam; i++) {
@@ -670,6 +683,7 @@ function objetos_mochila(tempo_total,mult){
         });
 }
 function calcula_tempo_tropa(){
+    obj_tropas = new Array();
     tempo_ace_usado[2]=tempo_aceleradores[2];
     let pontu_aux = pontu_nece;
     let pontuvali=0;
@@ -715,11 +729,7 @@ function calcula_tempo_tropa(){
                 let itemObj = Object.create(null);
                 itemObj[i] = dadosArgh.arg;
 
-                //obj_tropas.push({"ac":itemObj,"if":pontuAux,"pd":pontuAux2});
-                let kias = new Array(itemObj,pontuAux,pontuAux2);
-                obj_tropas.push(kias);
-                obj_tropas.push(kias);
-                console.log(kias);
+                obj_tropas.push({"ac":itemObj,"if":pontuAux,"pd":pontuAux2});
                 console.log(obj_tropas);
 
                 $("#hidden-pontu-infernal-"+i).text(pontuAux);
