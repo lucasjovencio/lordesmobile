@@ -320,6 +320,7 @@ function openModal(id,tipo){
             let infernal;
             let T;
             let Q;
+            let M;
             for(item in obj_tropas) {
                 if(obj_tropas.hasOwnProperty(item)) {
                     itemKey = Object.keys(obj_tropas[item]["ac"])[0];
@@ -329,6 +330,7 @@ function openModal(id,tipo){
                         infernal    = obj_tropas[item]["if"];
                         T           = obj_tropas[item]["t"];
                         Q           = obj_tropas[item]["q"];
+                        M           = obj_tropas[item]["m"];
                         break;
                     }
                 }
@@ -338,6 +340,7 @@ function openModal(id,tipo){
             "<p>Pontuação Infernal: <b>"+infernal+"</b></p>"+
             "<p>Tipo de Tropa: <b>"+T+"</b></p>"+
             "<p>Quantidade de tropa por rodada: <b>"+Q+"</b></p>"+
+            "<p>Total de tropas: <b>"+(M*Q).toFixed(3)+"</b></p>"+
             "<p>Ordem de aceleradores a serem utilizados:</p>";
             // coinValue = coins;
             texto +="<ul>";
@@ -801,7 +804,7 @@ function calcula_tempo_tropa(){
                 let itemObj = Object.create(null);
                 itemObj[i] = dadosArgh.arg;
 
-                obj_tropas.push({"ac":itemObj,"if":pontuAux,"pd":pontuAux2,"t":pontu[2],"q":qtn_tropa});
+                obj_tropas.push({"ac":itemObj,"if":pontuAux,"pd":pontuAux2,"t":pontu[2],"q":qtn_tropa,"m":mult});
 
                 $("#hidden-pontu-infernal-"+i).text(pontuAux);
                 $("#hidden-pontu-poder-"+i).text(pontuAux2);
