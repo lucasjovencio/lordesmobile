@@ -85,10 +85,10 @@ function loadPeso(tipo,id_fonte){
         return ('<div class="pure-u-1-2 pure-u-md-1-2">'+
                     '<label for="min">Peso da Fonte</label>'+
                     '<select onchange="atualizaTempo(2,'+id_fonte+');return false;" id="peso-fonte-'+id_fonte+'"  class="pure-u-23-24 '+1+'">'+
-                        '<option selected value="2|1">T1</option>'+
-                        '<option value="8|2">T2</option>'+
-                        '<option value="24|5">T3</option>'+
-                        '<option value="36|15">T4</option>'+
+                        '<option selected value="2|1|T1">T1</option>'+
+                        '<option value="8|2|T2">T2</option>'+
+                        '<option value="24|5|T3">T3</option>'+
+                        '<option value="36|15|T4">T4</option>'+
                     '</select>'+
                 '</div>'
             );
@@ -318,6 +318,7 @@ function openModal(id,tipo){
         case 4:
             let poder;
             let infernal;
+            let T;
             for(item in obj_tropas) {
                 if(obj_tropas.hasOwnProperty(item)) {
                     itemKey = Object.keys(obj_tropas[item]["ac"])[0];
@@ -325,6 +326,7 @@ function openModal(id,tipo){
                         dataMasc    = obj_tropas[item]["ac"];
                         poder       = obj_tropas[item]["pd"];
                         infernal    = obj_tropas[item]["if"];
+                        T           = obj_tropas[item]["t"];
                         break;
                     }
                 }
@@ -334,6 +336,7 @@ function openModal(id,tipo){
 
             let texto = "<p>Poder total: <b>"+poder+"</b></p>"+
             "<p>Pontuação Infernal: <b>"+infernal+"</b></p>"+
+            "<p>Tipo de Tropa: <b>"+T+"</b></p>"+
             "<p>Ordem de aceleradores a serem utilizados:</p>";
             // coinValue = coins;
             texto +="<ul>";
@@ -358,13 +361,14 @@ function openModal(id,tipo){
 
             for (let i = 0; i < arr.length; i++) {
                 texto +="<li>";
-                    texto +="<ol>";
+                    texto += (i+1)+"º Rodada de tropa.<br>Aceleradores na ordem:";
+                    texto +="<ul style='margin:0px;'>";
                 for (let j = 0; j < arr[i].length; j++) {
                     texto +="<li>";
-                    texto += nomeAcelerador(arr[i][j][0])+" * "+arr[i][j][1]+" Aceleradores";
+                    texto += nomeAcelerador(arr[i][j][0])+" * "+arr[i][j][1]+" Vezes";
                     texto +="</li>";
                 }
-                    texto +="</ol>";
+                    texto +="</ul>";
                 texto +="</li>";
                 
             }
@@ -796,7 +800,7 @@ function calcula_tempo_tropa(){
                 let itemObj = Object.create(null);
                 itemObj[i] = dadosArgh.arg;
 
-                obj_tropas.push({"ac":itemObj,"if":pontuAux,"pd":pontuAux2});
+                obj_tropas.push({"ac":itemObj,"if":pontuAux,"pd":pontuAux2,"t":pontu[2]});
                 console.log(obj_tropas);
 
                 $("#hidden-pontu-infernal-"+i).text(pontuAux);
