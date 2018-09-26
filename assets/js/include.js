@@ -253,7 +253,57 @@ function definiFormPree(tipo,id_fonte){
     definiPeso(tipo,id_fonte);
 
 }
-
+function nomeAcelerador(numb){
+    let nome;
+    switch(numb){
+        case 1:
+            nome = "1 min";
+            break;
+        case 3:
+            nome = "3 mins";
+            break;
+        case 5:
+            nome = "5 mins";
+            break;
+        case 10:
+            nome = "10 mins";
+            break;
+        case 15:
+            nome = "15 mins";
+            break;
+        case 30:
+            nome = "30 mins";
+            break;
+        case 60:
+            nome = "60 mins";
+            break;
+        case 180:
+            nome = "3 horas";
+            break;
+        case 480:
+            nome = "8 horas";
+            break;
+        case 900:
+            nome = "15 horas";
+            break;
+        case 1440:
+            nome = "24 horas";
+            break;
+        case 4320:
+            nome = "3 dias";
+            break;
+        case 10080:
+            nome = "7 dias";
+            break;
+        case 43200:
+            nome = "30 dias";
+            break;
+        default:
+            nome = "0 dia";
+            break;
+    }
+    return nome;
+}
 function openModal(id,tipo){
     let dataMasc;
 
@@ -288,21 +338,35 @@ function openModal(id,tipo){
             texto +="<ul>";
             dataMasc = dataMasc[0];
             let i=0;
+            let moeda;
+            let qtn;
+            let rum;
+            let arr= new Array();
+            texto +="<ul>";
             Object.entries(dataMasc).forEach(([key, value]) => {
-                texto +="<li>";
-                texto +="<ol>";
+                i++;
+                let re= new Array();;
                 $.each(value, function(key2, val2) {
-                    texto +="<li>";
-                    let moeda = val2.coinValue;
-                    let qtn = val2.numCoins;
-                    //texto += "<p>"+moeda+" "+qtn+"</p>";
-                    console.log(moeda+' '+qtn+' '+i);
-                    texto +="</li>";
+                    moeda = val2.coinValue;
+                    qtn = val2.numCoins;
+                    let arrrr = new Array(moeda,qtn);
+                    re.push(arrrr);
                 });
-                texto +="</ol>";
+                arr.push(re);
+            });
+
+            for (let i = 0; i < arr.length; i++) {
+                texto +="<li>";
+                    texto +="<ol>";
+                for (let j = 0; j < arr[i].length; j++) {
+                    texto +="<li>";
+                    texto += nomeAcelerador(arr[i][j][0])+" * "+arr[i][j][1]+" Aceleradores";
+                    texto +="</li>";
+                }
+                    texto +="</ol>";
                 texto +="</li>";
                 
-            });
+            }
 
             texto +="</ul>";
             //console.log(texto);
@@ -787,7 +851,6 @@ function calcula_tempo_tropa(){
 
     
 }
-
 
 function calcula_tempo_infernal(){
     tempo_ace_usado[2]=tempo_aceleradores[2];
