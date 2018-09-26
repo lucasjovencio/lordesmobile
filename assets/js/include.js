@@ -255,6 +255,7 @@ function definiFormPree(tipo,id_fonte){
 }
 function nomeAcelerador(numb){
     let nome;
+    numb = parseInt(numb);
     switch(numb){
         case 1:
             nome = "1 min";
