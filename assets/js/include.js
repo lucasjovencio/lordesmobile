@@ -1293,25 +1293,18 @@ function testruim(arr,test){
 
 function makeChangeBacktracking(coins, value, resultCoins, solutions) {
     var newResult = resultCoins.concat([]);
-    let qtn_i = new Array();
+    
     for (var i = 0; i < coins.length; i++) {
         var coinValue = coins[i];
         
         var remainingValue = value % coinValue,
             numCoins = Math.floor(value / coinValue);
         
-        qtn_i.push(numCoins);
-        let porcento = (value/coinValue)*100;
-        let t1 = testruim(qtn_i,numCoins);
-        if ( t1 && porcento<=30 ) {
-            console.log(numCoins+" "+value);
-        }else if(coinValue > value){
+        if (coinValue > value){
             //e.g. trying to change 5 cents with a quarter: can't be done
             //so try the next coin
             continue;
         }
-
-        
 
         newResult.push({
             coinValue: coinValue,
