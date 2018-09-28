@@ -350,34 +350,40 @@ function openModal(id,tipo){
             let qtn;
             let rum;
             let arr= new Array();
-            texto +="<ul>";
-            Object.entries(dataMasc).forEach(([key, value]) => {
-                i++;
-                let re= new Array();;
-                $.each(value, function(key2, val2) {
-                    moeda = val2.coinValue;
-                    qtn = val2.numCoins;
-                    let arrrr = new Array(moeda,qtn);
-                    re.push(arrrr);
-                });
-                arr.push(re);
-            });
+            
 
-            for (let i = 0; i < arr.length; i++) {
-                texto +="<li>";
-                    texto += (i+1)+"º Rodada de tropa.<br>Aceleradores na ordem:";
-                    texto +="<ul style='margin:0px;'>";
-                for (let j = 0; j < arr[i].length; j++) {
-                    texto +="<li>";
-                    texto += nomeAcelerador(arr[i][j][0])+" * "+arr[i][j][1]+" Vezes";
-                    texto +="</li>";
-                }
-                    texto +="</ul>";
-                texto +="</li>";
-                
+            if(dataMasc == null){
+                texto += "<p>Infelizmente não consegui gerar uma lista de aceleradores minimos para você, mas posso dizer que você tem aceleradores suficientes para fazer tropas pelo menos uma vez.</p>";
             }
+            else{
+                texto +="<ul>";
+                Object.entries(dataMasc).forEach(([key, value]) => {
+                    i++;
+                    let re= new Array();;
+                    $.each(value, function(key2, val2) {
+                        moeda = val2.coinValue;
+                        qtn = val2.numCoins;
+                        let arrrr = new Array(moeda,qtn);
+                        re.push(arrrr);
+                    });
+                    arr.push(re);
+                });
 
-            texto +="</ul>";
+                for (let i = 0; i < arr.length; i++) {
+                    texto +="<li>";
+                        texto += (i+1)+"º Rodada de tropa.<br>Aceleradores na ordem:";
+                        texto +="<ul style='margin:0px;'>";
+                    for (let j = 0; j < arr[i].length; j++) {
+                        texto +="<li>";
+                        texto += nomeAcelerador(arr[i][j][0])+" * "+arr[i][j][1]+" Vezes";
+                        texto +="</li>";
+                    }
+                        texto +="</ul>";
+                    texto +="</li>";
+                    
+                }
+                texto +="</ul>";
+            }
             //console.log(texto);
             $("#modal-result").html(texto);
             
@@ -1279,32 +1285,20 @@ function makeChange(coins, value) {
 
 }
 
-function testruim(arr,test){
-    t=0;
-    for(let i=0; i<(arr.length-1);i++){
-        if(arr[i]<=test){
-            t=1;
-        }else{
-            t=0;
-        }
-    }
-    return t;
-}
-
 function makeChangeBacktracking(coins, value, resultCoins, solutions) {
     var newResult = resultCoins.concat([]);
-    
+
     for (var i = 0; i < coins.length; i++) {
         var coinValue = coins[i];
-        
-        var remainingValue = value % coinValue,
-            numCoins = Math.floor(value / coinValue);
         
         if (coinValue > value){
             //e.g. trying to change 5 cents with a quarter: can't be done
             //so try the next coin
             continue;
         }
+
+        var remainingValue = value % coinValue,
+            numCoins = Math.floor(value / coinValue);
 
         newResult.push({
             coinValue: coinValue,
