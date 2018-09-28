@@ -664,7 +664,12 @@ function converte_tempo_string(temp){
 function ReduzTempoUtilizadoDeAceleradores(ace_usados,lista_dispo){
     tempo_ace_usado[2]=tempo_aceleradores[2];
     let tempoCalc=0;
-    let tam = ace_usados.length;
+    let tam=0;
+    if(ace_usados == null){
+        tam=0;
+    }else{
+        tam=ace_usados.length; 
+    }
     let arrayAux;
     if(tam){
         for (let i = 0; i < tam; i++) {
@@ -1274,19 +1279,39 @@ function makeChange(coins, value) {
 
 }
 
+function testruim(arr,test){
+    t=0;
+    for(let i=0; i<(arr.length-1);i++){
+        if(arr[i]<=test){
+            t=1;
+        }else{
+            t=0;
+        }
+    }
+    return t;
+}
+
 function makeChangeBacktracking(coins, value, resultCoins, solutions) {
     var newResult = resultCoins.concat([]);
-
+    let qtn_i = new Array();
     for (var i = 0; i < coins.length; i++) {
         var coinValue = coins[i];
-        if (coinValue > value) {
+        
+        var remainingValue = value % coinValue,
+            numCoins = Math.floor(value / coinValue);
+        
+        qtn_i.push(numCoins);
+        let porcento = (value/coinValue)*100;
+        let t1 = testruim(qtn_i,numCoins);
+        if ( t1 && porcento<=30 ) {
+            console.log(numCoins+" "+value);
+        }else if(coinValue > value){
             //e.g. trying to change 5 cents with a quarter: can't be done
             //so try the next coin
             continue;
         }
 
-        var remainingValue = value % coinValue,
-            numCoins = Math.floor(value / coinValue);
+        
 
         newResult.push({
             coinValue: coinValue,
