@@ -768,7 +768,7 @@ function objetos_mochila(tempo_total,mult){
             "arg":array_aceleradores_tropas,"qtn":tempoUsado
         });
 }
-function calcula_tempo_tropa(){
+function calcula_tempo_tropa(ri =0 ){
     obj_tropas = new Array();
     tempo_ace_usado[2]=tempo_aceleradores[2];
     let pontu_aux = pontu_nece;
@@ -777,7 +777,12 @@ function calcula_tempo_tropa(){
     let tempo;
     let dadosArgh;
     let qtn_tropa;
-    for(let i=0; i<id_fonte;i++){
+    let i = (ri==0) ? 0 : ri;
+    for(i; i<id_fonte;i++){
+        if( parseInt($("#tipo-fonte-"+i).val()) != 4){
+            calcula_tempo_infernal(i);
+            continue;
+        }
         tempo = $("#tempo-real-"+i).val();
         mult = $("#multiplicador-fonte-"+i).val();
         qtn_tropa = parseFloat($('#quantidade-tropa-'+i).val().replace(',', '.')).toFixed(3);
@@ -871,14 +876,15 @@ function calcula_tempo_tropa(){
     
 }
 
-function calcula_tempo_infernal(){
+function calcula_tempo_infernal(ri=0){
     tempo_ace_usado[2]=tempo_aceleradores[2];
     let pontu_aux = pontu_nece;
     let pontuvali=0;
     let prosseguir = 1;
-    for(let i=0; i<id_fonte;i++){
+    let i = (ri==0) ? 0 : ri;
+    for(i; i<id_fonte;i++){
         if( parseInt($("#tipo-fonte-"+i).val()) == 4){
-            calcula_tempo_tropa();
+            calcula_tempo_tropa(i);
             continue;
         }
         let tempo = $("#tempo-real-"+i).val();
