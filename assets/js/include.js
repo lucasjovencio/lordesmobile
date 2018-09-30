@@ -805,7 +805,7 @@ function calcula_tempo_tropa(ri =0 ){
             tempo = converte_tempo_string(tempo);
             dadosArgh = objetos_mochila(tempo,mult);
 
-            tempo = (dadosArgh.qtn>0) ? dadosArgh.qtn : converte_tempo_string(tempo_mult);
+            tempo = converte_tempo_string(tempo_mult);
 
             if(tempo_ace_usado[2]>tempo){
                 
@@ -842,6 +842,7 @@ function calcula_tempo_tropa(ri =0 ){
                 $("#button-check-"+i).removeClass("button-error");
                 $("#button-information-"+i).prop("disabled", false);
             }else{
+                $("#button-information-"+i).prop("disabled", true);
                 $("#fonte-valicacao-"+i).val(0);
                 let porcento = (tempo_ace_usado[2]/tempo)*100;
                 tempo_ace_usado[2] = tempo_ace_usado[2]-tempo;
