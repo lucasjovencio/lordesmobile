@@ -239,7 +239,7 @@ function definiFormPree(tipo,id_fonte){
             '</div>'+
             '<div class="pure-u-1-1 pure-u-md-1-1">'+
                 '<label for="min">&emsp;</label>'+
-                '<button onclick="openModal('+id_fonte+',4);return false;" data-id-type="'+id_fonte+'" style="margin-left: 10px;" id="button-information-'+id_fonte+'" class="pure-u-23-24 pure-button '+2+'" onclick="return false;">'+
+                '<button disabled onclick="openModal('+id_fonte+',4);return false;" data-id-type="'+id_fonte+'" style="margin-left: 10px;" id="button-information-'+id_fonte+'" class="pure-u-23-24 pure-button '+2+'" onclick="return false;">'+
                     '<i class="fas fa-info-circle"></i> Informações Extras.'+
                 '</button>'+
             '</div>'+
@@ -356,38 +356,42 @@ function openModal(id,tipo){
             let arr= new Array();
             
 
-            if(dataMasc == null){
-                texto += "<p>Infelizmente não consegui gerar uma lista de aceleradores minimos para você, mas posso dizer que você tem aceleradores suficientes para fazer tropas pelo menos uma vez.</p>";
-            }
-            else{
-                texto +="<ul>";
-                Object.entries(dataMasc).forEach(([key, value]) => {
-                    i++;
-                    let re= new Array();;
-                    $.each(value, function(key2, val2) {
-                        moeda = val2.coinValue;
-                        qtn = val2.numCoins;
-                        let arrrr = new Array(moeda,qtn);
-                        re.push(arrrr);
-                    });
-                    arr.push(re);
+            
+            Object.entries(dataMasc).forEach(([key, value]) => {
+                i++;
+                let re= new Array();;
+                $.each(value, function(key2, val2) {
+                    moeda = val2.coinValue;
+                    qtn = val2.numCoins;
+                    let arrrr = new Array(moeda,qtn);
+                    re.push(arrrr);
                 });
-
-                for (let i = 0; i < arr.length; i++) {
+                arr.push(re);
+            });
+            console.log(arr[0].length);
+            
+            texto +="<ul>";
+            for (let i = 0; i < arr.length; i++) {
+                if(arr[i].length !=0){
                     texto +="<li>";
                         texto += (i+1)+"º Rodada de tropa.<br>Aceleradores na ordem:";
                         texto +="<ul style='margin:0px;'>";
                     for (let j = 0; j < arr[i].length; j++) {
-                        texto +="<li>";
-                        texto += nomeAcelerador(arr[i][j][0])+" * "+arr[i][j][1]+" Vezes";
-                        texto +="</li>";
+                        
+                            texto +="<li>";
+                            texto += nomeAcelerador(arr[i][j][0])+" * "+arr[i][j][1]+" Vezes";
+                            texto +="</li>";
                     }
                         texto +="</ul>";
                     texto +="</li>";
-                    
+                }else{
+                    texto += "<li>Infelizmente não consegui gerar uma lista de aceleradores para você.</li>";
                 }
-                texto +="</ul>";
             }
+            texto +="</ul>";
+            
+               
+            
             //console.log(texto);
             $("#modal-result").html(texto);
             
@@ -782,6 +786,7 @@ function calcula_tempo_tropa(ri =0 ){
     let tempo;
     let dadosArgh;
     let qtn_tropa;
+    let tempo_mult;
     let i = (ri==0) ? 0 : ri;
     for(i; i<id_fonte;i++){
         if( parseInt($("#tipo-fonte-"+i).val()) != 4){
@@ -791,7 +796,7 @@ function calcula_tempo_tropa(ri =0 ){
         tempo = $("#tempo-real-"+i).val();
         mult = $("#multiplicador-fonte-"+i).val();
         qtn_tropa = parseFloat($('#quantidade-tropa-'+i).val().replace(',', '.')).toFixed(3);
-
+        tempo_mult = $("#tempo-multiplicado-"+i).val(); 
         if(tempo==null || tempo=='' || mult==null || mult==''){
             prosseguir =0;
             continue;
@@ -799,10 +804,11 @@ function calcula_tempo_tropa(ri =0 ){
             prosseguir = 1;
             tempo = converte_tempo_string(tempo);
             dadosArgh = objetos_mochila(tempo,mult);
-            tempo = dadosArgh.qtn;
+
+            tempo = (dadosArgh.qtn>0) ? dadosArgh.qtn : converte_tempo_string(tempo_mult);
+
             if(tempo_ace_usado[2]>tempo){
                 
-
                 let auxTempo = tempo_ace_usado[2]-tempo;
                 tempo_ace_usado[2] = auxTempo;
                 let pontu = $('#peso-fonte-'+i).val();
@@ -834,6 +840,7 @@ function calcula_tempo_tropa(ri =0 ){
                 $("#button-check-"+i).addClass("button-success");
                 $("#button-check-"+i).removeClass("button-warning");
                 $("#button-check-"+i).removeClass("button-error");
+                $("#button-information-"+i).prop("disabled", false);
             }else{
                 $("#fonte-valicacao-"+i).val(0);
                 let porcento = (tempo_ace_usado[2]/tempo)*100;
