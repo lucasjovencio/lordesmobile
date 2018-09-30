@@ -64,6 +64,7 @@ function removerFonte(id){
     }
     $("#fonte-add-"+id).remove();
     qtd_fonte -=1;
+    pontuvali=0;
     calcula_tempo_infernal();
 }
 function loadPeso(tipo,id_fonte){
@@ -106,7 +107,9 @@ function tempoMultiplicado(multiplicador,id_fonte){
     mult = parseInt(multiplicador);
     if(mult>=1){
         $('#tempo-multiplicado-'+id_fonte).val(converte_tempo((mult*converte_tempo_string($("#tempo-real-"+id_fonte).val()))));
+        pontuvali=0;
         calcula_tempo_tropa();
+
     }
 }
 function definiFormPree(tipo,id_fonte){
@@ -640,10 +643,12 @@ function atualizaTempo(tipo,id){
     verifica_tr();
     if(tipoFonte !=0 && pesoFonte !=null && pesoFonte >0 && QR && tempoReal.length > 6 && pontu_nece > 1){
         if(ValiP){
+            pontuvali=0;
             calcula_tempo_infernal();
         }else if (ValiQ) {
             let mult = parseInt($('#quantidade-tropa-'+id).val());
             if(mult){
+                pontuvali=0;
                 calcula_tempo_tropa();
             }            
         }
@@ -873,8 +878,6 @@ function calcula_tempo_tropa(ri =0 ){
             }
         }
     }
-
-    
 }
 
 function calcula_tempo_infernal(ri=0){
@@ -885,7 +888,6 @@ function calcula_tempo_infernal(ri=0){
     for(i; i<id_fonte;i++){
         if( parseInt($("#tipo-fonte-"+i).val()) == 4){
             calcula_tempo_tropa(i);
-            console.log(pontuvali+" Search");
             continue;
         }
         let tempo = $("#tempo-real-"+i).val();
@@ -956,6 +958,7 @@ function calcula_tempo_infernal(ri=0){
             }
         }
     }
+
 }
 $(document).ready(function(){
     $("#num-1").on("input", function(){
@@ -972,6 +975,7 @@ $(document).ready(function(){
 
         let infernal = $('#form-infernal').val();
         if(infernal && qtd_fonte && pontu_nece > 1){
+            pontuvali=0;
             calcula_tempo_infernal();
         }
 
@@ -989,6 +993,7 @@ $(document).ready(function(){
         verifica_tr();
         let infernal = $('#form-infernal').val();
         if(infernal && qtd_fonte && pontu_nece > 1){
+            pontuvali=0;
             calcula_tempo_infernal();
         }
     });
@@ -1005,6 +1010,7 @@ $(document).ready(function(){
         verifica_tr();
         let infernal = $('#form-infernal').val();
         if(infernal && qtd_fonte && pontu_nece > 1){
+            pontuvali=0;
             calcula_tempo_infernal();
         }
     });
@@ -1021,6 +1027,7 @@ $(document).ready(function(){
         verifica_tr();
         let infernal = $('#form-infernal').val();
         if(infernal && qtd_fonte && pontu_nece > 1){
+            pontuvali=0;
             calcula_tempo_infernal();
         }
     });
@@ -1037,6 +1044,7 @@ $(document).ready(function(){
         verifica_tr();
         let infernal = $('#form-infernal').val();
         if(infernal && qtd_fonte && pontu_nece > 1){
+            pontuvali=0;
             calcula_tempo_infernal();
         }
     });
@@ -1054,6 +1062,7 @@ $(document).ready(function(){
         verifica_tr();
         let infernal = $('#form-infernal').val();
         if(infernal && qtd_fonte && pontu_nece > 1){
+            pontuvali=0;
             calcula_tempo_infernal();
         }
     });
@@ -1071,6 +1080,7 @@ $(document).ready(function(){
         verifica_tr();
         let infernal = $('#form-infernal').val();
         if(infernal && qtd_fonte && pontu_nece > 1){
+            pontuvali=0;
             calcula_tempo_infernal();
         }
     });
@@ -1088,6 +1098,7 @@ $(document).ready(function(){
         verifica_tr();
         let infernal = $('#form-infernal').val();
         if(infernal && qtd_fonte && pontu_nece > 1){
+            pontuvali=0;
             calcula_tempo_infernal();
         }
     });
@@ -1105,6 +1116,7 @@ $(document).ready(function(){
         verifica_tr();
         let infernal = $('#form-infernal').val();
         if(infernal && qtd_fonte && pontu_nece > 1){
+            pontuvali=0;
             calcula_tempo_infernal();
         }
     });
@@ -1121,6 +1133,7 @@ $(document).ready(function(){
         verifica_tr();
         let infernal = $('#form-infernal').val();
         if(infernal && qtd_fonte && pontu_nece > 1){
+            pontuvali=0;
             calcula_tempo_infernal();
         }
     });
@@ -1137,6 +1150,7 @@ $(document).ready(function(){
         verifica_tr();
         let infernal = $('#form-infernal').val();
         if(infernal && qtd_fonte && pontu_nece > 1){
+            pontuvali=0;
             calcula_tempo_infernal();
         }
     });
@@ -1153,6 +1167,7 @@ $(document).ready(function(){
         verifica_tr();
         let infernal = $('#form-infernal').val();
         if(infernal && qtd_fonte && pontu_nece > 1){
+            pontuvali=0;
             calcula_tempo_infernal();
         }
     });
@@ -1169,6 +1184,7 @@ $(document).ready(function(){
         verifica_tr();
         let infernal = $('#form-infernal').val();
         if(infernal && qtd_fonte && pontu_nece > 1){
+            pontuvali=0;
             calcula_tempo_infernal();
         }
     });
@@ -1185,6 +1201,7 @@ $(document).ready(function(){
         verifica_tr();
         let infernal = $('#form-infernal').val();
         if(infernal && qtd_fonte && pontu_nece > 1){
+            pontuvali=0;
             calcula_tempo_infernal();
         }
     });
