@@ -3,6 +3,7 @@ var tempo_aceleradores = [0,0,0]; // quantidade , gemas , tempo
 var tempo_ace_usado = [0,0,0]; // quantidade , gemas , tempo
 var pontu_nece = 0;
 var obj_tropas;
+var pontuvali =0;
 
 $(document).ready(function () {
     applyDatMaskJs();
@@ -772,7 +773,6 @@ function calcula_tempo_tropa(ri =0 ){
     obj_tropas = new Array();
     tempo_ace_usado[2]=tempo_aceleradores[2];
     let pontu_aux = pontu_nece;
-    let pontuvali=0;
     let prosseguir = 1;
     let tempo;
     let dadosArgh;
@@ -807,12 +807,12 @@ function calcula_tempo_tropa(ri =0 ){
                 pontuAux2 = pontu[0];
                 pontuAux2 = parseFloat(pontuAux2);
 
-
-                pontuvali += parseFloat(((pontuAux*qtn_tropa)*mult)).toFixed(3);
-                pontuvali =  pontuvali.replace(/^0+(?!\.|$)/, '');
+                let potr = parseFloat(((pontuAux*qtn_tropa)*mult));
+                pontuvali = Number(pontuvali)+Number(potr);
+                pontuvali = pontuvali.toFixed(3);
 
                 pontuAux = parseFloat(((pontuAux*qtn_tropa)*mult)).toFixed(3);
-                pontuAux =  pontuAux.replace(/^0+(?!\.|$)/, '');
+                //pontuAux =  pontuAux.replace(/^0+(?!\.|$)/, '');
 
                 pontuAux2 = parseFloat(((pontuAux2*qtn_tropa)*mult)).toFixed(3);
                 pontuAux2 =  pontuAux2.replace(/^0+(?!\.|$)/, '');
@@ -849,6 +849,7 @@ function calcula_tempo_tropa(ri =0 ){
     pontu_aux -=pontuvali;
     if(prosseguir){
         $("#pontu-atingida").val(pontuvali);
+        
         $("#tempo-restante").val(converte_tempo(tempo_ace_usado[2]));
         $("#pontu-atingida").css({"background-color": "#fff", "color": "#be334f"});
         $("#tempo-restante").css({"background-color": "#fff", "color": "#be334f"});
@@ -860,7 +861,7 @@ function calcula_tempo_tropa(ri =0 ){
             $("#pontu-necessaria").removeClass("button-error");
         }else{
             let porcento = (pontuvali/pontu_aux)*100;
-            console.log("Pontu Porcento: "+porcento);
+            //console.log("Pontu Porcento: "+porcento);
             if(porcento>70){
                 $("#pontu-necessaria").addClass("button-warning");
                 $("#pontu-necessaria").removeClass("button-success");
@@ -879,12 +880,12 @@ function calcula_tempo_tropa(ri =0 ){
 function calcula_tempo_infernal(ri=0){
     tempo_ace_usado[2]=tempo_aceleradores[2];
     let pontu_aux = pontu_nece;
-    let pontuvali=0;
     let prosseguir = 1;
     let i = (ri==0) ? 0 : ri;
     for(i; i<id_fonte;i++){
         if( parseInt($("#tipo-fonte-"+i).val()) == 4){
             calcula_tempo_tropa(i);
+            console.log(pontuvali+" Search");
             continue;
         }
         let tempo = $("#tempo-real-"+i).val();
@@ -897,7 +898,10 @@ function calcula_tempo_infernal(ri=0){
             tempo = converte_tempo_string(tempo);
             if(tempo_ace_usado[2]>tempo){
                 tempo_ace_usado[2] = ((tempo_ace_usado[2]-tempo)>0) ? (tempo_ace_usado[2]-tempo):0;
-                pontuvali += parseFloat($('#poder-recebido-'+i).val().replace(',', '.'));
+                let potr = parseFloat($('#poder-recebido-'+i).val().replace(',', '.'));
+                pontuvali = Number(pontuvali)+Number(potr);
+                pontuvali = pontuvali.toFixed(3);
+
                 $("#fonte-valicacao-"+i).val(1);
                 $("#button-check-"+i).addClass("button-success");
                 $("#button-check-"+i).removeClass("button-warning");
@@ -940,7 +944,7 @@ function calcula_tempo_infernal(ri=0){
             $("#pontu-necessaria").removeClass("button-error");
         }else{
             let porcento = (pontuvali/pontu_aux)*100;
-            console.log("Pontu Porcento: "+porcento);
+            //console.log("Pontu Porcento: "+porcento);
             if(porcento>70){
                 $("#pontu-necessaria").addClass("button-warning");
                 $("#pontu-necessaria").removeClass("button-success");
